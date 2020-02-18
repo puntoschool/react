@@ -1,0 +1,220 @@
+/*
+sass --watch public/assets/sass/main.scss:public/assets/css/main.css
+*/
+
+body {
+    margin: 0;
+    font-family: $default-font-family;
+    font-weight: 400;
+    font-size: 16px;
+    color: $color-grey-mid;
+    box-sizing: border-box;
+    text-decoration: none;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.btn {
+    font-size: 1.4rem;
+}
+
+.btn-amarillo {
+    text-align: center;
+    font-weight: 700;
+    color: $color-white;
+    background-color: $color-yellow;
+    padding: 5px 40px;
+    transition: all .5s;
+    border: none;
+    &:hover {
+        color: $color-white;
+        background-color: $color-grey-light;
+    }
+}
+
+.btn-blue {
+    text-align: center;
+    font-weight: 700;
+    color: $color-white;
+    background-color: $color-blue-dark;
+    padding: 5px 20px;
+    transition: all .5s;
+    border: none;
+    &:hover {
+    background-color: $color-blue-light;
+    color: $color-white;
+    }
+}
+
+
+.btn-pink-gradient {
+    text-align: center;
+    font-weight: 700;
+    color: $color-white;
+    background-image: linear-gradient(to right, rgba($color-pink-dark,1) , rgba($color-pink-light,.65));
+    padding: 1.3rem 2rem;
+    border: none;
+    text-decoration: none;
+    transition: all .5s;
+    border-radius: 25px;
+    &:hover {
+    background-image: linear-gradient(to right, rgba($color-pink-light,.65) , rgba($color-pink-dark,1));
+    color: $color-white;
+    }
+}
+
+.btn-border-pink {
+    text-align: center;
+    font-weight: 700;
+    color: $color-pink-light;
+    background: transparent;
+    padding: 1.3rem 2rem;
+    border: 2px solid $color-pink-light;
+    text-decoration: none;
+    transition: all .5s;
+    border-radius: 25px;
+    line-height: 1;
+    &:hover {
+    color: $color-pink-dark;
+    border: 2px solid $color-pink-dark;
+    }
+}
+
+.btn-sm {
+    padding: .5rem 1rem !important;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.btn-plain {
+    color: $color-grey-dark;
+}
+
+.btn-next-con {
+    text-align: right;
+    padding-top: 30px;
+     color: #ED6B6D;
+  
+  }
+  
+  .btn-next,
+  .btn-back,
+  .btn-last {
+    display: inline-block;
+    -webkit-box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.15);
+    line-height: 45px;
+    padding: 0 60px;
+    -webkit-border-radius: 22.5px;
+    -moz-border-radius: 22.5px;
+    border-radius: 22.5px;
+    background: none;
+    font-size: 16px;
+    color: #ED6B6D;
+    font-family: inherit;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  
+  .btn-back:hover,
+  .btn-next:hover,
+  .btn-back:hover,
+  .btn-last:hover {
+    background-image: linear-gradient(to right, #ED6B6D, #E93E8C);
+    color: #FFF;
+  }
+
+.footer {
+    height: 60px;
+    .footer-info {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        align-items: center;
+        @media screen and (max-width: $break-small) {
+            flex-wrap: wrap;
+        }
+        li a {
+            color: $color-grey-mid;
+            padding: 5px;
+            i {
+                font-size: 20px;
+            }
+        }
+        img {
+            width: 40px;
+            height: auto;
+            @media screen and (max-width: $break-small) {
+                width: 32px;
+            }
+        }
+    }
+    .footer-faq {
+        a {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            span {
+                color: $color-grey-mid;
+                font-weight: 600;
+                line-height: 1;
+                @media screen and (max-width: $break-small) {
+                    display: none;
+                }
+            }
+            img {
+                margin-right: 5px;
+                width: 40px;
+            }
+        }
+        
+    }
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #9d9d9c !important;
+    border: 1px solid #9d9d9c;
+    background-color: white;
+    background: white;
+}
+
+.modals {
+    .modal-content {
+        padding: 1rem;
+        border: 0;
+        border-radius: 2.4rem;
+    }
+    .modal-header {
+        border-bottom: 0;
+        padding: 1.5rem;
+        text-align: center;
+        display: block;
+        h2 {
+            color: $color-grey-dark;
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+    }
+    .modal-footer {
+        justify-content: center;
+        border-top: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        .btn-modal {
+            background-color: transparent;
+            border: 0;
+            color: $color-grey-dark;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+    }
+}
+
