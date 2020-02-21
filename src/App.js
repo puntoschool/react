@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react';
 import Login from './components/Login';
+import DashboardTeachers from './components/teachers/DashboardTeachers'
 import "./sass/main.scss";
 
 
 function App() {
   return (
     <Fragment>
-      <Login />
+      {/* <Login /> */}
+      <DashboardTeachers />
     </Fragment>
   );
 }

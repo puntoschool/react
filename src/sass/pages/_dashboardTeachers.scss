@@ -1,0 +1,114 @@
+.dash-teachers{
+    &__title{
+     font-size:1.8rem;
+     font-weight: bold;  
+     color: black;
+     margin-top: 3rem; 
+    }
+
+    &__info{
+        text-align: center;
+    }
+
+    &__search-nav{
+        margin-top:5rem;
+    }
+
+    &__input{
+        border-radius: 25px;
+        padding: .5rem;
+        align-self: center;
+        flex-basis: 40%;
+        font-size: 1.8rem;
+        border: 1px solid $color-grey-light;
+    
+        &:focus,
+        &:hover{
+            border: 1px solid #ED6B6D;
+            outline: none;
+        }
+    }
+
+    &__btn{
+        padding: 1rem 5rem;
+        font-size: 1.6rem;
+
+        &:focus,
+        &:hover{
+            outline: none;
+        }
+        
+    }
+
+    &__filter-icon{
+        width: 2rem;
+        margin: auto;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        color: #ED6B6D;
+    }
+
+    &__list{
+        background-color: #F6F6F6;
+        height: auto;
+        margin-top:3rem;
+        padding: 0;
+        padding: 2rem;
+        border-radius: 1.3rem;
+        display: flex;
+        align-items: center;
+
+        &-date{
+            border-radius: 50%;
+            background: linear-gradient(90deg, #E93E8C -14.74%, #ED6B6D 115.38%);
+            color: white;
+            height: 70px;
+            max-height: 70px;
+            min-height: 70px;
+            max-width: 70px;
+            min-width: 70px;
+            display: flex;
+        }
+
+        &-details{
+            &--title{
+                font-size: 1.7rem;
+                font-weight: bold;
+                letter-spacing: 1px;
+                color: #575756;
+            }
+        }
+        &-link{
+              display: flex;
+              align-items: center;
+              align-self: flex-end;  
+        }
+
+        &-arrow-icon{
+            color:#ED6B6D;
+            display: flex;
+            align-self: center;   
+        }
+    }
+}
+
+
+.centrar{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.blac-icon{
+    color:  #575756;
+}
+
+.pink-color{
+    color:#ED6B6D;
+}
+
+.space-between{
+    justify-content: space-between;
+}
