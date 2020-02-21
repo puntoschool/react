@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import Login from './components/Login'
+import Login from './components/Login';
+import "./sass/main.scss";
 
 
 function App() {
