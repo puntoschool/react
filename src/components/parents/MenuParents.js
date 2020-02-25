@@ -3,9 +3,9 @@ import React, { Fragment } from "react";
 const MenuParents = () => {
   return (
     <Fragment>
-      <aside class="dash-menu col-md-2 col-sm-3">
-        <nav class="navbar navbar-expand-sm">
-          <button class="navbar-toggler"
+      <aside className="dash-menu col-md-2 col-sm-3">
+        <nav className="navbar navbar-expand-sm">
+          <button className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             data-target="#navbarTogglerDemo01"
@@ -13,37 +13,37 @@ const MenuParents = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <i class="fas fa-bars"></i>
+            <i className="fas fa-bars"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul class="dash-nav d-flex d-sm-none justify-content-between mb-5">
-              <li class="text-left ml-0">
-                <i class="fas fa-user mr-1"></i>
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul className="dash-nav d-flex d-sm-none justify-content-between mb-5">
+              <li className="text-left ml-0">
+                <i className="fas fa-user mr-1"></i>
                 <h5>
-                  José Martínez Fernández <span class="d-block">Dirección</span>
+                  José Martínez Fernández <span className="d-block">Dirección</span>
                 </h5>
               </li>
               <li>
                 <a href="#">
-                  <i class="fas fa-home"></i>
+                  <i className="fas fa-home"></i>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <i class="fas fa-sign-out-alt"></i>
+                  <i className="fas fa-sign-out-alt"></i>
                 </a>
               </li>
             </ul>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <i class="fas fa-calendar-alt fa-fw"></i>
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+                  <i className="fas fa-calendar-alt fa-fw"></i>
                   <span>Calendario de juntas</span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <i class="fas fa-chalkboard-teacher fa-fw"></i>
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+                  <i className="fas fa-chalkboard-teacher fa-fw"></i>
                   <span>Historial de juntas</span>
                 </a>
               </li>
