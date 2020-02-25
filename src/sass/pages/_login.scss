@@ -1,6 +1,6 @@
 /* Ligin Styles*/
 .login {
-    height: 100vh;
+    max-height: calc(100vh + 80px);
     background-image: url('../bg-login.png');
     background-size: cover;
     background-position: top;
