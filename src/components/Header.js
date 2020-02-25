@@ -1,6 +1,10 @@
 import React, { Fragment } from "react";
+import Login from "./Login";
+import App from "../App";
 
-const Header = () => {
+const Header = (props) => {
+  const {user, logout} = props
+
   return (
     <Fragment>
       <header className="dash-header">
@@ -17,8 +21,8 @@ const Header = () => {
               <ul className="dash-nav d-none d-sm-flex">
                 <li className="">
                   <h5>
-                    José Martínez Fernández{" "}
-                    <span className="d-block">Dirección</span>
+                    {user.username}
+                    <span className="d-block">Padre de Familia</span>
                   </h5>
                   <i className="fas fa-user"></i>
                 </li>
@@ -28,7 +32,7 @@ const Header = () => {
                   </a>{" "}
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="#" onClick={logout}>
                     <i className="fas fa-sign-out-alt"></i>
                   </a>
                 </li>
