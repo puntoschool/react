@@ -3,18 +3,18 @@ import React, { Fragment } from "react";
 const Footer = () => {
   return (
     <Fragment>
-      <footer class="footer">
-            <div class="container-fluid fixed">
-                <div class="row">
-                    <div class="col-10">
-                        <ul class="footer-info">
+      <footer className="footer">
+            <div className="container-fluid fixed">
+                <div className="row">
+                    <div className="col-10">
+                        <ul className="footer-info">
                             <li><a href="#"><img src="assets/img/icon-fb.png" alt="Facebook" /></a></li>
                             <li><a href="#"><img src="assets/img/icon-twitter.png" alt="Facebook" /></a></li>
                             <li><a href="#"><img src="assets/img/icon-mail.png" alt="Facebook" /></a></li>
                             <li><a href="#">contacto@puntoschool.com</a></li>
                         </ul>
                     </div>
-                    <div class="col-2 footer-faq">
+                    <div className="col-2 footer-faq">
                         <a href="#"><img src="assets/img/icon-faq.png" alt="faq icon" /><span>Preguntas Frecuentes</span></a>
                     </div>
                 </div>
