@@ -1,7 +1,27 @@
-import React, { Fragment } from "react";
+import React, { Fragment , useState} from "react";
 import Footer from './Footer';
 
-const Login = () => {
+const validate = (username, password) =>{
+  return !!(username && password)
+}
+
+const Login = (props) => {
+  
+  const[username, setUsername] = useState('')
+  const[password, setPassword]=useState('')
+  const[error,setError]= useState(false)
+
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+
+    if(validate (username, password)){
+      setError(false)
+      props.onLogin({username, password})
+    } else{
+      setError(true)
+    }
+  }
+
   return (
     <Fragment>
       <section className="login">
@@ -23,21 +43,22 @@ const Login = () => {
           </div>
           <div className="row justify-content-md-end justify-content-center mt-1vh">
             <div className="col-lg-5 col-md-6 col-sm-8 col-11">
-              <form action="">
+              <form onSubmit={handleSubmit}>
+                {error && <span style={{color:'red'}}>Información incorrecta</span>}
                 <div className="login-form">
-                  <input type="email" placeholder="Correo Electrónico" />
-                  <input type="password" placeholder="Contraseña" />
-                  <button className="btn-pink-gradient">Autenticar</button>
-                  <div className="contraseña">
+                  <input type="email" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Correo Electrónico" />
+                  <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" />
+                  <button className="btn-pink-gradient" type='submit'>Ingresar</button>
+                  {/* <div className="contraseña">
                     <a href="#">¿Olvidaste tu contraseña?</a>
-                  </div>
+                  </div> */}
                 </div>
               </form>
             </div>
             <div className="offset-md-2 col-sm-12 col-12 col-md-2 align-self-sm-end align-self-md-center">
               <div className="create-account">
                 <i className="fas fa-plus-circle"></i>
-                <h5> Registra a <br /> tu escuela </h5>
+                <h5> Crea <br /> tu cuenta </h5>
               </div>
             </div>
           </div>

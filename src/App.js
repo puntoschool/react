@@ -1,14 +1,36 @@
-import React, { Fragment } from 'react';
+import React, { Fragment , useState} from 'react';
 import Login from './components/Login';
-import DashboardTeachers from './components/teachers/DashboardTeachers'
+import DashboardTeachers from './components/teachers/DashboardTeachers';
+import NewMeeting from './components/teachers/NewMeeting'
 import "./sass/main.scss";
+
+const Show = (props) =>{
+
+  const {user, logout} = props
+
+  return(
+      <div>
+        <h1>Hola {user.username}</h1>
+        <button onClick={logout}>Logout</button>
+      </div>
+  )
+  
+}
 
 
 function App() {
+
+  const [user, setUser]=useState(null)
+
   return (
     <Fragment>
+
+      {!user && <Login onLogin={(values) => setUser(values)} />}
+      {user && <Show user={user} logout ={()=> setUser(null)} />}
+
       {/* <Login /> */}
-      <DashboardTeachers />
+      {/* <DashboardTeachers /> */}
+      {/* <NewMeeting /> */}
     </Fragment>
   );
 }

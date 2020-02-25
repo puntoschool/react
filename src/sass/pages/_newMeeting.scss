@@ -1,0 +1,25 @@
+.dash-new-meeting{
+    &__title{
+        text-transform: uppercase;
+        color:$color-grey-dark;
+        font-weight: 400;
+        font-size:2.8rem;
+        margin-top: 5rem;
+        margin-left:5rem;
+        margin-bottom: 5rem;
+    }
+}
+
+.labels{
+    margin-left: 4rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color:$color-grey-dark;
+    margin-right:1rem;
+}
+.line{
+    border:none;
+    border-bottom: 1px solid $color-grey-dark;
+    height: 30px;
+    width: 100%;
+}
