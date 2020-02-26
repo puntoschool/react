@@ -4,8 +4,9 @@ import App from "../App";
 
 const Header = (props) => {
 
-  const { user, logout } = props
 
+  const { user, logout } = props
+  
   return (
     <Fragment>
       <header className="dash-header">
@@ -23,6 +24,7 @@ const Header = (props) => {
                 <li className="">
                   <h5>
                     {user.username}
+
                     <span className="d-block">Padre de Familia</span>
                   </h5>
                   <i className="fas fa-user"></i>

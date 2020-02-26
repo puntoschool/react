@@ -48,7 +48,7 @@ const Login = (props) => {
                 <div className="login-form">
                   <input type="email" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Correo Electrónico" />
                   <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" />
-                  <button className="btn-pink-gradient" type='submit'>Ingresar</button>
+                  <button className="btn-border-white" type='submit'>Ingresar</button>
                   {/* <div className="contraseña">
                     <a href="#">¿Olvidaste tu contraseña?</a>
                   </div> */}
