@@ -15,7 +15,10 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="col-2 footer-faq">
-                        <a href="#"><img src="assets/img/icon-faq.png" alt="faq icon" /><span>Preguntas Frecuentes</span></a>
+                        <a href="#">
+                            <img src="assets/img/icon-faq.png" alt="faq icon" />
+                            <span>Preguntas Frecuentes</span>
+                        </a>
                     </div>
                 </div>
             </div>
