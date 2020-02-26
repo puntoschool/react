@@ -3,12 +3,15 @@ import Login from './components/Login';
 import DashboardTeachers from './components/teachers/DashboardTeachers';
 import NewMeeting from './components/teachers/NewMeeting'
 import "./sass/main.scss";
+import WelcomeParents from './components/parents/WelcomeParents';
 
 const Show = (props) =>{
 
   const {user, logout} = props
 
   return(
+
+
       <div>
         <h1>Hola {user.username}</h1>
         <button onClick={logout}>Logout</button>
