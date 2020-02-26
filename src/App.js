@@ -21,6 +21,7 @@ const Show = (props) =>{
 
 
 function App() {
+  const {logout} = props
 
   const [user, setUser]=useState(null)
 
@@ -30,11 +31,9 @@ function App() {
       {!user && <Login onLogin={(values) => setUser(values)} />}
       {user && <Show user={user} logout ={()=> setUser(null)} />}
 
-      {/* <Login /> */}
-      {/* <DashboardTeachers /> */}
-      {/* <NewMeeting /> */}
     </Fragment>
   );
 }
+
 
 export default App;

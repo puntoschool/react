@@ -185,52 +185,6 @@ a:hover {
     color: #FFF;
   }
 
-.footer {
-    height: 60px;
-    .footer-info {
-        display: flex;
-        list-style-type: none;
-        padding: 0;
-        align-items: center;
-        @media screen and (max-width: $break-small) {
-            flex-wrap: wrap;
-        }
-        li a {
-            color: $color-grey-mid;
-            padding: 5px;
-            i {
-                font-size: 20px;
-            }
-        }
-        img {
-            width: 40px;
-            height: auto;
-            @media screen and (max-width: $break-small) {
-                width: 32px;
-            }
-        }
-    }
-    .footer-faq {
-        a {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            span {
-                color: $color-grey-mid;
-                font-weight: 600;
-                line-height: 1;
-                @media screen and (max-width: $break-small) {
-                    display: none;
-                }
-            }
-            img {
-                margin-right: 5px;
-                width: 40px;
-            }
-        }
-        
-    }
-}
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
     color: #9d9d9c !important;
@@ -271,3 +225,6 @@ a:hover {
     }
 }
 
+.text-pink {
+    color: $color-pink-light !important;
+}
