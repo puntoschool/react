@@ -8,23 +8,7 @@ import WelcomeParents from './components/parents/WelcomeParents';
 
 function App(props) {
 
-<<<<<<< HEAD
-  return(
-
-
-      <div>
-        <h1>Hola {user.username}</h1>
-        <button onClick={logout}>Logout</button>
-      </div>
-  )
-  
-}
-
-
-function App() {
-=======
   const {logout} = props
->>>>>>> d46a255b1f7da2816cd28395001135f20a90b1d9
 
   const [user, setUser]=useState(null)
 
@@ -34,11 +18,9 @@ function App() {
       {!user && <Login onLogin={(values) => setUser(values)} />}
       {user && <Dashboard user={user} logout ={()=> setUser(null)} />}
 
-      {/* <Login /> */}
-      {/* <DashboardTeachers /> */}
-      {/* <NewMeeting /> */}
     </Fragment>
   );
 }
+
 
 export default App;
