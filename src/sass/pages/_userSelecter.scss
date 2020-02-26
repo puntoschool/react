@@ -1,0 +1,38 @@
+.user-selecter{
+    height: calc(100vh - 10px);
+    background-image: url('../bg-login.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-flex{  
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 992px;
+        margin: 10rem auto;
+        
+        @media screen and (max-width: $break-xsm) {
+            height: auto;
+        }
+    }
+
+    &__title{
+        font-size: 2.8rem;
+        color: white;
+        font-family:'Open Sans';
+        font-weight: 800;
+        line-height: 68px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    &__btns{
+        display: flex;
+        justify-content: space-between;
+    }
+}

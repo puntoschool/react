@@ -53,6 +53,41 @@ a:hover {
     }
 }
 
+.btn-yellow-gradient{
+    text-align: center;
+    font-weight: 700;
+    color: $color-white;
+    background-image: linear-gradient(to right, rgba($color-orange,.81) , rgba($color-yellow,1));
+    padding: 1.3rem 2rem;
+    border: none;
+    text-decoration: none;
+    transition: all .5s;
+    border-radius: 25px;
+    text-transform: uppercase;
+
+    &:hover {
+    background-image: linear-gradient(to right, rgba($color-yellow,1) , rgba($color-orange,.81));
+    color: $color-white;
+    }
+}
+
+.btn-blue-gradient{
+    text-align: center;
+    font-weight: 700;
+    color: $color-white;
+    background-image: linear-gradient(to right, rgba($color-blue-light,.81) , rgba($color-blue-lighter,1));
+    padding: 1.3rem 2rem;
+    border: none;
+    text-decoration: none;
+    transition: all .5s;
+    border-radius: 25px;
+    text-transform: uppercase;
+
+    &:hover {
+    background-image: linear-gradient(to right, rgba($color-blue-lighter,1) , rgba($color-blue-light,.81));
+    color: $color-white;
+    }
+}
 
 .btn-pink-gradient {
     text-align: center;
@@ -84,6 +119,24 @@ a:hover {
     &:hover {
     color: $color-pink-dark;
     border: 2px solid $color-pink-dark;
+    }
+}
+
+.btn-border-white {
+    text-align: center;
+    font-weight: 700;
+    color: $color-white;
+    background: transparent;
+    padding: 1.3rem 3rem;
+    border: 1px solid $color-white;
+    text-decoration: none;
+    transition: all .5s;
+    border-radius: 25px;
+    line-height: 1;
+    text-transform: uppercase;
+
+    &:hover {
+    border: 1px solid $color-pink-dark;
     }
 }
 

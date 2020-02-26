@@ -1,17 +1,16 @@
 import React, { Fragment , useState} from 'react';
 import Login from './components/Login';
-import Header from './components/Header';
-import Dashboard from './components/Dashboard';
+import UserSelecter from './components/UserSelecter';
+import DashboardTeachers from './components/teachers/DashboardTeachers';
+import NewMeeting from './components/teachers/NewMeeting'
 import "./sass/main.scss";
 import WelcomeParents from './components/parents/WelcomeParents';
 
+const Show = (props) =>{
 
-function App(props) {
+  const {user, logout} = props
 
-<<<<<<< HEAD
   return(
-
-
       <div>
         <h1>Hola {user.username}</h1>
         <button onClick={logout}>Logout</button>
@@ -22,9 +21,6 @@ function App(props) {
 
 
 function App() {
-=======
-  const {logout} = props
->>>>>>> d46a255b1f7da2816cd28395001135f20a90b1d9
 
   const [user, setUser]=useState(null)
 
@@ -32,7 +28,7 @@ function App() {
     <Fragment>
 
       {!user && <Login onLogin={(values) => setUser(values)} />}
-      {user && <Dashboard user={user} logout ={()=> setUser(null)} />}
+      {user && <Show user={user} logout ={()=> setUser(null)} />}
 
       {/* <Login /> */}
       {/* <DashboardTeachers /> */}
