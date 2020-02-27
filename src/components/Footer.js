@@ -14,12 +14,12 @@ const Footer = () => {
                             <li><a href="#">contacto@puntoschool.com</a></li>
                         </ul>
                     </div>
-                    <div className="col-2 footer-faq">
+                    {/* <div className="col-2 footer-faq">
                         <a href="#">
                             <img src="assets/img/icon-faq.png" alt="faq icon" />
                             <span>Preguntas Frecuentes</span>
                         </a>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </footer>

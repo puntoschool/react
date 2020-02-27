@@ -1,9 +1,60 @@
-import React, { Fragment } from "react";
-import Header from "../Header";
-import Footer from "../Footer";
+import React, { Fragment, useState, useEffect } from "react";
 import MenuTeachers from "./MenuTeachers";
 
+// set localstorage
+/*
+function App() {
+  const [accounts, setAccounts] = useState([])
+
+  useEffect(() => {
+    const accounts = window.localStorage.getItem('accounts');
+
+    if (accounts) {
+      setAccounts(JSON.parse(accounts))
+    }
+  })
+
+  const handleAdd = () => {
+    const _accounts = [ ...accounts, 'Hola nueva cuenta' ]
+    localStorage.setItem('accounts', JSON.stringify(_accounts))
+    setAccounts(_accounts)
+  }
+
+  const handleClear = () => {
+    const _accounts = [ ...accounts, 'Hola nueva cuenta' ]
+    localStorage.setItem('accounts', JSON.stringify(_accounts))
+    setAccounts(_accounts)
+  }
+
+  return (
+    <div className="App">
+      <button onClick={handleAdd}>Añadir</button>
+      <button onClick={handleClear}>Borrar</button>
+      <h1>Cuentas</h1>
+      { accounts.map(a => <div>Cuenta! {a}</div>)}
+    </div>
+  )
+
+}
+*/
+
 const NewMeeting = () => {
+  const [bookedMeting, setBookedMeeting] = useState([])
+
+  useEffect(() => {
+    const bookedMeting = window.localStorage.getItem('bookedMeting');
+
+    if (bookedMeting) {
+      setBookedMeeting(JSON.parse(bookedMeting))
+    }
+  })
+
+  const handleAdd = () => {
+    const bookedMeting = [ ...bookedMeting, 'Hola nueva cuenta' ]
+    localStorage.setItem('bookedMeting', JSON.stringify(bookedMeting))
+    setBookedMeeting(bookedMeting)
+  }
+
   return (
     <Fragment>
       <MenuTeachers />
@@ -25,17 +76,6 @@ const NewMeeting = () => {
                   placeholder="Ingrese el tema de la junta"
                 />
               </div>
-              {/* <div className="d-flex">
-                <label className="labels" for="teacher">
-                  Profesor(a):{" "}
-                </label>
-                <input
-                  type="text"
-                  className="line"
-                  id="teacher"
-                  placeholder="Ingrese el nombre del profesor(a)"
-                />
-              </div> */}
 
               <div className="row">
 
@@ -106,7 +146,7 @@ const NewMeeting = () => {
               </div>
 
             <div className="text-center">
-            <button type="submit" className="btn-pink-gradient">
+            <button type="submit" onClick={handleAdd} className="btn-pink-gradient">
               Crear
             </button>
             </div>

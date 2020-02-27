@@ -1,8 +1,14 @@
 import React, { Fragment } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const MenuTeachers = () => {
   return (
-    <Fragment>
+    <Router>
       <aside className="dash-menu col-md-2 col-sm-3">
         <nav className="navbar navbar-expand-sm">
           <button
@@ -26,40 +32,47 @@ const MenuTeachers = () => {
                 </h5>
               </li>
               <li>
-                <a href="dashboardSchool.html">
-                  <i className="fas fa-home"></i>
-                </a>{" "}
+                <Link to="/DashboardTeachers"><i className="fas fa-home"></i></Link>
               </li>
               <li>
-                <a href="#">
-                  <i className="fas fa-sign-out-alt"></i>
-                </a>
+                <Link to=""><i className="fas fa-sign-out-alt"></i></Link>
               </li>
             </ul>
             <ul className="navbar-nav">
               <li className="nav-item active">
-                <a className="nav-link" href="levels.html">
+                <Link to="/DashboardTeachers" className="nav-link">
                   <i className="fas fa-calendar-alt fa-fw"></i>
                   <span>Calendario de Juntas</span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="verMaestros.html">
+                <Link to="/meetingHistory" className="nav-link">
                   <i className="fas fa-folder-open fa-fw"></i>
                   <span>Historial de Juntas</span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="verCicloEscolar.html">
+                <Link to="/NewMeeting" className="nav-link">
                   <i className="far fa-calendar-check fa-fw"></i>
                   <span>Agendar Nueva Junta</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
         </nav>
       </aside>
-    </Fragment>
+      <Switch>
+        <Route path="/meetingHistory">
+          <meetingHistory />
+        </Route>
+        <Route path="/dashboardTeachers">
+          <dashboardTeachers />
+        </Route>
+        <Route path="/newMeeting">
+          <newMeeting />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 
