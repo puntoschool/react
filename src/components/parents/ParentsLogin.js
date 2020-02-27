@@ -10,7 +10,7 @@ import {
 
 
 const ParentsLogin = ({newUserAcount}) => {
-  
+
   // Defino el objeto de cuenta
   const [acount, setAcount] = useState({
     fullName:'', 

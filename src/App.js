@@ -1,4 +1,4 @@
-import React, { Fragment , useState} from 'react';
+import React, { Fragment , useState, useEffect} from 'react';
 import Login from './components/Login';
 import UserSelecter from './components/UserSelecter';
 import DashboardTeachers from './components/teachers/DashboardTeachers';
@@ -10,25 +10,30 @@ import "./sass/main.scss";
 import TeacherLogin from './components/teachers/TeacherLogin';
 import ParentsLogin from './components/parents/ParentsLogin';
 import DashboardParents from './components/parents/DashboardParents';
-
-
-
-const Show = (props) =>{
-
-  const {user, logout} = props
-
-  return(
-      <div>
-        <h1>Hola {user.username}</h1>
-        <button onClick={logout}>Logout</button>
-      </div>
-  )
   
-}
-
 function App() {
 
-  const [acounts, setAcounts] = useState([{}])
+  // Agregando cuentas al local Storage
+  let recordsAcounts = JSON.parse(localStorage.getItem('acounts')) 
+  if(!recordsAcounts){
+    recordsAcounts=[]
+  }
+
+  // inicializando el arreglo de cuentas
+  const [acounts , setAcounts] = useState(recordsAcounts)
+
+  // UseEffect para actualizar algo en caso de que cambie algo
+
+  useEffect( () =>{
+
+    let recordsAcounts = JSON.parse(localStorage.getItem('acounts')) 
+    
+  if(recordsAcounts){
+    localStorage.setItem('acounts', JSON.stringify(acounts))
+  } else {
+    localStorage.setItem('acounts', JSON.stringify([]))
+  }
+  },[])
 
   const newUserAcount = (acount) =>{
     setAcounts([
@@ -36,9 +41,10 @@ function App() {
       acount
     ])
   }
-  // const {logout} = props
 
   const [user, setUser]=useState(null)
+
+  const Show = () => user && user.userType === 'teacher' ? <DashboardTeachers/> : <DashboardParents/>
 
   return (
     <Fragment>
@@ -63,8 +69,8 @@ function App() {
       {/* <NewMeeting
       /> */}
 
-      {!user && <Login onLogin={(values) => setUser(values)} />}
-      {/* {user && <Show user={user} logout ={()=> setUser(null)} />} */}
+      {!user && <Login acounts={acounts} onLogin={(values) => setUser(values)} />}
+      {user && <Show user={user} logout ={()=> setUser(null)} />}
 
     </Fragment>
   );

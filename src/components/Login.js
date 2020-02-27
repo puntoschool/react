@@ -10,24 +10,27 @@ import {
   Link
 } from "react-router-dom";
 
-// import './recordAcounts.json'
 
-const validate = (username, password) =>{
-  return !!(username && password)
-}
-
-const Login = (props) => {
+const Login = ({onLogin, acounts}) => {
   
   const[username, setUsername] = useState('')
-  const[password, setPassword]=useState('')
+  const[password, setPassword]= useState('')
   const[error,setError]= useState(false)
+
+  const validate = (username, password) =>{
+    const result = acounts.find(e => e.username === acounts.userName && e.password === acounts.password);
+      return result
+  }
 
   const handleSubmit = (e) =>{
     e.preventDefault()
 
-    if(validate (username, password)){
+    const user = validate (username, password)
+    console.log(user)
+
+    if(user){
       setError(false)
-      props.onLogin({username, password})
+      onLogin(user)
     } else{
       setError(true)
     }
@@ -60,7 +63,7 @@ const Login = (props) => {
                   <input type="email" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Correo Electrónico" />
                   <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" />
                   {error && <span style={{color:'white', display:'block', marginBottom:'2rem'}}>Todos los campos son obligatorios / Información incorrecta</span>}
-                  <Link to="/DashboardTeachers"><button className="btn-border-white" type='submit'>Ingresar</button></Link>
+                  <button className="btn-border-white" type='submit'>Ingresar</button>
                   {/* <div className="contraseña">
                     <a href="#">¿Olvidaste tu contraseña?</a>
                   </div> */}
