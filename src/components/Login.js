@@ -1,5 +1,16 @@
-import React, { Fragment , useState} from "react";
+import React, { useState} from "react";
+import UserSelecter from './UserSelecter'
+import DashboardTeachers from './teachers/DashboardTeachers'
+import DashboardParents from './parents/DashboardParents'
 import Footer from './Footer';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+// import './recordAcounts.json'
 
 const validate = (username, password) =>{
   return !!(username && password)
@@ -23,7 +34,7 @@ const Login = (props) => {
   }
 
   return (
-    <Fragment>
+    <Router>
       <section className="login">
         <div className="container">
           <div className="row justify-content-start">
@@ -44,11 +55,12 @@ const Login = (props) => {
           <div className="row justify-content-md-end justify-content-center mt-1vh">
             <div className="col-lg-5 col-md-6 col-sm-8 col-11">
               <form onSubmit={handleSubmit}>
-                {error && <span style={{color:'red'}}>Información incorrecta</span>}
+                
                 <div className="login-form">
                   <input type="email" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Correo Electrónico" />
                   <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" />
-                  <button className="btn-border-white" type='submit'>Ingresar</button>
+                  {error && <span style={{color:'white', display:'block', marginBottom:'2rem'}}>Todos los campos son obligatorios / Información incorrecta</span>}
+                  <Link to="/DashboardTeachers"><button className="btn-border-white" type='submit'>Ingresar</button></Link>
                   {/* <div className="contraseña">
                     <a href="#">¿Olvidaste tu contraseña?</a>
                   </div> */}
@@ -57,15 +69,28 @@ const Login = (props) => {
             </div>
             <div className="offset-md-2 col-sm-12 col-12 col-md-2 align-self-sm-end align-self-md-center">
               <div className="create-account">
-                <i className="fas fa-plus-circle"></i>
-                <h5> Crea <br /> tu cuenta </h5>
+                <Link to="/UserSelecter">
+                  <i className="fas fa-plus-circle"></i>
+                  <h5> Crea <br /> tu cuenta </h5>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
       <Footer />
-    </Fragment>
+      <Switch>
+        <Route path="/UserSelecter">
+          <UserSelecter />
+        </Route>
+        <Route path="/DashboardTeachers">
+          <DashboardTeachers />
+        </Route>
+        <Route path="/DashboardParents">
+          <DashboardParents />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 

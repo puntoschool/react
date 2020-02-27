@@ -87,7 +87,7 @@ const DashboardTeachers = () => {
                             
                                 <div className="dash-teachers__search-nav">
                                     <div className="d-flex justify-content-between col-11 ml-4 position-relative">
-                                        <button className="btn-pink-gradient dash-teachers__btn">Lista</button>  
+                                        <button className="btn-yellow-gradient dash-teachers__btn">Lista</button>  
 
                                         <div className="d-flex">
                                             <input 
@@ -113,8 +113,8 @@ const DashboardTeachers = () => {
                                             <p className="m-0">Profe. Julio Martinez</p>
                                         </div>
                                         <div className="col-7 dash-teachers__list-link">
-                                            <i class="fas fa-link fa-fw pink-color"></i>
-                                            <span><a href="#" className="mr-4 pink-color">COMPARTIR</a>http://www.youtube.com</span>
+                                            <i class="fas fa-link fa-fw yellow-color"></i>
+                                            <span><a href="#" className="mr-4 yellow-color">COMPARTIR</a>http://www.youtube.com</span>
                                         </div>
                                         <div className="col-1 dash-teachers__list-arrow-icon"><i class="fas fa-chevron-right fa-fw"></i></div>
                                     </div>
@@ -134,8 +134,8 @@ const DashboardTeachers = () => {
                                             <p className="m-0">Profe. Julio Martinez</p>
                                         </div>
                                         <div className="col-7 dash-teachers__list-link">
-                                            <i class="fas fa-link fa-fw pink-color"></i>
-                                            <span><a href="#" className="mr-4 pink-color">COMPARTIR</a>http://www.youtube.com</span>
+                                            <i class="fas fa-link fa-fw yellow-color"></i>
+                                            <span><a href="#" className="mr-4 yellow-color">COMPARTIR</a>http://www.youtube.com</span>
                                         </div>
                                         <div className="col-1 dash-teachers__list-arrow-icon"><i class="fas fa-chevron-right fa-fw"></i></div>
                                     </div>

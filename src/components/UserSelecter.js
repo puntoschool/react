@@ -1,29 +1,19 @@
 import React, { Fragment , useState} from "react";
 import Footer from './Footer';
+import TeacherLogin from './teachers/TeacherLogin';
+import ParentsLogin from './parents/ParentsLogin';
 
-const validate = (username, password) =>{
-  return !!(username && password)
-}
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-const UserSelecter = (props) => {
-  
-  const[username, setUsername] = useState('')
-  const[password, setPassword]=useState('')
-  const[error,setError]= useState(false)
 
-  const handleSubmit = (e) =>{
-    e.preventDefault()
-
-    if(validate (username, password)){
-      setError(false)
-      props.onLogin({username, password})
-    } else{
-      setError(true)
-    }
-  }
-
+const UserSelecter = () => {
   return (
-    <Fragment>
+    <Router>
       <section className="user-selecter">
         <div className="user-selecter-flex">
           <div className="col-12 mt-3 text-center">
@@ -31,13 +21,21 @@ const UserSelecter = (props) => {
             <h1 className="user-selecter__title">Crear Cuenta</h1>
           </div>
           <div className="user-selecter__btns">
-            <button className="btn-yellow-gradient">Soy Maestro</button>
-            <button className="btn-blue-gradient">Soy Padre de Familia</button>
+            <Link to="/TeacherLogin"><button className="btn-yellow-gradient">Soy Maestro</button></Link>
+            <Link to="/ParentsLogin"><button className="btn-blue-gradient">Soy Padre de Familia</button></Link>
           </div>
         </div>
       </section>
       <Footer />
-    </Fragment>
+      <Switch>
+        <Route path="/TeacherLogin">
+          <TeacherLogin />
+        </Route>
+        <Route path="/ParentsLogin">
+          <ParentsLogin />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 
