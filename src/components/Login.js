@@ -86,7 +86,6 @@ const Login = ({accounts}) => {
                 <div className="login-form">
                   <input type="email" name='userName' value={userName} onChange={handleChange} placeholder="Correo Electrónico" />
                   <input type="password" name='password' value={password} onChange={handleChange} placeholder="Contraseña" />
-                  {/* {error && <span style={{color:'white', display:'block', marginBottom:'2rem'}}>Todos los campos son obligatorios / Información incorrecta</span>} */}
                   {error ? <Error message={errorType}/> : null}
                   <input className="btn-border-white" type='submit' value='ingresar'/>
                 </div>
