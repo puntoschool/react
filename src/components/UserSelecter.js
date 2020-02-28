@@ -3,17 +3,12 @@ import Footer from './Footer';
 import TeacherLogin from './teachers/TeacherLogin';
 import ParentsLogin from './parents/ParentsLogin';
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const UserSelecter = () => {
   return (
-    <Router>
+    <Fragment>
       <section className="user-selecter">
         <div className="user-selecter-flex">
           <div className="col-12 mt-3 text-center">
@@ -27,15 +22,7 @@ const UserSelecter = () => {
         </div>
       </section>
       <Footer />
-      <Switch>
-        <Route path="/TeacherLogin">
-          <TeacherLogin />
-        </Route>
-        <Route path="/ParentsLogin">
-          <ParentsLogin />
-        </Route>
-      </Switch>
-    </Router>
+    </Fragment>
   );
 };
 

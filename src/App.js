@@ -1,78 +1,72 @@
 import React, { Fragment , useState, useEffect} from 'react';
 import Login from './components/Login';
 import UserSelecter from './components/UserSelecter';
-import DashboardTeachers from './components/teachers/DashboardTeachers';
-import NewMeeting from './components/teachers/NewMeeting'
-import "./sass/main.scss";
-// import WelcomeParents from './components/parents/WelcomeParents';
-
-// import * as data from '../src/components/recordAcounts.json';
 import TeacherLogin from './components/teachers/TeacherLogin';
 import ParentsLogin from './components/parents/ParentsLogin';
-import DashboardParents from './components/parents/DashboardParents';
+import WelcomeParents from './components/parents/WelcomeParents';
+import "./sass/main.scss";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
   
 function App() {
-
-  // Agregando cuentas al local Storage
-  let recordsAcounts = JSON.parse(localStorage.getItem('acounts')) 
-  if(!recordsAcounts){
-    recordsAcounts=[]
+  
+  // Inicializando variable con las cuentas de local Storage
+  let recordsAccounts = JSON.parse(localStorage.getItem('acounts')) 
+  if(!recordsAccounts){
+    recordsAccounts=[]
   }
 
-  // inicializando el arreglo de cuentas
-  const [acounts , setAcounts] = useState(recordsAcounts)
+  // inicializando el State con el arreglo de cuentas de local storage
+ const [accounts , setAccounts] = useState(recordsAccounts)
 
   // UseEffect para actualizar algo en caso de que cambie algo
-
   useEffect( () =>{
 
-    let recordsAcounts = JSON.parse(localStorage.getItem('acounts')) 
-    
-  if(recordsAcounts){
-    localStorage.setItem('acounts', JSON.stringify(acounts))
-  } else {
-    localStorage.setItem('acounts', JSON.stringify([]))
-  }
-  },[])
+      let recordsAccounts = JSON.parse(localStorage.getItem('accounts')) 
+        
+      if(recordsAccounts){
+        localStorage.setItem('accounts', JSON.stringify(accounts))
+      } else {
+        localStorage.setItem('accounts', JSON.stringify([]))
+      }
 
-  const newUserAcount = (acount) =>{
-    setAcounts([
-      ...acounts, 
-      acount
+    },[]
+  )
+
+  // Creo la función para guardar la cuenta creada en el arreglo de cuentas
+  const newUserAccount = (account) =>{
+    setAccounts([
+      ...accounts, 
+      account
     ])
   }
 
-  const [user, setUser]=useState(null)
-
-  const Show = () => user && user.userType === 'teacher' ? <DashboardTeachers/> : <DashboardParents/>
 
   return (
-    <Fragment>
-
-      {/* <TeacherLogin 
-        newUserAcount={newUserAcount}
-      /> */}
-      
-      {/* <ParentsLogin 
-        newUserAcount={newUserAcount}
-      /> */}
-
-      {/* <UserSelecter
-      /> */}
-      
-      {/* <DashboardParents
-      /> */}
-
-      {/* <DashboardTeachers
-      /> */}
-
-      {/* <NewMeeting
-      /> */}
-
-      {!user && <Login acounts={acounts} onLogin={(values) => setUser(values)} />}
-      {user && <Show user={user} logout ={()=> setUser(null)} />}
-
-    </Fragment>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Login
+            accounts={accounts}
+          />
+        </Route>
+        <Route exact path="/UserSelecter">
+          <UserSelecter/>
+        </Route>
+        <Route exact path="/TeacherLogin">
+          <TeacherLogin/>
+        </Route>
+        <Route exact path="/ParentsLogin">
+          <ParentsLogin/>
+        </Route>
+        <Route exact path="/WelcomeParents">
+          <WelcomeParents/>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

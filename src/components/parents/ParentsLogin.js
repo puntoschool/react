@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
 import Header from '../Header'
 import Footer from '../Footer'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import Login from '../Login'
 
 
-const ParentsLogin = ({newUserAcount}) => {
+const ParentsLogin = ({newUserAccount}) => {
+
 
   // Defino el objeto de cuenta
-  const [acount, setAcount] = useState({
+  const [account, setAccount] = useState({
     fullName:'', 
     userName:'', 
     password:'', 
@@ -24,15 +21,14 @@ const ParentsLogin = ({newUserAcount}) => {
 
   // Actualizo el estado de cuenta con la informacion ingresada en el formulario
   const handleChange = e =>{
-    setAcount({
-        ...acount,
+    setAccount({
+        ...account,
         [e.target.name] : e.target.value
     })
   }
 
   // Creo la funcion cuando el usuario hace click en el boton de registrarse
   const handleClick = (e) =>{
-    // e.preventDefault()
 
    // Valido informacion capturada
 
@@ -42,10 +38,10 @@ const ParentsLogin = ({newUserAcount}) => {
    } else setError(false)
 
    // invoco la funcion de crear cuenta
-   newUserAcount(acount)
+   newUserAccount(account)
 
    //Limpio el formulario de información
-   setAcount({
+   setAccount({
     fullName:'', 
     userName:'', 
     password:'', 
@@ -54,10 +50,10 @@ const ParentsLogin = ({newUserAcount}) => {
   }
 
   // Creo una variable por cada propiedad del objeto acount
-  const {fullName, userName, password} = acount
+  const {fullName, userName, password} = account
 
   return (
-    <Router>
+    <Fragment>
       <Header/>
       <div className="parents-login">
         <h1>Registro de Padres de familia</h1>
@@ -67,22 +63,14 @@ const ParentsLogin = ({newUserAcount}) => {
             <input type="email" name="userName" onChange = {handleChange} placeholder="Correo Electrónico" />
             <input type="password" name="password" onChange = {handleChange} placeholder="Contraseña" />
             <div className="parents-login__btns">
-                <Link className="btn-back-blue" to="/UserSelector">Regresar</Link>
-                <Link className="btn-next-blue" onClick={handleClick}  to="/WelcomeParents">Registrare</Link>
+                <Link className="btn-back-blue" to="/UserSelecter">Regresar</Link>
+                <Link className="btn-next-blue" onClick={handleClick}  to="/">Registrare</Link>
             </div>
           </div>
         </form>
       </div>
-      <Switch>
-        <Route path="/UserSelector">
-          {/* <About /> */}
-        </Route>
-        <Route path="/WelcomeParents">
-          {/* <Users /> */}
-        </Route>
-      </Switch>
       <Footer/>
-    </Router>
+    </Fragment>
   );
 };
 

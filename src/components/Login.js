@@ -1,43 +1,66 @@
-import React, { useState} from "react";
-import UserSelecter from './UserSelecter'
-import DashboardTeachers from './teachers/DashboardTeachers'
-import DashboardParents from './parents/DashboardParents'
+import React, { Fragment, useState, useEffect} from "react";
 import Footer from './Footer';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import Error from './Error'
+import { Link } from "react-router-dom";
 
 
-const Login = ({onLogin, acounts}) => {
+const Login = ({accounts}) => {
   
-  const[username, setUsername] = useState('')
-  const[password, setPassword]= useState('')
+  // Inicializo el state de usuario
+  const[user, setUser] = useState({
+    userName:'',
+    password:''
+  })
+
+  // Extraigo cada propiedad del objeto como variables
+  const {userName, password} = user
+
+  // Declaro la funcion para tomar los datos capturados en el formulario
+  const handleChange = (e) =>{
+    setUser({
+      ...user,
+      [e.target.name] : e.target.value
+    })
+  }
+
   const[error,setError]= useState(false)
 
-  const validate = (username, password) =>{
-    const result = acounts.find(e => e.username === acounts.userName && e.password === acounts.password);
-      return result
-  }
+  const[errorType,setErrorType]= useState('')
+
+  let validation = accounts.find(user => {
+      return user.userName === userName && user.password === password
+  })
+  
 
   const handleSubmit = (e) =>{
     e.preventDefault()
 
-    const user = validate (username, password)
-    console.log(user)
-
-    if(user){
+    // Validando que todos los campos tienen info
+    if (userName.trim() === '' || password.trim() === ''){
+      setError(true)
+      setErrorType('Todos los campos son obligatorios')
+      return
+    } else {
       setError(false)
-      onLogin(user)
+    }
+
+    // Validando que la info ingresada corresponda a un usuario y password registrado
+    if(validation){
+      setError(false)
+      console.log('Login correcto')
+      if (validation.userType === 'teacher'){
+        console.log('soy maestro')
+      } else console.log('soy padre de familia')
+      
     } else{
       setError(true)
+      setErrorType('Usuario / Password incorrectos')
     }
+    
   }
 
   return (
-    <Router>
+    <Fragment>
       <section className="login">
         <div className="container">
           <div className="row justify-content-start">
@@ -57,43 +80,31 @@ const Login = ({onLogin, acounts}) => {
           </div>
           <div className="row justify-content-md-end justify-content-center mt-1vh">
             <div className="col-lg-5 col-md-6 col-sm-8 col-11">
-              <form onSubmit={handleSubmit}>
-                
+              <form 
+                onSubmit={handleSubmit}
+              >  
                 <div className="login-form">
-                  <input type="email" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Correo Electrónico" />
-                  <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" />
-                  {error && <span style={{color:'white', display:'block', marginBottom:'2rem'}}>Todos los campos son obligatorios / Información incorrecta</span>}
-                  <button className="btn-border-white" type='submit'>Ingresar</button>
-                  {/* <div className="contraseña">
-                    <a href="#">¿Olvidaste tu contraseña?</a>
-                  </div> */}
+                  <input type="email" name='userName' value={userName} onChange={handleChange} placeholder="Correo Electrónico" />
+                  <input type="password" name='password' value={password} onChange={handleChange} placeholder="Contraseña" />
+                  {/* {error && <span style={{color:'white', display:'block', marginBottom:'2rem'}}>Todos los campos son obligatorios / Información incorrecta</span>} */}
+                  {error ? <Error message={errorType}/> : null}
+                  <input className="btn-border-white" type='submit' value='ingresar'/>
                 </div>
               </form>
             </div>
             <div className="offset-md-2 col-sm-12 col-12 col-md-2 align-self-sm-end align-self-md-center">
-              <div className="create-account">
-                <Link to="/UserSelecter">
+              <Link to={"/UserSelecter"}>
+                <div className="create-account">
                   <i className="fas fa-plus-circle"></i>
                   <h5> Crea <br /> tu cuenta </h5>
-                </Link>
-              </div>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
       </section>
       <Footer />
-      <Switch>
-        <Route path="/UserSelecter">
-          <UserSelecter />
-        </Route>
-        <Route path="/DashboardTeachers">
-          <DashboardTeachers />
-        </Route>
-        <Route path="/DashboardParents">
-          <DashboardParents />
-        </Route>
-      </Switch>
-    </Router>
+    </Fragment>
   );
 };
 
