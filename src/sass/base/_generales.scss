@@ -228,3 +228,16 @@ a:hover {
 .text-pink {
     color: $color-pink-light !important;
 }
+
+.error-red{
+    color:red;
+    display:block;
+    margin-bottom:2rem;
+    font-size:'3rem';
+}
+.error-white{
+    color:white;
+    display:block;
+    margin-bottom:2rem;
+    font-size:'3rem';
+}
