@@ -10,10 +10,16 @@ import "./sass/main.scss";
 import TeacherLogin from './components/teachers/TeacherLogin';
 import ParentsLogin from './components/parents/ParentsLogin';
 import DashboardParents from './components/parents/DashboardParents';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 
-const Show = (props) =>{
+/*const Show = (props) =>{
 
   const {user, logout} = props
 
@@ -24,11 +30,11 @@ const Show = (props) =>{
       </div>
   )
   
-}
+}*/
 
 function App() {
 
-  const [acounts, setAcounts] = useState([{}])
+  /*const [acounts, setAcounts] = useState([{}])
 
   const newUserAcount = (acount) =>{
     setAcounts([
@@ -38,10 +44,10 @@ function App() {
   }
   // const {logout} = props
 
-  const [user, setUser]=useState(null)
+  const [user, setUser]=useState(null)*/
 
   return (
-    <Fragment>
+    <Router>
 
       {/* <TeacherLogin 
         newUserAcount={newUserAcount}
@@ -57,16 +63,17 @@ function App() {
       {/* <DashboardParents
       /> */}
 
-      {/* <DashboardTeachers
-      /> */}
+       {/* <DashboardTeachers /> */}
 
-      {/* <NewMeeting
-      /> */}
+      <NewMeeting/>
 
-      {!user && <Login onLogin={(values) => setUser(values)} />}
+      {/* {!user && <Login onLogin={(values) => setUser(values)} />} */}
       {/* {user && <Show user={user} logout ={()=> setUser(null)} />} */}
-
-    </Fragment>
+      <Switch>
+        <Route exact path="/DashboardTeachers" component={DashboardTeachers} />
+        <Route exact path="/NewMeeting" component={NewMeeting} />
+      </Switch>
+    </Router>
   );
 }
 

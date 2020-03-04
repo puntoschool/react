@@ -122,6 +122,23 @@ a:hover {
     }
 }
 
+.btn-border-yellow {
+    text-align: center;
+    font-weight: 700;
+    color: $color-yellow;
+    background: transparent;
+    padding: 1.3rem 2rem;
+    border: 2px solid $color-yellow;
+    text-decoration: none;
+    transition: all .5s;
+    border-radius: 25px;
+    line-height: 1;
+    &:hover {
+    color: $color-white;
+    background: $color-yellow;
+    }
+}
+
 .btn-border-white {
     text-align: center;
     font-weight: 700;
@@ -185,6 +202,9 @@ a:hover {
     color: #FFF;
   }
 
+.light-grey {
+    color: $color-grey-light;
+}
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
     color: #9d9d9c !important;
@@ -227,4 +247,8 @@ a:hover {
 
 .text-pink {
     color: $color-pink-light !important;
+}
+
+.text-yellow {
+    color: $color-yellow !important;
 }

@@ -61,17 +61,6 @@ const MenuTeachers = () => {
           </div>
         </nav>
       </aside>
-      <Switch>
-        <Route path="/meetingHistory">
-          <meetingHistory />
-        </Route>
-        <Route path="/dashboardTeachers">
-          <dashboardTeachers />
-        </Route>
-        <Route path="/newMeeting">
-          <newMeeting />
-        </Route>
-      </Switch>
     </Router>
   );
 };

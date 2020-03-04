@@ -1,3 +1,17 @@
+.teachers {
+    .dash-header {
+        border-bottom: 3px solid $color-yellow;
+    }
+    .dash-menu .navbar-expand-sm .navbar-nav li a:hover {
+        color: $color-yellow;
+    }
+    a {
+        &:hover {
+            color: $color-yellow;
+        }
+    }
+}
+
 .dash-teachers{
     &__title{
      font-size:1.8rem;
@@ -101,7 +115,7 @@
     padding: 0;
 }
 
-.blac-icon{
+.blac-icon {
     color:  #575756;
 }
 
