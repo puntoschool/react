@@ -5,6 +5,7 @@ import TeacherLogin from './components/teachers/TeacherLogin';
 import ParentsLogin from './components/parents/ParentsLogin';
 import WelcomeParents from './components/parents/WelcomeParents';
 import DashboardTeachers from './components/teachers/DashboardTeachers';
+import NewMeeting from './components/teachers/NewMeeting';
 import "./sass/main.scss";
 import {
   BrowserRouter as Router,
@@ -83,6 +84,9 @@ function App() {
         </Route>
         <Route exact path="/DashboardTeachers">
           <DashboardTeachers/>
+        </Route>
+        <Route exact path="/NewMeeting">
+          <NewMeeting/>
         </Route>
       </Switch>
     </Router>
