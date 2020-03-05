@@ -71,11 +71,15 @@ function App() {
             newUserAccount={newUserAccount}
             loginTeacher={loginTeacher}
             setLoginTeacher={setLoginTeacher}
+            setLoginParent={setLoginParent}
           />
         </Route>
         <Route exact path="/ParentsLogin">
           <ParentsLogin
             newUserAccount={newUserAccount}
+            loginParent={loginParent}
+            setLoginTeacher={setLoginTeacher}
+            setLoginParent={setLoginParent}
           />
         </Route>
         <Route exact path="/WelcomeParents">

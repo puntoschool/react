@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Header from '../Header'
 import Footer from '../Footer'
 import Error from '../Error'
-import Login from '../Login'
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,7 +10,7 @@ import {
   Redirect
 } from "react-router-dom";
 
-const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher}) => {
+const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher, setLoginParent}) => {
 
   // Defino el objeto de cuenta
   const [account, setAccount] = useState({
@@ -62,6 +61,7 @@ const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher}) => {
    })
 
    setLoginTeacher(true)
+   setLoginParent(false)
   }
 
   // Creo una variable por cada propiedad del objeto account
@@ -81,19 +81,21 @@ const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher}) => {
             <input type="password" name="password" onChange = {handleChange} placeholder="Contraseña" />
             <input type="password" name="confirm" onChange = {handleChange} placeholder="Confirma tu contraseña" />
             {error ? <Error className='error-red' message={errorType}/> : null}
+            {loginTeacher ? <Redirect from="/TeacherLogin" to="/DashboardTeachers" />: null }
             <div className="teachers-login__btns">
                 <Link className="btn-back-yellow" to="/UserSelecter">Regresar</Link>
                 <button className="btn-next-yellow" type='submit' onSubmit={handleSubmit}>Registrarse</button>
             </div>
           </div>
         </form>
+        <Link to={'/'} >Iniciar sesión</Link>
       </div>
       <Footer/>
       <Router>
         <Switch>
           <Route exact path="/TeacherLogin" render= { () => (
             loginTeacher 
-            ? <Redirect from="/TeacherLogin" to="/" />: null
+            ? <Redirect from="/TeacherLogin" to="DashboardTeachers" />: null
           )}/>
         </Switch>
       </Router>
