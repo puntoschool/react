@@ -18,7 +18,8 @@ const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher}) => {
     fullName:'', 
     userName:'', 
     password:'', 
-    userType:'teacher'
+    userType:'teacher',
+    confirm:''
   })
 
   // Creo el estado en caso de existir algun error
@@ -38,11 +39,15 @@ const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher}) => {
     e.preventDefault()
 
    // Valido informacion capturada
-   if (fullName.trim() === '' || userName.trim() === '' || password.trim() === ''){
+   if (fullName.trim() === '' || userName.trim() === '' || password.trim() === '' || confirm.trim() === ''){
        setError(true)
        setErrorType('Todos los campos son obligatorios')
        return
-   } else setError(false)
+   } else if(password !== confirm){
+      setError(true)
+      setErrorType('Los passwords debe de ser iguales')
+      return
+   }else setError(false)
 
    // invoco la funcion de crear cuenta
    newUserAccount(account)
@@ -52,14 +57,15 @@ const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher}) => {
     fullName:'', 
     userName:'', 
     password:'', 
-    userType:'teacher'
+    userType:'teacher',
+    confirm:''
    })
 
    setLoginTeacher(true)
   }
 
   // Creo una variable por cada propiedad del objeto account
-  const {fullName, userName, password} = account
+  const {fullName, userName, password, confirm} = account
 
   return (
     <Fragment>
@@ -73,6 +79,7 @@ const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher}) => {
             <input type="text" name="fullName" onChange = {handleChange} placeholder="Nombre completo" />
             <input type="email" name="userName" onChange = {handleChange} placeholder="Correo Electrónico" />
             <input type="password" name="password" onChange = {handleChange} placeholder="Contraseña" />
+            <input type="password" name="confirm" onChange = {handleChange} placeholder="Confirma tu contraseña" />
             {error ? <Error className='error-red' message={errorType}/> : null}
             <div className="teachers-login__btns">
                 <Link className="btn-back-yellow" to="/UserSelecter">Regresar</Link>
@@ -95,5 +102,3 @@ const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher}) => {
 };
 
 export default TeacherLogin;
-
-
