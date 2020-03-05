@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 import Header from '../Header'
 import Footer from '../Footer'
 import Error from '../Error'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 const ParentsLogin = ({newUserAccount, setLoginParent, loginParent, setLoginTeacher}) => {
 
@@ -91,14 +86,6 @@ const ParentsLogin = ({newUserAccount, setLoginParent, loginParent, setLoginTeac
         <Link to={'/'} >Iniciar sesión</Link>
       </div>
       <Footer/>
-      <Router>
-        <Switch>
-          <Route exact path="/ParentsLogin" render= { () => (
-            loginParent 
-            ? <Redirect from="/ParentsLogin" to="/WelcomeParents" />: null
-          )}/>
-        </Switch>
-      </Router>
     </Fragment>
   );
 };
