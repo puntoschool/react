@@ -13,51 +13,51 @@ const DetailMeeting = () => {
           <div className="container-fluid">
             <div className="row">
               <MenuParents />
-              <main class="dash-main col-md-10 col-sm-9 dashboard-meetings">
-                    <div class="row justify-content-end">
-                        <div class="col-md-10 col-sm-9 col-10 mb-sm-5">
-                            <h3 class="meeting-kid">Adrian Rivas</h3>
-                            <h5 class="meeting-info">Grado escolar: 5B <span>Profesor: Sara Molina</span></h5>
+              <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
+                    <div className="row justify-content-end">
+                        <div className="col-md-10 col-sm-9 col-10 mb-sm-5">
+                            <h3 className="meeting-kid">Adrian Rivas</h3>
+                            <h5 className="meeting-info">Grado escolar: 5B <span>Profesor: Sara Molina</span></h5>
                         </div>
-                        <div class="col-md-2 col-sm-3 col-2">
-                            <div class="btn-title">
-                                <div class="btn-guide">
+                        <div className="col-md-2 col-sm-3 col-2">
+                            <div className="btn-title">
+                                <div className="btn-guide">
                                     <a href="#">
-                                        <i class="fas fa-book"></i>
+                                        <i className="fas fa-book"></i>
                                         <p>Guía de uso</p>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <section class="row video-detail">
-                        <article class="col-sm-9 video-meeting">
-                            <h2 class="meeting-title">Junta de Inicio de cursos</h2>
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item"
+                    <section className="row video-detail">
+                        <article className="col-sm-9 video-meeting">
+                            <h2 className="meeting-title">Junta de Inicio de cursos</h2>
+                            <div className="embed-responsive embed-responsive-16by9">
+                                <iframe className="embed-responsive-item"
                                     src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="meeting-text my-3">
-                                        <p><i class="far fa-clock"></i>9 de Febrero, 9:00 hrs.</p>
-                                        <p><i class="fas fa-map-marker-alt"></i>Salón 2 </p>
+                            <div className="row">
+                                <div className="col-sm-6">
+                                    <div className="meeting-text my-3">
+                                        <p><i className="far fa-clock"></i>9 de Febrero, 9:00 hrs.</p>
+                                        <p><i className="fas fa-map-marker-alt"></i>Salón 2 </p>
                                         <h6>Comentarios</h6>
                                         <p>La junta trata como tema principal todos los eventos del año y nuevas
                                             estrategías de trabajo.</p>
                                     </div>
-                                    <a href="#" class="btn-border-pink btn-sm align-items-center mb-3"><i
-                                            class="fas fa-download"></i> Descargar Minuta</a>
+                                    <a href="#" className="btn-border-pink btn-sm align-items-center mb-3"><i
+                                            className="fas fa-download"></i> Descargar Minuta</a>
                                 </div>
-                                <div class="col-sm-6 text-right">
-                                    <div class="poll-collapse">
+                                <div className="col-sm-6 text-right">
+                                    <div className="poll-collapse">
                                         <button type="button" data-toggle="collapse"
                                             data-target="#collapsePoll" aria-expanded="true"
                                             aria-controls="collapsePoll">
                                             Encuestas
                                         </button>
-                                        <div class="collapse show" id="collapsePoll">
-                                            <div class="inner-poll">
+                                        <div className="collapse show" id="collapsePoll">
+                                            <div className="inner-poll">
                                                 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
                                                 terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
                                                 labore wes anderson cred nesciunt sapiente ea proident.
@@ -67,16 +67,16 @@ const DetailMeeting = () => {
                                 </div>
                             </div>
                         </article>
-                        <div class="col-sm-3 meeting-chat">
-                            <div class="meeting-comments">
-                                <div class="comment">
+                        <div className="col-sm-3 meeting-chat">
+                            <div className="meeting-comments">
+                                <div className="comment">
                                     <h5>Alberto Rivas</h5>
                                     <p>¿Cuándo inicia el curso?</p>
                                 </div>
                             </div>
-                            <form action="" class="meeting-input">
-                                <input type="text">
-                                <button><i class="far fa-paper-plane"></i></button>
+                            <form action="" className="meeting-input">
+                                <input type="text" />
+                                <button><i className="far fa-paper-plane"></i></button>
                             </form>
                         </div>
                     </section>
