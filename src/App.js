@@ -4,6 +4,8 @@ import UserSelecter from './components/UserSelecter';
 import TeacherLogin from './components/teachers/TeacherLogin';
 import ParentsLogin from './components/parents/ParentsLogin';
 import WelcomeParents from './components/parents/WelcomeParents';
+import DetailMeeting from './components/parents/DetailMeeting';
+import MeetingList from './components/parents/MeetingList';
 import DashboardTeachers from './components/teachers/DashboardTeachers';
 import NewMeeting from './components/teachers/NewMeeting';
 import "./sass/main.scss";
@@ -89,6 +91,9 @@ function App() {
         </Route>
         <Route exact path="/DashboardTeachers" component={DashboardTeachers} />
         <Route exact path="/NewMeeting" component={NewMeeting} />
+        <Route exact path="/DetailMeeting" component={DetailMeeting} />
+        <Route exact path="/MeetingList" component={MeetingList} />
+        <Route exact path="/VideoDetail" component={VideoDetail} />
       </Switch>
     </Router>
   );
