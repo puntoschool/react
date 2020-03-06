@@ -51,10 +51,8 @@ const Login = ({accounts, setLogin, setLoginParent, setLoginTeacher}) => {
 
       // Evaluar el tipo de usuario para poder direccionarlo a su dashboard correspondiente
       if (validation.userType === 'teacher'){
-        console.log('soy maestro')
         setLoginTeacher(true)
       } else if(validation.userType === 'parent'){
-        console.log('soy padre de familia')
         setLoginParent(true)
       }
 

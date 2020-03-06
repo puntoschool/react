@@ -3,16 +3,17 @@ import { Link } from "react-router-dom";
 import Header from '../Header'
 import Footer from '../Footer'
 import Error from '../Error'
+import { Redirect } from "react-router-dom";
 
-
-const ParentsLogin = ({newUserAccount}) => {
+const ParentsLogin = ({newUserAccount, setLoginParent, loginParent, setLoginTeacher}) => {
 
   // Defino el objeto de cuenta
   const [account, setAccount] = useState({
     fullName:'', 
     userName:'', 
     password:'', 
-    userType:'parent'
+    userType:'parent', 
+    confirm:''
   })
 
   // Creo el estado en caso de existir algun error
@@ -36,7 +37,11 @@ const ParentsLogin = ({newUserAccount}) => {
        setError(true)
        setErrorType('Todos los campos son obligatorios')
        return
-   } else setError(false)
+      } else if(password !== confirm){
+        setError(true)
+        setErrorType('Los passwords debe de ser iguales')
+        return
+     }else setError(false)
 
    // invoco la funcion de crear cuenta
    newUserAccount(account)
@@ -46,12 +51,16 @@ const ParentsLogin = ({newUserAccount}) => {
     fullName:'', 
     userName:'', 
     password:'', 
-    userType:'parent'
+    userType:'parent',
+    confirm:''
    })
+
+   setLoginParent(true)
+   setLoginTeacher(false)
   }
 
   // Creo una variable por cada propiedad del objeto acount
-  const {fullName, userName, password} = account
+  const {fullName, userName, password, confirm} = account
 
   return (
     <Fragment>
@@ -65,13 +74,16 @@ const ParentsLogin = ({newUserAccount}) => {
             <input type="text" name="fullName" onChange = {handleChange} placeholder="Nombre completo" />
             <input type="email" name="userName" onChange = {handleChange} placeholder="Correo Electrónico" />
             <input type="password" name="password" onChange = {handleChange} placeholder="Contraseña" />
-            {error ? <Error message={errorType}/> : null}
+            <input type="password" name="confirm" onChange = {handleChange} placeholder="Confirma tu contraseña" />
+            {error ? <Error className='error-red' message={errorType}/> : null}
+            {loginParent ? <Redirect from="/ParentsLogin" to="/WelcomeParents" />: null }
             <div className="parents-login__btns">
                 <Link className="btn-back-blue" to="/UserSelecter">Regresar</Link>
                 <button className="btn-next-yellow" type='submit' onSubmit={handleSubmit}>Registrare</button>
             </div>
           </div>
         </form>
+        <Link to={'/'} >Iniciar sesión</Link>
       </div>
       <Footer/>
     </Fragment>
