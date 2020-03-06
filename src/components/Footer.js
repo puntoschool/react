@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <Fragment>
       <footer className="footer">
-            <div className="container-fluid fixed">
+            <div className="container-fluid">
                 <div className="row">
                     <div className="col-10">
                         <ul className="footer-info">

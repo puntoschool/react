@@ -3,6 +3,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
 import Error from '../Error'
+import { withRouter } from "react-router-dom";
 
 const NewMeeting = () => {
 

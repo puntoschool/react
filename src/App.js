@@ -11,7 +11,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
+  withRouter
 } from "react-router-dom";
   
 function App() {
@@ -82,12 +83,8 @@ function App() {
         <Route exact path="/WelcomeParents">
           <WelcomeParents/>
         </Route>
-        <Route exact path="/DashboardTeachers">
-          <DashboardTeachers/>
-        </Route>
-        <Route exact path="/NewMeeting">
-          <NewMeeting/>
-        </Route>
+        <Route exact path="/DashboardTeachers" component={DashboardTeachers} />
+        <Route exact path="/NewMeeting" component={NewMeeting} />
       </Switch>
     </Router>
   );
