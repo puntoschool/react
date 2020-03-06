@@ -72,6 +72,7 @@ function App() {
             loginTeacher={loginTeacher}
             setLoginTeacher={setLoginTeacher}
             setLoginParent={setLoginParent}
+            accounts={accounts}
           />
         </Route>
         <Route exact path="/ParentsLogin">
@@ -80,6 +81,7 @@ function App() {
             loginParent={loginParent}
             setLoginTeacher={setLoginTeacher}
             setLoginParent={setLoginParent}
+            accounts={accounts}
           />
         </Route>
         <Route exact path="/WelcomeParents">

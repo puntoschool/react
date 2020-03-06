@@ -5,7 +5,7 @@ import Footer from '../Footer'
 import Error from '../Error'
 import { Redirect } from "react-router-dom";
 
-const ParentsLogin = ({newUserAccount, setLoginParent, loginParent, setLoginTeacher}) => {
+const ParentsLogin = ({newUserAccount, setLoginParent, loginParent, setLoginTeacher, accounts}) => {
 
   // Defino el objeto de cuenta
   const [account, setAccount] = useState({
@@ -28,10 +28,12 @@ const ParentsLogin = ({newUserAccount, setLoginParent, loginParent, setLoginTeac
     })
   }
 
+  const duplicated = accounts.find(element => element.userName === account.userName );
+
   // Creo la funcion cuando el usuario hace click en el boton de registrarse
   const handleSubmit = (e) =>{
     e.preventDefault()
-
+ 
    // Valido informacion capturada
    if (fullName.trim() === '' || userName.trim() === '' || password.trim() === ''){
        setError(true)
@@ -41,22 +43,26 @@ const ParentsLogin = ({newUserAccount, setLoginParent, loginParent, setLoginTeac
         setError(true)
         setErrorType('Los passwords debe de ser iguales')
         return
-     }else setError(false)
+      } else if(duplicated){
+        setError(true)
+        setErrorType(`La cuenta de email ${account.userName} ya esta registrada`)
+        return 
+      } else setError(false)
 
    // invoco la funcion de crear cuenta
    newUserAccount(account)
 
    //Limpio el formulario de información
-   setAccount({
-    fullName:'', 
-    userName:'', 
-    password:'', 
-    userType:'parent',
-    confirm:''
-   })
+  setAccount({
+     fullName:'', 
+     userName:'', 
+     password:'', 
+     userType:'parent',
+     confirm:''
+    })
 
-   setLoginParent(true)
-   setLoginTeacher(false)
+    setLoginParent(true)
+    setLoginTeacher(false)
   }
 
   // Creo una variable por cada propiedad del objeto acount

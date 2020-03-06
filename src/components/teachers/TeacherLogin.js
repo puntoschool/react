@@ -5,7 +5,7 @@ import Footer from '../Footer'
 import Error from '../Error'
 import { Redirect } from "react-router-dom";
 
-const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher, setLoginParent}) => {
+const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher, setLoginParent, accounts}) => {
 
   // Defino el objeto de cuenta
   const [account, setAccount] = useState({
@@ -28,6 +28,8 @@ const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher, setLoginPa
     })
   }
 
+  const duplicated = accounts.find(element => element.userName === account.userName );
+  
   // Creo la funcion cuando el usuario hace click en el boton de registrarse
   const handleSubmit = (e) =>{
     e.preventDefault()
@@ -41,6 +43,10 @@ const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher, setLoginPa
       setError(true)
       setErrorType('Los passwords debe de ser iguales')
       return
+    } else if(duplicated){
+      setError(true)
+      setErrorType(`La cuenta de email ${account.userName} ya esta registrada`)
+      return 
    }else setError(false)
 
    // invoco la funcion de crear cuenta
