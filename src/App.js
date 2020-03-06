@@ -8,6 +8,7 @@ import DetailMeeting from './components/parents/DetailMeeting';
 import MeetingList from './components/parents/MeetingList';
 import DashboardTeachers from './components/teachers/DashboardTeachers';
 import NewMeeting from './components/teachers/NewMeeting';
+import VideoDetail from './components/parents/VideoDetail';
 import "./sass/main.scss";
 import {
   BrowserRouter as Router,

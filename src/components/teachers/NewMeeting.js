@@ -3,6 +3,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
 import Error from '../Error'
+import uuid from 'uuid/v4'
 import { withRouter } from "react-router-dom";
 
 const NewMeeting = () => {
@@ -70,6 +71,9 @@ const NewMeeting = () => {
       return;
     } else setError(false);
     
+     // Asignarle un id a la junta 
+     meeting.id = uuid() // instale el paquete uuid para generar ids por cada cita npm install uuid
+
     newMeeting(meeting)
 
     //Limpio el formulario de información
@@ -109,6 +113,7 @@ const NewMeeting = () => {
                           placeholder="Ingrese el tema de la junta"
                           name="title"
                           onChange={handleChange}
+                          value = {meeting.title}
                         />
                       </div>
 
@@ -170,6 +175,7 @@ const NewMeeting = () => {
                           id="date"
                           name="date"
                           onChange={handleChange}
+                          value = {meeting.date}
                         />
                       </div>
 
@@ -186,6 +192,7 @@ const NewMeeting = () => {
                           id="startTime"
                           name="startTime"
                           onChange={handleChange}
+                          value = {meeting.startTime}
                         />
                       </div>
 
@@ -199,6 +206,7 @@ const NewMeeting = () => {
                           id="endTime"
                           name="endTime"
                           onChange={handleChange}
+                          value = {meeting.endTime}
                         />
                       </div>
 
@@ -212,6 +220,7 @@ const NewMeeting = () => {
                           id="link"
                           name="link"
                           onChange={handleChange}
+                          value={meeting.link}
                         />
                         <button
                           type="submit"
