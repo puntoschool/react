@@ -3,11 +3,16 @@ import MenuParents from "./MenuParents";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const WelcomeParents = () => {
+const WelcomeParents = ({setLoginParent, login, setLogin}) => {
+
   return (
     <Fragment>
       <div className="admin parents">
-        <Header />
+        <Header 
+          setLoginParent={setLoginParent}
+          login={login}
+          setLogin={setLogin}
+        />
           <section className="dashboard mt-80">
             <div className="container-fluid">
               <div className="row">  

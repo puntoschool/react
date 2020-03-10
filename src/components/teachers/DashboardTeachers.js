@@ -2,13 +2,18 @@ import React, { Fragment } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
+import Meeting from '../Meeting'
 
-const DashboardTeachers = () => {
+const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings}) => {
 
   return (
     <Fragment>
       <div className="admin teachers">
-        <Header />
+        <Header 
+          setLoginTeacher={setLoginTeacher}
+          login={login}
+          setLogin={setLogin}
+        />
         <section className="dashboard">
           <div className="container-fluid">
             <div className="row">
@@ -30,67 +35,13 @@ const DashboardTeachers = () => {
 
                 <div className="row justify-content-center">
                   <div className="col-sm-9 col-12">
-                    <article class="meeting-appointment">
-                      <div class="meeting-info">
-                        <div class="meeting-date"> 9 Ene
-                                    </div>
-                        <div class="meeting-text">
-                          <h3>Junta de Inicio de cursos</h3>
-                          <p><i class="far fa-clock"></i>9 de Enero, 9:00 hrs.</p>
-                          <p><i class="fas fa-user-graduate"></i>5to A </p>
-                          <h5>ID: <span className="yellow-color"><strong>09876</strong></span></h5>
-                        </div>
-                      </div>
-                      <div class="meeting-arrow">
-                        <span className="start-meeting d-block d-sm-inline">Iniciar Junta</span> <i class="fas fa-chevron-right"></i>
-                      </div>
-                    </article>
-                    <article class="meeting-appointment">
-                      <div class="meeting-info">
-                        <div class="meeting-date"> 9 Ene
-                                    </div>
-                        <div class="meeting-text">
-                          <h3>Junta de Inicio de cursos</h3>
-                          <p><i class="far fa-clock"></i>9 de Enero, 9:00 hrs.</p>
-                          <p><i class="fas fa-user-graduate"></i>5to A </p>
-                          <h5>ID: <span className="yellow-color"><strong>09876</strong></span></h5>
-                        </div>
-                      </div>
-                      <div class="meeting-arrow">
-                        <i class="fas fa-chevron-right"></i>
-                      </div>
-                    </article>
-                    <article class="meeting-appointment">
-                      <div class="meeting-info">
-                        <div class="meeting-date"> 9 Ene
-                                    </div>
-                        <div class="meeting-text">
-                          <h3>Junta de Inicio de cursos</h3>
-                          <p><i class="far fa-clock"></i>9 de Enero, 9:00 hrs.</p>
-                          <p><i class="fas fa-user-graduate"></i>5to A </p>
-                          <h5>ID: <span className="yellow-color"><strong>09876</strong></span></h5>
-                        </div>
-                      </div>
-                      <div class="meeting-arrow">
-                        <i class="fas fa-chevron-right"></i>
-                      </div>
-                    </article>
-                    <article class="meeting-appointment">
-                      <div class="meeting-info">
-                        <div class="meeting-date"> 9 Ene
-                                    </div>
-                        <div class="meeting-text">
-                          <h3>Junta de Inicio de cursos</h3>
-                          <p><i class="far fa-clock"></i>9 de Enero, 9:00 hrs.</p>
-                          <p><i class="fas fa-user-graduate"></i>5to A </p>
-                          <h5>ID: <span className="yellow-color"><strong>09876</strong></span></h5>
-                        </div>
-                      </div>
-                      <div class="meeting-arrow">
-                        <i class="fas fa-chevron-right"></i>
-                      </div>
-                    </article>
-
+                    { meetings.map(meeting => (
+                        <Meeting
+                        key={meeting.id}
+                        meeting={meeting}
+                        /> 
+                      ))
+                    }                                   
                   </div>
                 </div>
               </main>

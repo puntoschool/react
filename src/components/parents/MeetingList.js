@@ -4,12 +4,16 @@ import Footer from "../Footer";
 import MenuParents from "./MenuParents";
 import { Link } from "react-router-dom";
 
-const MeetingList = () => {
+const MeetingList = ({setLoginParent, login, setLogin}) => {
 
   return (
     <Fragment>
       <div className="admin parents">
-        <Header />
+        <Header 
+          setLoginParent={setLoginParent}
+          login={login}
+          setLogin={setLogin}
+        />
         <section className="dashboard mt-80">
           <div className="container-fluid">
             <div className="row">

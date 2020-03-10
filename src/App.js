@@ -13,8 +13,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
-  withRouter
+  Redirect
 } from "react-router-dom";
   
 function App() {
@@ -49,9 +48,36 @@ function App() {
   }
 
   // Inicializo el estados de login
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState({})
   const [loginTeacher, setLoginTeacher] = useState(false)
   const [loginParent, setLoginParent] = useState(false)
+
+  /////////////////////////////////////////7 Meetings/////////////////////////////////////////////////7
+
+    // Inicializando variable con las juntas de local Storage
+    let recordedMeeting = JSON.parse(localStorage.getItem("meetings"))
+    if (!recordedMeeting) {
+      recordedMeeting = []
+    }
+  
+    // inicializando el State con el arreglo de las juntas de local storage
+    const [meetings, setMeetings] = useState(recordedMeeting)
+  
+    // UseEffect para actualizar algo en caso de que cambie algo
+    useEffect(() => {
+      let recordedMeeting = JSON.parse(localStorage.getItem("meetings"))
+  
+      if (recordedMeeting) {
+        localStorage.setItem("meetings", JSON.stringify(meetings))
+      } else {
+        localStorage.setItem("meetings", JSON.stringify([]))
+      }
+    }, [meetings])
+  
+    // Creo la función para guardar las juntas creada en el arreglo de juntas
+    const newMeeting = (meeting) => {
+      setMeetings([...meetings, meeting])
+    }
 
   return (
     <Router>
@@ -61,7 +87,7 @@ function App() {
           ? <Redirect from="/" to="/DashboardTeachers" />
           : loginParent
           ? <Redirect from="/" to="/WelcomeParents" />
-          : <Login setLogin={setLogin} setLoginTeacher={setLoginTeacher} setLoginParent={setLoginParent} accounts={accounts}/> 
+          : <Login setLogin = {setLogin} setLoginTeacher={setLoginTeacher} setLoginParent={setLoginParent} accounts={accounts}/> 
         )}/>
 
         <Route exact path="/">
@@ -73,6 +99,7 @@ function App() {
         <Route exact path="/TeacherLogin">
           <TeacherLogin
             newUserAccount={newUserAccount}
+            setLogin= {setLogin}
             loginTeacher={loginTeacher}
             setLoginTeacher={setLoginTeacher}
             setLoginParent={setLoginParent}
@@ -89,12 +116,42 @@ function App() {
           />
         </Route>
         <Route exact path="/WelcomeParents">
-          <WelcomeParents/>
+          <WelcomeParents
+            setLoginParent={setLoginParent}
+            login={login}
+            setLogin={setLogin}
+          />
         </Route>
-        <Route exact path="/DashboardTeachers" component={DashboardTeachers} />
-        <Route exact path="/NewMeeting" component={NewMeeting} />
-        <Route exact path="/DetailMeeting" component={DetailMeeting} />
-        <Route exact path="/MeetingList" component={MeetingList} />
+        <Route exact path="/DashboardTeachers">
+          <DashboardTeachers
+            setLoginTeacher={setLoginTeacher}
+            login={login}
+            setLogin={setLogin}
+            meetings={meetings}
+          />
+        </Route>
+        <Route exact path="/NewMeeting"> 
+          <NewMeeting
+            setLoginTeacher={setLoginTeacher}
+            login={login}
+            setLogin={setLogin}
+            newMeeting={newMeeting}
+          />
+        </Route>
+        <Route exact path="/DetailMeeting">
+          <DetailMeeting
+            setLoginParent={setLoginParent}
+            login={login}
+            setLogin={setLogin}
+          />
+        </Route>
+        <Route exact path="/MeetingList">
+          <MeetingList
+            setLoginParent={setLoginParent}
+            login={login}
+            setLogin={setLogin}
+          />
+        </Route>
       </Switch>
     </Router>
   );

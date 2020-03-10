@@ -4,34 +4,8 @@ import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
 import Error from '../Error'
 import uuid from 'uuid/v4'
-import { withRouter } from "react-router-dom";
 
-const NewMeeting = () => {
-
-  // Inicializando variable con las cuentas de local Storage
-  let recordedMeeting = JSON.parse(localStorage.getItem("meetings"));
-  if (!recordedMeeting) {
-    recordedMeeting = [];
-  }
-
-  // inicializando el State con el arreglo de cuentas de local storage
-  const [meetings, setMeetings] = useState(recordedMeeting);
-
-  // UseEffect para actualizar algo en caso de que cambie algo
-  useEffect(() => {
-    let recordedMeeting = JSON.parse(localStorage.getItem("meetings"));
-
-    if (recordedMeeting) {
-      localStorage.setItem("meetings", JSON.stringify(meetings));
-    } else {
-      localStorage.setItem("meetings", JSON.stringify([]));
-    }
-  }, [meetings]);
-
-  // Creo la función para guardar la cuenta creada en el arreglo de cuentas
-  const newMeeting = (meeting) => {
-    setMeetings([...meetings, meeting]);
-  };
+const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
 
   const [meeting, setMeeting] = useState({
     title: "",
@@ -91,7 +65,11 @@ const NewMeeting = () => {
   return (
     <Fragment>
       <div className="admin teachers">
-        <Header />
+        <Header 
+          setLoginTeacher={setLoginTeacher}
+          login={login}
+          setLogin={setLogin}
+        />
         <section className="dashboard mt-80">
           <div className="container-fluid">
             <div className="row">
@@ -104,7 +82,7 @@ const NewMeeting = () => {
                     <div className="col-sm-8 col-11">
                       <div className="d-flex mb-5">
                         <label className="labels" for="title">
-                          Titulo:{" "}
+                          Titulo:
                         </label>
                         <input
                           type="text"
@@ -223,7 +201,7 @@ const NewMeeting = () => {
                           value={meeting.link}
                         />
                         <button
-                          type="submit"
+                          type="button"
                           className="btn labels text-yellow col-2"
                           for="link"
                         >

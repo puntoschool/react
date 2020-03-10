@@ -1,11 +1,10 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import Header from '../Header'
 import Footer from '../Footer'
 import Error from '../Error'
 import { Redirect } from "react-router-dom";
 
-const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher, setLoginParent, accounts}) => {
+const TeacherLogin = ({newUserAccount, setLogin, setLoginTeacher, loginTeacher, setLoginParent, accounts}) => {
 
   // Defino el objeto de cuenta
   const [account, setAccount] = useState({
@@ -52,6 +51,10 @@ const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher, setLoginPa
    // invoco la funcion de crear cuenta
    newUserAccount(account)
 
+   // invoco la función para guardar la informacion del usuario que entro
+   setLogin(account)
+   console.log(account)
+
    //Limpio el formulario de información
    setAccount({
     fullName:'', 
@@ -70,7 +73,6 @@ const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher, setLoginPa
 
   return (
     <Fragment>
-      <Header/>
       <div className="teachers-login">
         <h1>Registro de maestros</h1>
         <form 

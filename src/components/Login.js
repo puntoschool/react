@@ -46,9 +46,7 @@ const Login = ({accounts, setLogin, setLoginParent, setLoginTeacher}) => {
     // Validando que la info ingresada corresponda a un usuario y password registrado
     if(validation){
       setError(false)
-      setLogin(true)
-      console.log('Login correcto')
-
+      console.log(validation)
       // Evaluar el tipo de usuario para poder direccionarlo a su dashboard correspondiente
       if (validation.userType === 'teacher'){
         setLoginTeacher(true)
@@ -59,9 +57,12 @@ const Login = ({accounts, setLogin, setLoginParent, setLoginTeacher}) => {
     } else{
       setError(true)
       setErrorType('Usuario / Password incorrectos')
-      setLogin(false)
+      setLoginParent(false)
+      setLoginTeacher(false)
     }
-    
+
+    setLogin(validation)
+
   }
 
   return (

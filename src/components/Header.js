@@ -1,7 +1,20 @@
 import React, { Fragment } from "react";
-import Login from "./Login";
+import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
+
+  const {fullName, userType} = login
+
+  const handleLogout = () =>{
+
+    if(userType === 'parent'){
+      setLoginParent(false)
+      setLogin({})
+    }else if(userType === 'teacher'){
+      setLoginTeacher(false)
+      setLogin({})
+    }
+  }
   
   return (
     <Fragment>
@@ -18,22 +31,22 @@ const Header = () => {
             <div className="col-md-10 col-sm-9 col-4">
               <ul className="dash-nav d-none d-sm-flex">
                 <li className="">
-                  <h5> Alejandro Suárez M.
-                    {/* {user.username} */}
-
-                    <span className="d-block">Padre de Familia</span>
+                  <h5> {fullName}
+                    <span className="d-block">{userType}</span>
                   </h5>
                   <i className="fas fa-user"></i>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="#!">
                     <i className="fas fa-home"></i>
                   </a>{" "}
                 </li>
                 <li>
-                  <a href="#" >
-                    <i className="fas fa-sign-out-alt"></i>
-                  </a>
+                  <Link to="/">
+                    <a href="#" onClick={handleLogout}>
+                      <i className="fas fa-sign-out-alt"></i>
+                    </a>
+                  </Link>
                 </li>
               </ul>
             </div>
