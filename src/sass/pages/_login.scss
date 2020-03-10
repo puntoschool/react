@@ -1,24 +1,31 @@
 /* Ligin Styles*/
 .login {
-    height: calc(100vh - 60px);
+    height: calc(100vh - 65px);
     background-image: url('../bg-login.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     z-index: 10;
-    
-    @media screen and (max-width: $break-xsm) {
-        height: auto;
+
+    &__center{
+        position: absolute;
+        top: calc(43% - 60px);
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, calc(-50% + 60px));
     }
 }
 
 
 .login-form {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 3.3rem;
     @media screen and (max-width: $break-small) {
-        margin-top: 30px;
         margin-bottom: 10px;
+    }
+
+    @media screen and (min-width: $break-xsm) and (max-width: 400px) {
+        max-width: 400px; 
     }
     input {
         background-color: transparent;
@@ -30,12 +37,19 @@
         line-height: 1;
         margin-bottom: 20px;
         font-weight: 600;
-        font-size: 18px;
+        font-size: 2rem;
+        height: 5rem;
+        
         &:focus {
             outline: 0;
         }
         &::placeholder {
             color: $color-white;
+            font-weight: 600;
+            font-size: 2rem;
+        }
+        @media screen and (min-width: $break-md) {
+            margin-left:2rem;
         }
     }
 }
@@ -59,51 +73,56 @@
 }
 
 .title {
-    font-size: 60px;
+    font-size: 5rem;
+    font-family: $default-font-family;
     color: $color-white;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
-
-    @media screen and (max-width: $break-large) {
-        font-size: 55px;
-    }
+    line-height: 4.8rem;
+    padding-left: 2rem;
 
     @media screen and (max-width: $break-md) {
-        font-size: 45px;
+        font-size: 4.5rem;
+        padding-left: 0;
+        text-align: center;
     }
 
     @media screen and (max-width: $break-sm) {
-        font-size: 40px;
+        font-size: 4.1rem;
         text-align: center;
+        padding-left: 0;
     }
 
-    @media screen and (min-width: $break-xsm) and (max-width: 575px) {
-        font-size: 38px;
+    @media screen and (min-width: $break-xsm) and (max-width: 400px) {
+        font-size: 3.5rem;
         text-align: center;
+        padding-left: 0;
     }
 }
 
 .subtitle {
-    font-size: 60px;
+    font-size: 5rem;
+    font-family: $default-font-family;
     color: $color-white;
-    font-weight: 400;
-
-    @media screen and (max-width: $break-large) {
-        font-size: 55px;
-    }
+    font-weight: 300;
+    padding-left: 2rem;
 
     @media screen and (max-width: $break-md) {
-        font-size: 45px;
+        font-size: 4.5rem;
+        text-align: center;
+        padding-left: 0;
     }
 
     @media screen and (max-width: $break-sm) {
-        font-size: 40px;
+        font-size: 4rem;
         text-align: center;
+        padding-left: 0;
     }
 
-    @media screen and (min-width: $break-xsm) and (max-width: 575px) {
-        font-size: 38px;
+    @media screen and (min-width: $break-xsm) and (max-width: 400px) {
+        font-size: 3.5rem;
         text-align: center;
+        padding-left: 0;
     }
 }
 
@@ -136,3 +155,30 @@
     }
 }
 
+.btn-login{
+    text-align: center;
+    font-weight: 800 !important;
+    font-size: 1.4rem !important;
+    color: #ffffff;
+    background: transparent;
+    padding: 1.3rem 3rem;
+    border: 1px solid #ffffff;
+    text-decoration: none;
+    transition: all .5s;
+    border-radius: 25px;
+    line-height: 1;
+    text-transform: uppercase;
+    max-width: 50%;
+    max-height: 3.6rem;
+}
+
+.create-account {
+    text-align: center;
+    color: #ffffff;
+    float: right;
+    margin-top: -2rem;
+}
+
+.footer .footer-info img {
+    width: 25px;
+}
