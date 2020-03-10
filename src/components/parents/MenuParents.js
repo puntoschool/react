@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 const MenuParents = () => {
   return (
@@ -24,28 +25,24 @@ const MenuParents = () => {
                 </h5>
               </li>
               <li>
-                <a href="#">
-                  <i className="fas fa-home"></i>
-                </a>
+              <Link to={'/WelcomeParents'} ><i className="fas fa-home"></i></Link>
               </li>
               <li>
-                <a href="#">
-                  <i className="fas fa-sign-out-alt"></i>
-                </a>
+              <Link to={'/'} ><i className="fas fa-sign-out-alt"></i></Link>
               </li>
             </ul>
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <i className="fas fa-calendar-alt fa-fw"></i>
-                  <span>Calendario de juntas</span>
-                </a>
+              <li className="nav-item active">
+              <Link className="nav-link" to={'/WelcomeParents'} >
+                <i className="fas fa-home fa-fw"></i>
+                <span>Inicio</span>
+              </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <i className="fas fa-chalkboard-teacher fa-fw"></i>
+              <Link className="nav-link" to={'/MeetingList'} >
+              <i className="fas fa-chalkboard-teacher fa-fw"></i>
                   <span>Historial de juntas</span>
-                </a>
+              </Link>
               </li>
             </ul>
           </div>

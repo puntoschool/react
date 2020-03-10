@@ -90,7 +90,7 @@ const NewMeeting = () => {
   
   return (
     <Fragment>
-      <div className="teachers">
+      <div className="admin teachers">
         <Header />
         <section className="dashboard mt-80">
           <div className="container-fluid">

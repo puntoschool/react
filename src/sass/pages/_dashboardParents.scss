@@ -1,35 +1,34 @@
-.teachers {
+.parents {
     .dash-header {
-        border-bottom: 3px solid $color-yellow;
+        border-bottom: 3px solid $color-blue-light;
     }
     .dash-menu .navbar-expand-sm .navbar-nav li a:hover {
-        color: $color-yellow;
+        color: $color-blue-light;
     }
     a {
         &:hover {
-            color: $color-yellow;
+            color: $color-blue-light;
         }
     }
     .dash-menu .navbar-toggler {
-        border: 2px solid $color-yellow;
-        color: $color-yellow;
+        border: 2px solid $color-blue-light;
+        color: $color-blue-light;
     }
-    .meeting-appointment {
-        .meeting-date {
-            background-image: linear-gradient(to right, $color-yellow, $color-orange);
-        }
-        .meeting-arrow {
-            color: $color-yellow;
-        }
-        &:hover {
-            -webkit-box-shadow: 4px 4px 6px -2px rgba(214,214,214,1);
-            -moz-box-shadow: 4px 4px 6px -2px rgba(214,214,214,1);
-            box-shadow: 4px 4px 6px -2px rgba(214,214,214,1);
-        }
+    .meeting-text h3 {
+        color: $color-blue-light;
+    }
+    .dashboard-meetings .video-meeting .meeting-title {
+        color: $color-blue-light;
+    }
+    .meeting-comments {
+        border: 2px solid $color-blue-light;
+    }
+    .meeting-input button {
+        color: $color-blue-light;
     }
 }
 
-.dash-teachers{
+.dash-parents {
     &__title{
      font-size:1.8rem;
      font-weight: bold;  
@@ -43,7 +42,6 @@
 
     &__search-nav{
         margin-top:1rem;
-        position: relative;
     }
 
     &__input{
@@ -53,10 +51,10 @@
         flex-basis: 40%;
         font-size: 1.8rem;
         border: 1px solid $color-grey-light;
-        right: 20px;
+    
         &:focus,
         &:hover{
-            border: 1px solid $color-yellow;
+            border: 1px solid $color-blue-light;
             outline: none;
         }
     }
@@ -75,10 +73,9 @@
     &__filter-icon{
         width: 2rem;
         margin: auto;
-        left: 30px;
-        color: $color-yellow;
-        position: absolute;
-        top: 5px;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        color: $color-blue-light;
     }
 
     &__list{
@@ -93,7 +90,7 @@
 
         &-date{
             border-radius: 50%;
-            background: linear-gradient(90deg, $color-yellow 81%, $color-orange 100%);
+            background: linear-gradient(90deg, $color-blue-light 81%, $color-orange 100%);
             color: white;
             height: 70px;
             max-height: 70px;
@@ -118,7 +115,7 @@
         }
 
         &-arrow-icon{
-            color:$color-yellow;
+            color:$color-blue-light;
             display: flex;
             align-self: center;   
         }
@@ -138,10 +135,24 @@
     color:  #575756;
 }
 
-.yellow-color{
-    color:$color-yellow;
+.blue-color {
+    color:$color-blue-light;
 }
 
 .space-between{
     justify-content: space-between;
+}
+
+.dash-welcome .parents-login__inputs {
+    label {
+        color: $color-blue-light;
+        font-weight: 600;
+    }
+    input {
+        font-weight: 400;
+        &::placeholder {
+            color: $color-grey-mid;
+        }
+    }
+    
 }

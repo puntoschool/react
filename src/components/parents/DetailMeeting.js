@@ -7,27 +7,21 @@ const DetailMeeting = () => {
   
   return (
     <Fragment>
-      <div className="teachers">
+      <div className="admin parents">
         <Header />
         <section className="dashboard mt-80">
           <div className="container-fluid">
             <div className="row">
               <MenuParents />
               <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
-                    <div className="row justify-content-end">
-                        <div className="col-md-10 col-sm-9 col-10 mb-sm-5">
-                            <h3 className="meeting-kid">Adrian Rivas</h3>
-                            <h5 className="meeting-info">Grado escolar: 5B <span>Profesor: Sara Molina</span></h5>
+                    <div className="row mb-4">
+                        <div className="col-md-4 col-6">
+                            <h3 className="dash-teachers__title mt-0">Grado escolar:</h3>
+                            <h5 className="meeting-info">5to B</h5>
                         </div>
-                        <div className="col-md-2 col-sm-3 col-2">
-                            <div className="btn-title">
-                                <div className="btn-guide">
-                                    <a href="#">
-                                        <i className="fas fa-book"></i>
-                                        <p>Guía de uso</p>
-                                    </a>
-                                </div>
-                            </div>
+                        <div className="col-md-4 col-6">
+                            <h3 className="dash-teachers__title mt-0">Profesor:</h3>
+                            <h5 className="meeting-info">Sara Molina</h5>
                         </div>
                     </div>
                     <section className="row video-detail">
@@ -37,37 +31,21 @@ const DetailMeeting = () => {
                                 <iframe className="embed-responsive-item"
                                     src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                             </div>
-                            <div className="row">
+                            <div className="row mt-2">
                                 <div className="col-sm-6">
                                     <div className="meeting-text my-3">
                                         <p><i className="far fa-clock"></i>9 de Febrero, 9:00 hrs.</p>
-                                        <p><i className="fas fa-map-marker-alt"></i>Salón 2 </p>
-                                        <h6>Comentarios</h6>
-                                        <p>La junta trata como tema principal todos los eventos del año y nuevas
-                                            estrategías de trabajo.</p>
                                     </div>
-                                    <a href="#" className="btn-border-pink btn-sm align-items-center mb-3"><i
-                                            className="fas fa-download"></i> Descargar Minuta</a>
                                 </div>
                                 <div className="col-sm-6 text-right">
-                                    <div className="poll-collapse">
-                                        <button type="button" data-toggle="collapse"
-                                            data-target="#collapsePoll" aria-expanded="true"
-                                            aria-controls="collapsePoll">
-                                            Encuestas
-                                        </button>
-                                        <div className="collapse show" id="collapsePoll">
-                                            <div className="inner-poll">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                                                terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-                                                labore wes anderson cred nesciunt sapiente ea proident.
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <a href="#" download className="btn-border-blue btn-sm align-items-center mb-3">
+                                        <i className="fas fa-download"></i> Descargar Minuta
+                                    </a>
                                 </div>
                             </div>
                         </article>
                         <div className="col-sm-3 meeting-chat">
+                            <h5 className="blue-color bold">Preguntas</h5>
                             <div className="meeting-comments">
                                 <div className="comment">
                                     <h5>Alberto Rivas</h5>
@@ -75,7 +53,7 @@ const DetailMeeting = () => {
                                 </div>
                             </div>
                             <form action="" className="meeting-input">
-                                <input type="text" />
+                                <input type="text" placeholder="Escribe aquí tu pregunta" />
                                 <button><i className="far fa-paper-plane"></i></button>
                             </form>
                         </div>

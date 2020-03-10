@@ -125,6 +125,22 @@ a:hover {
     border: 2px solid $color-pink-dark;
     }
 }
+.btn-border-blue {
+    text-align: center;
+    font-weight: 700;
+    color: $color-blue-light;
+    background: transparent;
+    padding: 1.3rem 2rem;
+    border: 2px solid $color-blue-light;
+    text-decoration: none;
+    transition: all .5s;
+    border-radius: 25px;
+    line-height: 1;
+    &:hover {
+    color: $color-blue-dark !important;
+    border: 2px solid $color-blue-dark;
+    }
+}
 
 .btn-border-yellow {
     text-align: center;
@@ -267,4 +283,8 @@ a:hover {
 }
 .text-yellow {
     color: $color-yellow !important;
+}
+
+.bold {
+    font-weight: 700;
 }

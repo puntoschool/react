@@ -8,7 +8,6 @@ import DetailMeeting from './components/parents/DetailMeeting';
 import MeetingList from './components/parents/MeetingList';
 import DashboardTeachers from './components/teachers/DashboardTeachers';
 import NewMeeting from './components/teachers/NewMeeting';
-import VideoDetail from './components/parents/VideoDetail';
 import "./sass/main.scss";
 import {
   BrowserRouter as Router,
@@ -96,7 +95,6 @@ function App() {
         <Route exact path="/NewMeeting" component={NewMeeting} />
         <Route exact path="/DetailMeeting" component={DetailMeeting} />
         <Route exact path="/MeetingList" component={MeetingList} />
-        <Route exact path="/VideoDetail" component={VideoDetail} />
       </Switch>
     </Router>
   );
