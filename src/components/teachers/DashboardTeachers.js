@@ -1,11 +1,15 @@
-import React, { Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
-import Meeting from '../Meeting'
+import Meeting from '../teachers/Meeting'
 
-const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings}) => {
+const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setFilterInput}) => {
 
+  const handleChange = e => {
+    setFilterInput (e.target.name= e.target.value)
+  }
+  
   return (
     <Fragment>
       <div className="admin teachers">
@@ -26,7 +30,13 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings}) => {
                                   <p className="dash-teachers__info">Sara Molina<p>*/}
                   </div>
                   <div className="col-sm-3 dash-teachers__search-nav mb-3">
-                    <input type='search' className="dash-teachers__input" />
+                    <input 
+                      type='search' 
+                      className="dash-teachers__input" 
+                      placeholder='buscar por titulo de junta'
+                      name='filterInput'
+                      onChange={handleChange}
+                    />
                     <span className="dash-teachers__filter-icon">
                       <i class="fas fa-filter fa-fw"></i>
                     </span>
@@ -35,12 +45,16 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings}) => {
 
                 <div className="row justify-content-center">
                   <div className="col-sm-9 col-12">
-                    { meetings.map(meeting => (
-                        <Meeting
-                        key={meeting.id}
-                        meeting={meeting}
-                        /> 
-                      ))
+                    { 
+                      meetings.length > 0 
+                      ?
+                        meetings.map(meeting => (
+                          <Meeting
+                          key={meeting.id}
+                          meeting={meeting}
+                          /> 
+                        ))
+                      : <b>No hay juntas programadas</b>
                     }                                   
                   </div>
                 </div>
@@ -51,7 +65,7 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings}) => {
         <Footer />
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-export default DashboardTeachers;
+export default DashboardTeachers

@@ -79,6 +79,12 @@ function App() {
       setMeetings([...meetings, meeting])
     }
 
+    // Creo el state para las juntas filtradas
+    const [filterInput, setFilterInput] = useState('')
+
+    // creo la funcion para obtener las juntas filtradas
+    const filteredMeetings = meetings.filter( meeting => meeting.title.toLowerCase().includes(filterInput.toLowerCase()))
+
   return (
     <Router>
       <Switch>
@@ -127,7 +133,8 @@ function App() {
             setLoginTeacher={setLoginTeacher}
             login={login}
             setLogin={setLogin}
-            meetings={meetings}
+            meetings={filteredMeetings}
+            setFilterInput={setFilterInput}
           />
         </Route>
         <Route exact path="/NewMeeting"> 
