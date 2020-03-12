@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import Header from '../Header'
+import Header from '../HeaderLogin'
 import Footer from '../Footer'
 import Error from '../Error'
 import { Redirect } from "react-router-dom";
@@ -70,26 +70,28 @@ const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher, setLoginPa
 
   return (
     <Fragment>
-      <Header/>
-      <div className="teachers-login">
-        <h1>Registro de maestros</h1>
-        <form 
-          onSubmit={handleSubmit}
-        >
-          <div className="teachers-login__inputs">
-            <input type="text" name="fullName" onChange = {handleChange} placeholder="Nombre completo" />
-            <input type="email" name="userName" onChange = {handleChange} placeholder="Correo Electrónico" />
-            <input type="password" name="password" onChange = {handleChange} placeholder="Contraseña" />
-            <input type="password" name="confirm" onChange = {handleChange} placeholder="Confirma tu contraseña" />
-            {error ? <Error className='error-red' message={errorType}/> : null}
-            {loginTeacher ? <Redirect from="/TeacherLogin" to="/DashboardTeachers" />: null }
-            <div className="teachers-login__btns">
-                <Link className="btn-back-yellow" to="/UserSelecter">Regresar</Link>
-                <button className="btn-next-yellow" type='submit' onSubmit={handleSubmit}>Registrarse</button>
+      <div className ="bg">
+      <Link className="login-button" to="/">Iniciar sesión</Link>
+        <div className="teachers-login">
+        <img src="./assets/img/logo-punto-school.png" className="img-fluid-login" alt="Logotipo" />
+          <h1>Registro de maestros</h1>
+          <form 
+            onSubmit={handleSubmit}
+          >
+            <div className="teachers-login__inputs">
+              <input type="text" name="fullName" onChange = {handleChange} placeholder="Nombre completo" />
+              <input type="email" name="userName" onChange = {handleChange} placeholder="Correo Electrónico" />
+              <input type="password" name="password" onChange = {handleChange} placeholder="Contraseña" />
+              <input type="password" name="confirm" onChange = {handleChange} placeholder="Confirma tu contraseña" />
+              {error ? <Error className='error-red' message={errorType}/> : null}
+              {loginTeacher ? <Redirect from="/TeacherLogin" to="/DashboardTeachers" />: null }
+              <div className="teachers-login__btns">
+                  <Link className="btn-back-yellow" to="/UserSelecter">Regresar</Link>
+                  <button className="btn-next-yellow" type='submit' onSubmit={handleSubmit}>Registrarse</button>
+              </div>
             </div>
-          </div>
-        </form>
-        <Link to={'/'} >Iniciar sesión</Link>
+          </form>
+        </div>
       </div>
       <Footer/>
       
