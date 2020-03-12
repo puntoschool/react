@@ -53,7 +53,6 @@ const TeacherLogin = ({newUserAccount, setLogin, setLoginTeacher, loginTeacher, 
 
    // invoco la función para guardar la informacion del usuario que entro
    setLogin(account)
-   console.log(account)
 
    //Limpio el formulario de información
    setAccount({

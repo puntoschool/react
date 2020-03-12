@@ -1,4 +1,4 @@
-import React, { Fragment , useState, useEffect, Component} from 'react';
+import React, { useState, useEffect} from 'react';
 import Login from './components/Login';
 import UserSelecter from './components/UserSelecter';
 import TeacherLogin from './components/teachers/TeacherLogin';
@@ -150,6 +150,7 @@ function App() {
             setLoginParent={setLoginParent}
             login={login}
             setLogin={setLogin}
+            meetings={meetings}
           />
         </Route>
         <Route exact path="/MeetingList">
@@ -157,6 +158,7 @@ function App() {
             setLoginParent={setLoginParent}
             login={login}
             setLogin={setLogin}
+            meetings={meetings}
           />
         </Route>
       </Switch>

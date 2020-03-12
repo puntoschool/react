@@ -1,11 +1,10 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import Header from '../Header'
 import Footer from '../Footer'
 import Error from '../Error'
 import { Redirect } from "react-router-dom";
 
-const ParentsLogin = ({newUserAccount, setLoginParent, loginParent, setLoginTeacher, accounts}) => {
+const ParentsLogin = ({newUserAccount, setLogin, setLoginParent, loginParent, setLoginTeacher, accounts}) => {
 
   // Defino el objeto de cuenta
   const [account, setAccount] = useState({
@@ -52,6 +51,9 @@ const ParentsLogin = ({newUserAccount, setLoginParent, loginParent, setLoginTeac
    // invoco la funcion de crear cuenta
    newUserAccount(account)
 
+  // invoco la función para guardar la informacion del usuario que entro
+  setLogin(account)
+
    //Limpio el formulario de información
   setAccount({
      fullName:'', 
@@ -70,7 +72,7 @@ const ParentsLogin = ({newUserAccount, setLoginParent, loginParent, setLoginTeac
 
   return (
     <Fragment>
-      <Header/>
+     
       <div className="parents-login">
         <h1>Registro de Padres de familia</h1>
         <form
@@ -97,5 +99,3 @@ const ParentsLogin = ({newUserAccount, setLoginParent, loginParent, setLoginTeac
 };
 
 export default ParentsLogin;
-
-

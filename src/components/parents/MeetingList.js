@@ -1,10 +1,10 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuParents from "./MenuParents";
 import { Link } from "react-router-dom";
 
-const MeetingList = ({setLoginParent, login, setLogin}) => {
+const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
 
   return (
     <Fragment>
