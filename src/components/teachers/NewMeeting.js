@@ -193,7 +193,7 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                           Link de junta:
                         </label>
                         <input
-                          type="url"
+                          type="text"
                           className="line col-sm-7 col-5"
                           id="link"
                           name="link"
