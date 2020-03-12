@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
+
 const MeetingVideo = ({meetingVideo}) => {
 
     var getM = new Date(meetingVideo.date).getMonth()
@@ -22,13 +23,18 @@ const MeetingVideo = ({meetingVideo}) => {
     month[11] = "Diciembre"
 
     getM = month[getM]
+   
+    const link = meetingVideo.link.replace('560','100%').replace('315','100%')
+
     return ( 
 
         <article className="video-meeting">
             <div className="row align-items-center">
-                <div className="col-sm-3 col-12">
+                <div className="col-sm-3 col-12 cont-video">
                 <Link to={'/DetailMeeting'} >
-                    `{meetingVideo.link}`
+                    {   
+                        require('html-react-parser')(link)
+                    }
                 </Link>
                 </div>
                 <div className="col-sm-6 col-12">

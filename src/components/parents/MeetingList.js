@@ -33,7 +33,7 @@ const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
                     : <b>No hay juntas programadas</b>
                   }
                 </section>
-              </main>
+              </main>s
             </div>
           </div>
         </section>
