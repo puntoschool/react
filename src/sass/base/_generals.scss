@@ -200,7 +200,6 @@ a:hover {
     display: inline-block;
     -webkit-box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.15);
     line-height: 45px;
     padding: 0 60px;
     -webkit-border-radius: 22.5px;
@@ -285,6 +284,11 @@ a:hover {
     color: $color-yellow !important;
 }
 
+.parents-login,
+.teachers-login {
+    background-image: url(/public/assets/img/bg-admin.png);
+    background-size: cover;
+}
 .bold {
     font-weight: 700;
 }

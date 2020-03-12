@@ -72,26 +72,26 @@ const ParentsLogin = ({newUserAccount, setLogin, setLoginParent, loginParent, se
 
   return (
     <Fragment>
-     
-      <div className="parents-login">
-        <h1>Registro de Padres de familia</h1>
-        <form
-          onSubmit={handleSubmit}
-        >
-          <div className="parents-login__inputs">
-            <input type="text" name="fullName" onChange = {handleChange} placeholder="Nombre completo" />
-            <input type="email" name="userName" onChange = {handleChange} placeholder="Correo Electrónico" />
-            <input type="password" name="password" onChange = {handleChange} placeholder="Contraseña" />
-            <input type="password" name="confirm" onChange = {handleChange} placeholder="Confirma tu contraseña" />
-            {error ? <Error className='error-red' message={errorType}/> : null}
-            {loginParent ? <Redirect from="/ParentsLogin" to="/WelcomeParents" />: null }
-            <div className="parents-login__btns">
-                <Link className="btn-back-blue" to="/UserSelecter">Regresar</Link>
-                <button className="btn-next-yellow" type='submit' onSubmit={handleSubmit}>Registrare</button>
+      <div className="bg">
+      <Link className="login-button" to="/">Iniciar sesión</Link>
+        <div className="parents-login">
+        <img src="./assets/img/logo-punto-school.png" className="img-fluid-login" alt="Logotipo" />
+          <h1>Registro de Padres de familia</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="parents-login__inputs">
+              <input type="text" name="fullName" onChange = {handleChange} placeholder="Nombre completo" />
+              <input type="email" name="userName" onChange = {handleChange} placeholder="Correo Electrónico" />
+              <input type="password" name="password" onChange = {handleChange} placeholder="Contraseña" />
+              <input type="password" name="confirm" onChange = {handleChange} placeholder="Confirma tu contraseña" />
+              {error ? <Error className='error-red' message={errorType}/> : null}
+              {loginParent ? <Redirect from="/ParentsLogin" to="/WelcomeParents" />: null }
+              <div className="parents-login__btns">
+                  <Link className="btn-back-blue" to="/UserSelecter">Regresar</Link>
+                  <button className="btn-next-yellow" type='submit' onSubmit={handleSubmit}>Registrarse</button>
+              </div>
             </div>
-          </div>
-        </form>
-        <Link to={'/'} >Iniciar sesión</Link>
+          </form>
+        </div>
       </div>
       <Footer/>
     </Fragment>
