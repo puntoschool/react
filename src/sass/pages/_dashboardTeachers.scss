@@ -27,6 +27,18 @@
             box-shadow: 4px 4px 6px -2px rgba(214,214,214,1);
         }
     }
+    .meeting-text h3 {
+        color: $color-yellow;
+    }
+    .dashboard-meetings .video-meeting .meeting-title {
+        color: $color-yellow;
+    }
+    .meeting-comments {
+        border: 2px solid $color-yellow;
+    }
+    .meeting-input button {
+        color: $color-yellow;
+    }
 }
 
 .dash-teachers{

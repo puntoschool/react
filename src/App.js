@@ -8,6 +8,8 @@ import DetailMeeting from './components/parents/DetailMeeting';
 import MeetingList from './components/parents/MeetingList';
 import DashboardTeachers from './components/teachers/DashboardTeachers';
 import NewMeeting from './components/teachers/NewMeeting';
+import MeetingHistoryTeachers from './components/teachers/MeetingHistoryTeachers';
+import DetailMeetingTeachers from './components/teachers/DetailMeetingTeachers';
 import "./sass/main.scss";
 import {
   BrowserRouter as Router,
@@ -155,6 +157,22 @@ function App() {
         </Route>
         <Route exact path="/MeetingList">
           <MeetingList
+            setLoginParent={setLoginParent}
+            login={login}
+            setLogin={setLogin}
+            meetings={meetings}
+          />
+        </Route>
+        <Route exact path="/MeetingHistoryTeachers">
+          <MeetingHistoryTeachers
+            setLoginParent={setLoginParent}
+            login={login}
+            setLogin={setLogin}
+            meetings={meetings}
+          />
+        </Route>
+        <Route exact path="/DetailMeetingTeachers">
+          <DetailMeetingTeachers
             setLoginParent={setLoginParent}
             login={login}
             setLogin={setLogin}

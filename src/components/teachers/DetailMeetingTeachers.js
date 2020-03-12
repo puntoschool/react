@@ -1,13 +1,13 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
-import MenuParents from "./MenuParents";
+import MenuTeachers from "./MenuTeachers";
 
-const DetailMeeting = ({setLoginParent, login, setLogin}) => {
+const DetailMeetingTeachers = ({setLoginParent, login, setLogin}) => {
   
   return (
     <Fragment>
-      <div className="admin parents">
+      <div className="admin teachers">
         <Header 
             setLoginParent={setLoginParent}
             login={login}
@@ -16,7 +16,7 @@ const DetailMeeting = ({setLoginParent, login, setLogin}) => {
         <section className="dashboard mt-80">
           <div className="container-fluid">
             <div className="row">
-              <MenuParents />
+              <MenuTeachers />
               <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
                     <div className="row mb-4">
                         <div className="col-md-4 col-6">
@@ -42,14 +42,14 @@ const DetailMeeting = ({setLoginParent, login, setLogin}) => {
                                     </div>
                                 </div>
                                 <div className="col-sm-6 text-right mt-2">
-                                    <a href="#" download className="btn-border-blue btn-sm align-items-center">
+                                    <a href="#" download className="btn-border-yellow btn-sm align-items-center">
                                         <i className="fas fa-download"></i> Descargar Minuta
                                     </a>
                                 </div>
                             </div>
                         </article>
                         <div className="col-sm-3 meeting-chat">
-                            <h5 className="blue-color bold">Preguntas</h5>
+                            <h5 className="yellow-color bold">Preguntas</h5>
                             <div className="meeting-comments">
                                 <div className="comment">
                                     <h5>Alberto Rivas</h5>
@@ -72,4 +72,4 @@ const DetailMeeting = ({setLoginParent, login, setLogin}) => {
   );
 };
 
-export default DetailMeeting;
+export default DetailMeetingTeachers;
