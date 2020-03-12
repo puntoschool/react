@@ -48,13 +48,13 @@
 
     &__input{
         border-radius: 25px;
-        padding: .5rem;
+        padding: 1rem 1rem 1rem 30px;
         align-self: center;
         flex-basis: 40%;
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         border: 1px solid $color-grey-light;
-        right: 20px;
         &:focus,
+        &:active,
         &:hover{
             border: 1px solid $color-yellow;
             outline: none;
@@ -75,10 +75,10 @@
     &__filter-icon{
         width: 2rem;
         margin: auto;
-        left: -1rem;
+        left: 23px;
         color: $color-yellow;
         position: absolute;
-        top: 5px;
+        top: 10px;
     }
 
     &__list{

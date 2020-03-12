@@ -33,7 +33,7 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setFilte
                     <input 
                       type='search' 
                       className="dash-teachers__input" 
-                      placeholder='buscar por titulo de junta'
+                      placeholder='Buscar por título de junta'
                       name='filterInput'
                       onChange={handleChange}
                     />
