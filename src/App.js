@@ -82,8 +82,37 @@ function App() {
     // Creo el state para las juntas filtradas
     const [filterInput, setFilterInput] = useState('')
 
-    // creo la funcion para obtener las juntas filtradas
+    // funcion para obtener las juntas filtradas
     const filteredMeetings = meetings.filter( meeting => meeting.title.toLowerCase().includes(filterInput.toLowerCase()))
+
+
+
+
+    ///////////////POLL////////////////////////////////////////////////////////////77777
+
+    // Declaring poll question and answers
+    //const pollQuestion = '¿Vocal del grupo?'
+    // const posibleAnswers = [
+    //     { option: 'Karya', votes: 8 },
+    //     { option: 'Martina', votes: 2 },
+    //     { option: 'Isabella', votes: 10 }
+    // ]
+
+    //const [pollAnswers, setPollAnswers] = useState(posibleAnswers)
+
+    // Handling user vote
+    // Increments the votes count of answer when the user votes
+    // const handleVote = voteAnswer => {
+        
+    //     const newPollAnswers = pollAnswers.map(answer => {
+    //     if (answer.option === voteAnswer) answer.votes++
+    //     return answer
+    //     })
+
+    //     setPollAnswers({
+    //     pollAnswers: newPollAnswers
+    //     })
+    // }
 
   return (
     <Router>
@@ -133,7 +162,9 @@ function App() {
             setLoginTeacher={setLoginTeacher}
             login={login}
             setLogin={setLogin}
-            meetings={filteredMeetings}
+            meetings={meetings}
+            filteredMeetings={filteredMeetings}
+            setMeetings={setMeetings}
             setFilterInput={setFilterInput}
           />
         </Route>

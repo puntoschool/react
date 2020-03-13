@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Meeting = ({meeting}) => {
+const Meeting = ({meeting, handleDeleteMeeting}) => {
 
     var getM = new Date(meeting.date).getMonth()
 
@@ -35,7 +35,7 @@ const Meeting = ({meeting}) => {
             </div>
             
             <div class="meeting-arrow">
-                <span className="start-meeting d-block d-sm-inline">Eliminar Junta</span> <i class="fas fa-chevron-right"></i>
+                <button onClick={() =>{handleDeleteMeeting(meeting.id)}} className="start-meeting d-block d-sm-inline">Eliminar Junta</button> <i class="fas fa-chevron-right"></i>
                 <span className="start-meeting d-block d-sm-inline">Editar Junta</span> <i class="fas fa-chevron-right"></i>
                 <span className="start-meeting d-block d-sm-inline">Iniciar Junta</span> <i class="fas fa-chevron-right"></i>
             </div>

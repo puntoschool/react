@@ -73,7 +73,11 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
         <section className="dashboard mt-80">
           <div className="container-fluid">
             <div className="row">
-              <MenuTeachers />
+              <MenuTeachers 
+                setLoginTeacher={setLoginTeacher}
+                login={login}
+                setLogin={setLogin}
+              />
               <main className="dash-new-meeting col-md-10 col-sm-9">
                 <div className="justify-content-center">
                   <h1 className="dash-new-meeting__title">Agendar Junta</h1>

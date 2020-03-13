@@ -18,7 +18,11 @@ const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
         <section className="dashboard mt-80">
           <div className="container-fluid">
             <div className="row">
-              <MenuParents />
+              <MenuParents 
+                setLoginParent={setLoginParent}
+                login={login}
+                setLogin={setLogin}
+              />
               <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
                 <section className="video-list">
                   <h2>Historial de juntas</h2>

@@ -16,7 +16,11 @@ const WelcomeParents = ({setLoginParent, login, setLogin}) => {
           <section className="dashboard mt-80">
             <div className="container-fluid">
               <div className="row">  
-                <MenuParents />
+                <MenuParents 
+                  setLoginParent={setLoginParent}
+                  login={login}
+                  setLogin={setLogin}
+                />
                 <main className="dash-main col-md-10 col-sm-9 dash-welcome">
                   <section className="row justify-content-center">
                     <div className="col-md-8 col-sm-9 col-10 mb-sm-5">

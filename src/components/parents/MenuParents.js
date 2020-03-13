@@ -1,7 +1,21 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
-const MenuParents = () => {
+const MenuParents = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
+
+  const {fullName, userType} = login
+
+  const handleLogout = () =>{
+
+    if(userType === 'parent'){
+      setLoginParent(false)
+      setLogin({})
+    }else if(userType === 'teacher'){
+      setLoginTeacher(false)
+      setLogin({})
+    }
+  }
+
   return (
     <Fragment>
       <aside className="dash-menu col-md-2 col-sm-3">
@@ -21,14 +35,14 @@ const MenuParents = () => {
               <li className="text-left ml-0">
                 <i className="fas fa-user mr-1"></i>
                 <h5>
-                  José Martínez Fernández <span className="d-block">Dirección</span>
+                  {fullName} <span className="d-block">{userType}</span>
                 </h5>
               </li>
               <li>
               <Link to={'/WelcomeParents'} ><i className="fas fa-home"></i></Link>
               </li>
               <li>
-              <Link to={'/'} ><i className="fas fa-sign-out-alt"></i></Link>
+              <Link to={'/'} ><i onClick={handleLogout} className="fas fa-sign-out-alt"></i></Link>
               </li>
             </ul>
             <ul className="navbar-nav">

@@ -1,14 +1,19 @@
-import React, { useState, Fragment } from "react";
+import React, { Fragment } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
 import Meeting from '../teachers/Meeting'
 
-const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setFilterInput}) => {
+const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeetings, setFilterInput, filteredMeetings}) => {
 
   const handleChange = e => {
     setFilterInput (e.target.name= e.target.value)
   }
+
+   const handleDeleteMeeting = (meetingId) => {
+     meetings = meetings.filter( meeting => meeting.id !== meetingId)
+     setMeetings(meetings)
+   }
   
   return (
     <Fragment>
@@ -21,7 +26,11 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setFilte
         <section className="dashboard">
           <div className="container-fluid">
             <div className="row">
-              <MenuTeachers />
+              <MenuTeachers 
+                setLoginTeacher={setLoginTeacher}
+                login={login}
+                setLogin={setLogin}
+              />
               <main className="dash-main dash-teachers col-md-10 col-sm-9">
                 <div className="row">
                   <div className="col-sm-9">
@@ -48,10 +57,11 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setFilte
                     { 
                       meetings.length > 0 
                       ?
-                        meetings.map(meeting => (
+                      filteredMeetings.map(meeting => (
                           <Meeting
                           key={meeting.id}
                           meeting={meeting}
+                          handleDeleteMeeting={handleDeleteMeeting}
                           /> 
                         ))
                       : <b>No hay juntas programadas</b>
