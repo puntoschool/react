@@ -1,5 +1,5 @@
 .user-selecter{
-    height: calc(100vh - 60px);
+    height: calc(100vh - 65px);
     background-image: url('../bg-login.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -8,13 +8,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 
     &-flex{  
         display: flex;
         flex-direction: column;
-        justify-content: center;
         max-width: 992px;
-        margin: 10rem auto;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         
         @media screen and (max-width: $break-xsm) {
             height: auto;
@@ -34,5 +36,10 @@
     &__btns{
         display: flex;
         justify-content: space-between;
+
+        @media screen and (min-width: $break-xsm) and (max-width: 400px) {
+            display:inline-block;
+            text-align: center;
+        }
     }
 }

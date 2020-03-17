@@ -66,7 +66,7 @@
     color: $color-grey-dark;
     padding: 30px 10px 50px;
     min-height: calc(100vh - 140px);
-    @media screen and (max-width: $break-md) {
+    @media screen and (max-width: $break-large) {
         padding: 0;
         min-height: auto;
     }
@@ -407,10 +407,17 @@
         }
     }
     .meeting-arrow {
-            color: $color-pink-light;
-            font-size: 2rem;
+        color: $color-pink-light;
+        font-size: 2rem;
+        text-align: right;        
         &:hover {
             color: $color-pink-dark;
+        }
+        .start-meeting {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            vertical-align: middle;
+            line-height: 1;
         }
     }
 }
@@ -431,7 +438,7 @@
         }
     }
     .video-meeting {
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
         .meeting-title {
             font-size: 2.4rem;
             font-weight: 700;
@@ -496,22 +503,29 @@
             font-size: 2rem;
             line-height: 1.2;
             margin-bottom: 0;
+            @media screen and (max-width: $break-large) {
+                font-size: 1.8rem;
+            }
         }
         p {
             color: $color-grey-mid;
             font-weight: 400;
             font-size: 1.4rem;
             margin-bottom: 0;
+            line-height: 1.2;
         }
     }
 }
 
 .meeting-input {
+    display: flex;
     input {
         background-color: #eeeeee;
         border: 0;
         border-radius: 15px;
         padding: 5px 10px;
+        font-size: 1.2rem;
+        margin-right: 3px;
     }
     button {
         background-color: transparent;

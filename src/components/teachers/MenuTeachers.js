@@ -1,14 +1,22 @@
 import React, { Fragment } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const MenuTeachers = () => {
+const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
+  
+  const {fullName, userType} = login
+
+  const handleLogout = () =>{
+
+    if(userType === 'parent'){
+      setLoginParent(false)
+      setLogin({})
+    }else if(userType === 'teacher'){
+      setLoginTeacher(false)
+      setLogin({})
+    }
+  }
   return (
-    <Router>
+    <Fragment>
       <aside className="dash-menu col-md-2 col-sm-3">
         <nav className="navbar navbar-expand-sm">
           <button
@@ -26,33 +34,32 @@ const MenuTeachers = () => {
             <ul className="dash-nav d-flex d-sm-none justify-content-between mb-5">
               <li className="text-left ml-0">
                 <i className="fas fa-user mr-1"></i>
-                <h5>
-                  José Martínez Fernández{" "}
-                  <span className="d-block">Dirección</span>
+                <h5>{fullName}
+                  <span className="d-block">{userType}</span>
                 </h5>
               </li>
               <li>
-                <Link to="/DashboardTeachers"><i className="fas fa-home"></i></Link>
+                <Link to={"/DashboardTeachers"}><i className="fas fa-home"></i></Link>
               </li>
               <li>
-                <Link to=""><i className="fas fa-sign-out-alt"></i></Link>
+                <Link to=""><i onClick={handleLogout} className="fas fa-sign-out-alt"></i></Link>
               </li>
             </ul>
             <ul className="navbar-nav">
               <li className="nav-item active">
-                <Link to="/DashboardTeachers" className="nav-link">
+                <Link  className="nav-link" to={'/DashboardTeachers'} >
                   <i className="fas fa-calendar-alt fa-fw"></i>
                   <span>Calendario de Juntas</span>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/meetingHistory" className="nav-link">
+                <Link to={'/meetingHistory'} className="nav-link">
                   <i className="fas fa-folder-open fa-fw"></i>
                   <span>Historial de Juntas</span>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/NewMeeting" className="nav-link">
+                <Link to={"/NewMeeting"} className="nav-link">
                   <i className="far fa-calendar-check fa-fw"></i>
                   <span>Agendar Nueva Junta</span>
                 </Link>
@@ -61,7 +68,7 @@ const MenuTeachers = () => {
           </div>
         </nav>
       </aside>
-    </Router>
+    </Fragment>
   );
 };
 

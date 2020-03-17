@@ -46,9 +46,7 @@ const Login = ({accounts, setLogin, setLoginParent, setLoginTeacher}) => {
     // Validando que la info ingresada corresponda a un usuario y password registrado
     if(validation){
       setError(false)
-      setLogin(true)
-      console.log('Login correcto')
-
+      console.log(validation)
       // Evaluar el tipo de usuario para poder direccionarlo a su dashboard correspondiente
       if (validation.userType === 'teacher'){
         setLoginTeacher(true)
@@ -59,54 +57,60 @@ const Login = ({accounts, setLogin, setLoginParent, setLoginTeacher}) => {
     } else{
       setError(true)
       setErrorType('Usuario / Password incorrectos')
-      setLogin(false)
+      setLoginParent(false)
+      setLoginTeacher(false)
     }
-    
+
+    setLogin(validation)
+
   }
 
   return (
     <Fragment>
       <section className="login">
-        <div className="container">
-          <div className="row justify-content-start">
-            <div className="col-lg-3 col-md-4 col-sm-6 col-7 mt-3vh">
-              <img src="./assets/img/logo-punto-school.png" className="img-fluid" alt="Logotipo" />
+        <div className= 'login__center'>
+          <div className="container mb-md-5">
+            <div className="row justify-content-start">
+              <div className="col-lg-4 col-md-5 col-6 mt-3vh">
+                <img src="./assets/img/logo-punto-school.png" className="img-fluid" alt="Logotipo" />
+              </div>
+              <div className="col-lg-8 col-md-7 col-6"></div>
             </div>
-            <div className="col-sm-9 col-9"></div>
           </div>
-        </div>
 
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-7 col-lg-8 col-md-8 col-sm-9 col-12 mt-3">
-              <h1 className="title">Juntas de Padres</h1>
-              <h2 className="subtitle">livestreaming</h2>
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-lg-6 col-md-8 col-sm-9 col-12 mt-3">
+                <h1 className="title">Juntas de Padres</h1>
+                <h2 className="subtitle">livestreaming</h2>
+              </div>
             </div>
-          </div>
-          <div className="row justify-content-md-end justify-content-center mt-1vh">
-            <div className="col-lg-5 col-md-6 col-sm-8 col-11">
-              <form 
-                onSubmit={handleSubmit}
-              >  
-                <div className="login-form">
-                  <input type="email" name='userName' value={userName} onChange={handleChange} placeholder="Correo Electrónico" />
-                  <input type="password" name='password' value={password} onChange={handleChange} placeholder="Contraseña" />
-                  {error ? <Error style={{color:'white', display:'block', marginBottom:'2rem', fontSize:'3rem'}} message={errorType}/> : null}
-                  <input className="btn-border-white" type='submit' value='ingresar'/>
-                </div>
-              </form>
-            </div>
-            <div className="offset-md-2 col-sm-12 col-12 col-md-2 align-self-sm-end align-self-md-center">
-              <Link to={"/UserSelecter"}>
-                <div className="create-account">
-                  <i className="fas fa-plus-circle"></i>
-                  <h5> Crea <br /> tu cuenta </h5>
-                </div>
-              </Link>
+            <div className="row justify-content-md-end justify-content-center mt-1vh">
+              <div className="col-lg-5 col-md-6 col-sm-8 col-10">
+                <form 
+                  onSubmit={handleSubmit}
+                >  
+                  <div className="login-form">
+                    <input type="email" name='userName' value={userName} onChange={handleChange} placeholder="Correo Electrónico" />
+                    <input type="password" name='password' value={password} onChange={handleChange} placeholder="Contraseña" />
+                    {error ? <Error style={{color:'white', display:'block', marginBottom:'2rem', fontSize:'3rem'}} message={errorType}/> : null}
+                    <input className="btn-login" type='submit' value='ingresar'/>
+                  </div>
+                </form>
+              </div>
+              <div className="offset-md-2 col-sm-12 col-12 col-md-2 align-self-sm-end align-self-md-center">
+                <Link to={"/UserSelecter"}>
+                  <div className="create-account">
+                    <i className="fas fa-plus-circle"></i>
+                    <h5> Crea <br /> tu cuenta </h5>
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
+   
       <Footer />
     </Fragment>
   );

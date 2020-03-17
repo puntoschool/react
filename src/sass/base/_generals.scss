@@ -55,6 +55,7 @@ a:hover {
 
 .btn-yellow-gradient{
     text-align: center;
+    font-size:1.8rem;
     font-weight: 700;
     color: $color-white;
     background-image: linear-gradient(to right, rgba($color-orange,.81) , rgba($color-yellow,1));
@@ -64,6 +65,7 @@ a:hover {
     transition: all .5s;
     border-radius: 25px;
     text-transform: uppercase;
+    margin: 2rem;
 
     &:hover {
     background-image: linear-gradient(to right, rgba($color-yellow,1) , rgba($color-orange,.81));
@@ -73,6 +75,7 @@ a:hover {
 
 .btn-blue-gradient{
     text-align: center;
+    font-size:1.8rem;
     font-weight: 700;
     color: $color-white;
     background-image: linear-gradient(to right, rgba($color-blue-light,.81) , rgba($color-blue-lighter,1));
@@ -82,6 +85,7 @@ a:hover {
     transition: all .5s;
     border-radius: 25px;
     text-transform: uppercase;
+    margin: 2rem;
 
     &:hover {
     background-image: linear-gradient(to right, rgba($color-blue-lighter,1) , rgba($color-blue-light,.81));
@@ -119,6 +123,22 @@ a:hover {
     &:hover {
     color: $color-pink-dark;
     border: 2px solid $color-pink-dark;
+    }
+}
+.btn-border-blue {
+    text-align: center;
+    font-weight: 700;
+    color: $color-blue-light;
+    background: transparent;
+    padding: 1.3rem 2rem;
+    border: 2px solid $color-blue-light;
+    text-decoration: none;
+    transition: all .5s;
+    border-radius: 25px;
+    line-height: 1;
+    &:hover {
+    color: $color-blue-dark !important;
+    border: 2px solid $color-blue-dark;
     }
 }
 
@@ -268,4 +288,10 @@ a:hover {
 .teachers-login {
     background-image: url(/public/assets/img/bg-admin.png);
     background-size: cover;
+}
+.bold {
+    font-weight: 700;
+}
+.cont-video{
+    max-width: 300px;
 }

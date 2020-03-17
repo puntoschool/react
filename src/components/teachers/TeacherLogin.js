@@ -5,7 +5,7 @@ import Footer from '../Footer'
 import Error from '../Error'
 import { Redirect } from "react-router-dom";
 
-const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher, setLoginParent, accounts}) => {
+const TeacherLogin = ({newUserAccount, setLogin, setLoginTeacher, loginTeacher, setLoginParent, accounts}) => {
 
   // Defino el objeto de cuenta
   const [account, setAccount] = useState({
@@ -51,6 +51,9 @@ const TeacherLogin = ({newUserAccount, setLoginTeacher, loginTeacher, setLoginPa
 
    // invoco la funcion de crear cuenta
    newUserAccount(account)
+
+   // invoco la función para guardar la informacion del usuario que entro
+   setLogin(account)
 
    //Limpio el formulario de información
    setAccount({

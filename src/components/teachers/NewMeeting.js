@@ -1,37 +1,11 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
 import Error from '../Error'
 import uuid from 'uuid/v4'
-import { withRouter } from "react-router-dom";
 
-const NewMeeting = () => {
-
-  // Inicializando variable con las cuentas de local Storage
-  let recordedMeeting = JSON.parse(localStorage.getItem("meetings"));
-  if (!recordedMeeting) {
-    recordedMeeting = [];
-  }
-
-  // inicializando el State con el arreglo de cuentas de local storage
-  const [meetings, setMeetings] = useState(recordedMeeting);
-
-  // UseEffect para actualizar algo en caso de que cambie algo
-  useEffect(() => {
-    let recordedMeeting = JSON.parse(localStorage.getItem("meetings"));
-
-    if (recordedMeeting) {
-      localStorage.setItem("meetings", JSON.stringify(meetings));
-    } else {
-      localStorage.setItem("meetings", JSON.stringify([]));
-    }
-  }, [meetings]);
-
-  // Creo la función para guardar la cuenta creada en el arreglo de cuentas
-  const newMeeting = (meeting) => {
-    setMeetings([...meetings, meeting]);
-  };
+const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
 
   const [meeting, setMeeting] = useState({
     title: "",
@@ -90,12 +64,20 @@ const NewMeeting = () => {
   
   return (
     <Fragment>
-      <div className="teachers">
-        <Header />
+      <div className="admin teachers">
+        <Header 
+          setLoginTeacher={setLoginTeacher}
+          login={login}
+          setLogin={setLogin}
+        />
         <section className="dashboard mt-80">
           <div className="container-fluid">
             <div className="row">
-              <MenuTeachers />
+              <MenuTeachers 
+                setLoginTeacher={setLoginTeacher}
+                login={login}
+                setLogin={setLogin}
+              />
               <main className="dash-new-meeting col-md-10 col-sm-9">
                 <div className="justify-content-center">
                   <h1 className="dash-new-meeting__title">Agendar Junta</h1>
@@ -104,7 +86,7 @@ const NewMeeting = () => {
                     <div className="col-sm-8 col-11">
                       <div className="d-flex mb-5">
                         <label className="labels" for="title">
-                          Titulo:{" "}
+                          Titulo:
                         </label>
                         <input
                           type="text"
@@ -215,7 +197,7 @@ const NewMeeting = () => {
                           Link de junta:
                         </label>
                         <input
-                          type="url"
+                          type="text"
                           className="line col-sm-7 col-5"
                           id="link"
                           name="link"
@@ -223,7 +205,7 @@ const NewMeeting = () => {
                           value={meeting.link}
                         />
                         <button
-                          type="submit"
+                          type="button"
                           className="btn labels text-yellow col-2"
                           for="link"
                         >
