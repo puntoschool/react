@@ -7,6 +7,11 @@
         margin-top: 5rem;
         margin-left:5rem;
         margin-bottom: 5rem;
+        @media screen and (max-width: $break-small) {
+            margin-top: 0;
+            margin-left: 0;
+            margin-bottom: .1rem;
+        }
     }
     .labels{
         margin-left: 0;
@@ -32,4 +37,11 @@
     font-size: 1.6rem;
     color: #9d9d9d;
     font-weight: 400;
+}
+
+.scroll-sm {
+    @media screen and (max-width: $break-small) {
+        height: calc(100vh - 235px);
+        overflow-y: auto;
+    }
 }

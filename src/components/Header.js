@@ -37,11 +37,6 @@ const Header = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
                   <i className="fas fa-user"></i>
                 </li>
                 <li>
-                  <a href="#!">
-                    <i className="fas fa-home"></i>
-                  </a>{" "}
-                </li>
-                <li>
                   <Link to="/">
                     <a href="#" onClick={handleLogout}>
                       <i className="fas fa-sign-out-alt"></i>

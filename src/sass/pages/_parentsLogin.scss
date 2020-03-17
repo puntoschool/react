@@ -48,7 +48,7 @@
             margin-top:2rem;
             background-color: transparent;
 
-            &:hover{
+            &:hover, &:focus, &:active {
                 border: 2px solid $color-blue-light;
             }
         }

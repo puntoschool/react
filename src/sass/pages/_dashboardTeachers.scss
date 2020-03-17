@@ -27,8 +27,10 @@
             box-shadow: 4px 4px 6px -2px rgba(214,214,214,1);
         }
     }
-    .meeting-text h3 {
-        color: $color-yellow;
+    .meeting-text {
+        h3 {
+            color: $color-yellow;
+        }
     }
     .dashboard-meetings .video-meeting .meeting-title {
         color: $color-yellow;
@@ -156,4 +158,12 @@
 
 .space-between{
     justify-content: space-between;
+}
+
+.copy-success {
+    position: absolute;
+    right: 0;
+    background: $color-grey-light;
+    margin-top: 24px;
+    color: $color-grey-dark;
 }

@@ -44,7 +44,7 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setFilte
                 </div>
 
                 <div className="row justify-content-center">
-                  <div className="col-sm-9 col-12">
+                  <div className="col-sm-9 col-12 scroll-sm">
                     { 
                       meetings.length > 0 
                       ?

@@ -25,9 +25,6 @@ const MenuParents = () => {
                 </h5>
               </li>
               <li>
-              <Link to={'/WelcomeParents'} ><i className="fas fa-home"></i></Link>
-              </li>
-              <li>
               <Link to={'/'} ><i className="fas fa-sign-out-alt"></i></Link>
               </li>
             </ul>

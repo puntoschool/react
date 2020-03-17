@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import { Link } from "react-router-dom";
 
 const Meeting = ({meeting}) => {
 
@@ -21,7 +22,20 @@ const Meeting = ({meeting}) => {
     month[11] = "Dic"
 
     getM = month[getM]
-    
+
+    const [copySuccess, setCopySuccess] = useState('');
+    const idToCopy = useRef(null);
+
+    const copyToClipboard = e => {
+        idToCopy.current.select();
+        document.execCommand('copy');
+        e.target.focus();
+        setCopySuccess(' ID copiado en el portapapeles ')
+        setTimeout(() => {
+            setCopySuccess('')
+          }, 2000);
+    };
+   
     return ( 
         <article class="meeting-appointment">
             <div class="meeting-info">
@@ -30,14 +44,25 @@ const Meeting = ({meeting}) => {
                     <h3>{meeting.title}</h3>
                     <p><i class="far fa-clock"></i>{getM}  {getD}, {meeting.startTime} hrs.</p>
                     <p><i class="fas fa-user-graduate"></i>{meeting.grade}{meeting.group}</p>
-                    <h5>ID: <span className="yellow-color"><strong>{meeting.id}</strong></span></h5>
+                    <div className="d-flex align-items-center">
+                        <h5 className="mb-0">ID:</h5> 
+                        <input className="id-input" value={meeting.id} ref={idToCopy}></input>
+                        <button className="icon-button" onClick={copyToClipboard} ><i className="far fa-copy"></i></button>
+                        <p className="copy-success">{copySuccess}</p>
+                    </div>
                 </div>
             </div>
             
             <div class="meeting-arrow">
-                <span className="start-meeting d-block d-sm-inline">Eliminar Junta</span> <i class="fas fa-chevron-right"></i>
-                <span className="start-meeting d-block d-sm-inline">Editar Junta</span> <i class="fas fa-chevron-right"></i>
-                <span className="start-meeting d-block d-sm-inline">Iniciar Junta</span> <i class="fas fa-chevron-right"></i>
+                <span className="start-meeting d-block d-sm-inline">Iniciar Junta <i class="fas fa-chevron-right"></i></span>
+                <div className="meeting-actions">
+                    <Link to={'/'} >
+                        <i className="fas fa-edit"></i>
+                    </Link>
+                    <Link to={'/'} >
+                        <i className="fas fa-trash"></i>
+                    </Link>
+                </div>
             </div>
         </article>
         )

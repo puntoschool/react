@@ -31,10 +31,9 @@ const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
                       <div className="col-sm-6 col-12">
                         <Link to={'/DetailMeeting'} >
                           <div className="meeting-text">
-                            <h3>Junta de Inicio de cursos <small>324 vistas</small></h3>
+                            <h3>Junta de Inicio de cursos</h3>
                             <p><i className="far fa-clock"></i>9 de Febrero, 9:00 hrs.</p>
-                            <p><i className="fas fa-map-marker-alt"></i>Salón 2 </p>
-                            <h6>Comentarios</h6>
+                            <p><i className="fas fa-graduation-cap"></i>3ro A </p>
                           </div>
                       </Link>
                       </div>
@@ -54,14 +53,14 @@ const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
                       <div className="col-sm-6 col-12">
                       <Link to={'/DetailMeeting'} >
                           <div className="meeting-text">
-                            <h3>Junta de Inicio de cursos <small>324 vistas</small></h3>
+                            <h3>Junta de Inicio de cursos</h3>
                             <p><i className="far fa-clock"></i>9 de Febrero, 9:00 hrs.</p>
                             <p><i className="fas fa-graduation-cap"></i>3ro A </p>
                           </div>
                         </Link>
                       </div>
                       <div className="col-lg-2 col-md-3  col-12 text-right">
-                        <a href="#" download className="btn-border-blue btn-sm d-flex align-items-center mb-3">
+                        <a href="#" download className="btn-border-blue btn-sm d-flex align-items-center justify-content-center mb-3">
                           <i className="fas fa-download"></i> Descargar Minuta
                         </a>
                         <Link className="btn-plain" to={'/DetailMeeting'} >Ver Junta <i
@@ -79,14 +78,14 @@ const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
                       <div className="col-sm-6 col-12">
                       <Link to={'/DetailMeeting'} >
                           <div className="meeting-text">
-                            <h3>Junta de Inicio de cursos <small>324 vistas</small></h3>
+                            <h3>Junta de Inicio de cursos</h3>
                             <p><i className="far fa-clock"></i>9 de Febrero, 9:00 hrs.</p>
-                            <p><i className="fas fa-graduaction-cap"></i>5to B </p>
+                            <p><i className="fas fa-graduation-cap"></i>5to B </p>
                           </div>
                         </Link>
                       </div>
                       <div className="col-lg-2 col-md-3  col-12 text-right">
-                        <a href="#" download className="btn-border-blue btn-sm d-flex align-items-center mb-3">
+                        <a href="#" download className="btn-border-blue btn-sm d-flex align-items-center justify-content-center mb-3">
                           <i className="fas fa-download"></i> Descargar Minuta
                         </a>
                         <Link className="btn-plain" to={'/DetailMeeting'} >Ver Junta <i

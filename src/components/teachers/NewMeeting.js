@@ -78,7 +78,7 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                 <div className="justify-content-center">
                   <h1 className="dash-new-meeting__title">Agendar Junta</h1>
 
-                  <form className="row justify-content-center"onSubmit={handleSubmit}>
+                  <form className="row justify-content-center mt-5 mt-sm-0" onSubmit={handleSubmit}>
                     <div className="col-sm-8 col-11">
                       <div className="d-flex mb-5">
                         <label className="labels" for="title">
@@ -96,7 +96,7 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                       </div>
 
                       <div className="row mb-5">
-                        <div className="col-6 d-flex align-items-center">
+                        <div className="col-sm-6 col-12 d-flex align-items-center mb-5 mb-sm-0">
                           <label
                             className="labels d-flex align-items-center"
                             for="grade"
@@ -119,7 +119,7 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                           </select>
                         </div>
 
-                        <div className="col-6 d-flex align-items-center">
+                        <div className="col-sm-6 col-12 d-flex align-items-center">
                           <label
                             className="labels d-flex align-items-center"
                             for="group mr-2"
@@ -194,7 +194,7 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                         </label>
                         <input
                           type="url"
-                          className="line col-sm-7 col-5"
+                          className="line col-sm-6 col-7"
                           id="link"
                           name="link"
                           onChange={handleChange}
@@ -202,16 +202,11 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                         />
                         <button
                           type="button"
-                          className="btn labels text-yellow col-2"
+                          className="btn labels text-yellow col-sm-3 col-12 text-right text-sm-center mb-5 mb-sm-0"
                           for="link"
                         >
-                          Ver ID
-                        </button>
-                      </div>
-                      <div className="text-right mb-5">
-                        <a className="labeles light-grey" href="#">
                           ¿Cómo crear un link?
-                        </a>
+                        </button>
                       </div>
                       <div className="text-center mb-3">
                       {error ? <Error className='error-red' message={errorType}/> : null}

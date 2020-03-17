@@ -73,7 +73,7 @@ a:hover {
     }
 }
 
-.btn-blue-gradient{
+.btn-blue-gradient {
     text-align: center;
     font-size:1.8rem;
     font-weight: 700;
@@ -89,7 +89,7 @@ a:hover {
 
     &:hover {
     background-image: linear-gradient(to right, rgba($color-blue-lighter,1) , rgba($color-blue-light,.81));
-    color: $color-white;
+    color: $color-white !important;
     }
 }
 
@@ -291,4 +291,18 @@ a:hover {
 }
 .bold {
     font-weight: 700;
+}
+
+::-webkit-scrollbar {
+    min-width: 8px !important;
+    width: 8px !important;
+    max-width: 8px !important;
+    min-height: 8px !important;
+    height: 8px !important;
+    max-height: 8px !important;
+    background: #e5e5e5;
+    box-shadow: inset 0px 50px 0px rgba(193, 196, 197, 0.9), inset 0px -52px 0px #fafafa !important;
+}
+::-webkit-scrollbar-button {
+    height: 2px !important;
 }
