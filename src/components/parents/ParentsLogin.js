@@ -73,8 +73,8 @@ const ParentsLogin = ({newUserAccount, setLogin, setLoginParent, loginParent, se
   return (
     <Fragment>
       <div className="bg">
-      <Link className="login-button" to="/">Iniciar sesión</Link>
         <div className="parents-login">
+        <Link className="login-button-parents" to="/">Iniciar sesión</Link>
         <img src="./assets/img/logo-punto-school.png" className="img-fluid-login" alt="Logotipo" />
           <h1>Registro de Padres de familia</h1>
           <form onSubmit={handleSubmit}>
@@ -87,7 +87,7 @@ const ParentsLogin = ({newUserAccount, setLogin, setLoginParent, loginParent, se
               {loginParent ? <Redirect from="/ParentsLogin" to="/WelcomeParents" />: null }
               <div className="parents-login__btns">
                   <Link className="btn-back-blue" to="/UserSelecter">Regresar</Link>
-                  <button className="btn-next-yellow" type='submit' onSubmit={handleSubmit}>Registrarse</button>
+                  <button className="btn-next-blue" type='submit' onSubmit={handleSubmit}>Registrarse</button>
               </div>
             </div>
           </form>

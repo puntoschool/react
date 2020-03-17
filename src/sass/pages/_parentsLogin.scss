@@ -1,17 +1,10 @@
 .parents-login{
     height: calc(100vh - 60px - 80px);
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-            flex-direction: column;
-    max-width: 992px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 25rem;
-    margin-right: 25rem;
+    /* display: flex; */
+    flex-direction: column;
+    /* max-width: 992px; */
     background-size: cover;
-
+    
     & h1{
         width: 100%;
         text-align: center;
@@ -64,7 +57,8 @@
 
 .btn-next-blue{
     display: inline-block;
-    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.15);
+    border: 0;
+    box-shadow: 1px 1px 1px grey;
     line-height: 45px;
     padding: 0 60px;
     border-radius: 25px;
@@ -80,6 +74,7 @@
         background-image: -webkit-gradient(linear, left top, right top, color-stop($color-blue-lighter), color-stop($color-blue-light));
         background-image: linear-gradient(to right, $color-blue-lighter, $color-blue-light);
         color:$color-white;
+        font-weight: 600;
     }
 }
 
@@ -95,6 +90,8 @@
     font-family: inherit;
     font-weight: 500;
     text-transform: capitalize;
+    border: 0;
+    box-shadow: 1px 1px 1px grey;
 
     &:hover{
         color:$color-blue-lighter;
@@ -103,7 +100,7 @@
 }
 
 
-.login-button {
+.login-button-parents {
     box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.15);
     line-height: 45px;
     padding: 0 60px;
@@ -120,10 +117,10 @@
     margin-top: 1.5rem;
 
     &:hover{
-        background-image: -webkit-gradient(linear, left top, right top, color-stop($color-orange), color-stop($color-yellow));
-        background-image: linear-gradient(to right, $color-orange, $color-yellow);
+        background-image: linear-gradient(to right, rgba(29, 113, 184, 0.81), #36a9e1);
         color:$color-white;
-    }        
+        font-weight: 600;
+    }
 }
 
 .bg {

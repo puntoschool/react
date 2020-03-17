@@ -38,7 +38,7 @@ const Header = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
                 </li>
                 <li>
                   <Link to="/">
-                    <a href="#" onClick={handleLogout}>
+                    <a href="#!" onClick={handleLogout}>
                       <i className="fas fa-sign-out-alt"></i>
                     </a>
                   </Link>

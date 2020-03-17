@@ -1,7 +1,20 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
-const MenuTeachers = () => {
+const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
+  
+  const {fullName, userType} = login
+
+  const handleLogout = () =>{
+
+    if(userType === 'parent'){
+      setLoginParent(false)
+      setLogin({})
+    }else if(userType === 'teacher'){
+      setLoginTeacher(false)
+      setLogin({})
+    }
+  }
 
   return (
     <Fragment>
@@ -22,16 +35,15 @@ const MenuTeachers = () => {
             <ul className="dash-nav d-flex d-sm-none justify-content-between mb-5">
               <li className="text-left ml-0">
                 <i className="fas fa-user mr-1"></i>
-                <h5> Nombre
-                  <span className="d-block">Tipo de Usuario</span>
+                <h5>{fullName}
+                  <span className="d-block">{userType}</span>
                 </h5>
               </li>
               <li>
-                <Link to="/">
-                  <a href="#">
-                    <i className="fas fa-sign-out-alt"></i>
-                  </a>
-                </Link>
+                <Link to={"/DashboardTeachers"}><i className="fas fa-home"></i></Link>
+              </li>
+              <li>
+                <Link to=""><i onClick={handleLogout} className="fas fa-sign-out-alt"></i></Link>
               </li>
             </ul>
             <ul className="navbar-nav">

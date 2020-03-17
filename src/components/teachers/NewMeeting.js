@@ -73,7 +73,11 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
         <section className="dashboard mt-80">
           <div className="container-fluid">
             <div className="row">
-              <MenuTeachers />
+              <MenuTeachers 
+                setLoginTeacher={setLoginTeacher}
+                login={login}
+                setLogin={setLogin}
+              />
               <main className="dash-new-meeting col-md-10 col-sm-9">
                 <div className="justify-content-center">
                   <h1 className="dash-new-meeting__title">Agendar Junta</h1>
@@ -193,8 +197,8 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                           Link de junta:
                         </label>
                         <input
-                          type="url"
-                          className="line col-sm-6 col-7"
+                          type="text"
+                          className="line col-sm-7 col-5"
                           id="link"
                           name="link"
                           onChange={handleChange}

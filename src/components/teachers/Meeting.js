@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Link } from "react-router-dom";
 
-const Meeting = ({meeting}) => {
+const Meeting = ({meeting, handleDeleteMeeting}) => {
 
     var getM = new Date(meeting.date).getMonth()
 
@@ -54,15 +54,9 @@ const Meeting = ({meeting}) => {
             </div>
             
             <div class="meeting-arrow">
-                <span className="start-meeting d-block d-sm-inline">Iniciar Junta <i class="fas fa-chevron-right"></i></span>
-                <div className="meeting-actions">
-                    <Link to={'/'} >
-                        <i className="fas fa-edit"></i>
-                    </Link>
-                    <Link to={'/'} >
-                        <i className="fas fa-trash"></i>
-                    </Link>
-                </div>
+                <button onClick={() =>{handleDeleteMeeting(meeting.id)}} className="start-meeting d-block d-sm-inline">Eliminar Junta</button> <i class="fas fa-chevron-right"></i>
+                <span className="start-meeting d-block d-sm-inline">Editar Junta</span> <i class="fas fa-chevron-right"></i>
+                <span className="start-meeting d-block d-sm-inline">Iniciar Junta</span> <i class="fas fa-chevron-right"></i>
             </div>
         </article>
         )
