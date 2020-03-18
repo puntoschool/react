@@ -3,20 +3,21 @@ import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
 
-const DetailMeetingTeachers = ({setLoginParent, login, setLogin}) => {
-  
+const DetailMeetingTeachers = (setLoginTeacher, login, setLogin, meetings, detailVideo) => {
+
+
   return (
     <Fragment>
       <div className="admin teachers">
-        <Header 
-            setLoginParent={setLoginParent}
-            login={login}
-            setLogin={setLogin}
-        />
+        <Header setLoginTeacher={setLoginTeacher}
+          login={login}
+          setLogin={setLogin}/>
         <section className="dashboard mt-80">
           <div className="container-fluid">
             <div className="row">
-              <MenuTeachers />
+              <MenuTeachers setLoginTeacher={setLoginTeacher}
+                login={login}
+                setLogin={setLogin}/>
               <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
                     <div className="row mb-4">
                         <div className="col-md-4 col-6">

@@ -198,7 +198,7 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                         </label>
                         <input
                           type="text"
-                          className="line col-sm-7 col-5"
+                          className="line col-sm-6 col-5"
                           id="link"
                           name="link"
                           onChange={handleChange}

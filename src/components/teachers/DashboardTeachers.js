@@ -33,12 +33,10 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
               />
               <main className="dash-main dash-teachers col-md-10 col-sm-9">
                 <div className="row">
-                  <div className="col-sm-9">
+                  <div className="col-sm-8">
                     <h1 className="dash-new-meeting__title">Juntas agendadas</h1>
-                    {/* <h3 className="dash-teachers__title">Profesor(a)</h3>
-                                  <p className="dash-teachers__info">Sara Molina<p>*/}
                   </div>
-                  <div className="col-sm-3 dash-teachers__search-nav mb-3">
+                  <div className="col-sm-4 dash-teachers__search-nav mb-3">
                     <input 
                       type='search' 
                       className="dash-teachers__input" 

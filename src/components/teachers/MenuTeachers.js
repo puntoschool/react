@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
   
@@ -48,22 +48,22 @@ const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
             </ul>
             <ul className="navbar-nav">
               <li className="nav-item active">
-                <Link className="nav-link" to={'/DashboardTeachers'} >
+                <NavLink activeClassName="is-selected"  className="nav-link" to={'/DashboardTeachers'} >
                   <i className="fas fa-calendar-alt fa-fw"></i>
                   <span>Calendario de Juntas</span>
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to={'/meetingHistory'} className="nav-link">
+                <NavLink activeClassName="is-selected"  to={'/meetingHistory'} className="nav-link">
                   <i className="fas fa-folder-open fa-fw"></i>
                   <span>Historial de Juntas</span>
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to={"/NewMeeting"} className="nav-link">
+                <NavLink activeClassName="is-selected" to={"/NewMeeting"} className="nav-link">
                   <i className="far fa-calendar-check fa-fw"></i>
                   <span>Agendar Nueva Junta</span>
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>

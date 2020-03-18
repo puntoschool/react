@@ -54,9 +54,17 @@ const Meeting = ({meeting, handleDeleteMeeting}) => {
             </div>
             
             <div class="meeting-arrow">
-                <button onClick={() =>{handleDeleteMeeting(meeting.id)}} className="start-meeting d-block d-sm-inline">Eliminar Junta</button> <i class="fas fa-chevron-right"></i>
-                <span className="start-meeting d-block d-sm-inline">Editar Junta</span> <i class="fas fa-chevron-right"></i>
-                <span className="start-meeting d-block d-sm-inline">Iniciar Junta</span> <i class="fas fa-chevron-right"></i>
+                <span className="start-meeting d-block d-sm-inline text-left text-sm-right">
+                    Iniciar Junta <i class="fas fa-chevron-right"></i>
+                </span>
+                <div className="meeting-actions">
+                    <button onClick={() =>{handleDeleteMeeting(meeting.id)}}>
+                        <i className="fas fa-trash-alt"></i>
+                    </button>
+                    <button>
+                        <i className="fas fa-edit"></i>
+                    </button>
+                </div>
             </div>
         </article>
         )

@@ -202,7 +202,7 @@ function App() {
             meetings={meetings}
           />
         </Route>
-        <Route exact path="/DetailMeetingTeachers">
+        <Route exact path="/DetailMeetingTeachers:id">
           <DetailMeetingTeachers
             setLoginParent={setLoginParent}
             login={login}

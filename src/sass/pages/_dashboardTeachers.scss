@@ -2,13 +2,19 @@
     .dash-header {
         border-bottom: 3px solid $color-yellow;
     }
-    .dash-menu .navbar-expand-sm .navbar-nav li a:hover {
-        color: $color-yellow;
-    }
-    a {
-        &:hover {
+    .dash-menu .navbar-expand-sm .navbar-nav li a {
+        &:hover, &:active, &:focus, .is-selected {
             color: $color-yellow;
         }
+        .is-selected {
+            color: $color-yellow;
+        }
+    } 
+    a {
+        &:hover, :focus, &:active {
+            color: $color-yellow;
+        }
+
     }
     .dash-menu .navbar-toggler {
         border: 2px solid $color-yellow;
