@@ -1,9 +1,10 @@
-import React, { Fragment, useState } from "react";
-import Header from "../Header";
-import Footer from "../Footer";
-import MenuTeachers from "./MenuTeachers";
+import React, { Fragment, useState } from "react"
+import Header from "../Header"
+import Footer from "../Footer"
+import MenuTeachers from "./MenuTeachers"
 import Error from '../Error'
 import uuid from 'uuid/v4'
+import SweetAlert from 'react-bootstrap-sweetalert'
 
 const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
 
@@ -26,6 +27,7 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
 
   const [ error, setError ] = useState(false)
   const [ errorType, setErrorType ] = useState('')
+  const[confirm, setConfirm] = useState(false)
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -43,7 +45,15 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
       setError(true);
       setErrorType("Todos los campos son obligatorios");
       return;
-    } else setError(false);
+
+    } else if ( !meeting.link.includes('<iframe')){
+      setError(true);
+      setErrorType("Favor de ingresar un link valido");
+      return;
+    } 
+    else 
+      setError(false);
+      setConfirm(true);
     
      // Asignarle un id a la junta 
      meeting.id = uuid() // instale el paquete uuid para generar ids por cada cita npm install uuid
@@ -213,7 +223,10 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                         </button>
                       </div>
                       <div className="text-center mb-3">
-                      {error ? <Error className='error-red' message={errorType}/> : null}
+                      
+                      {error ? <SweetAlert danger title="Error" onConfirm={()=> {return setError(false)}}> {errorType}</SweetAlert> : null}
+                      {confirm ? <SweetAlert success title="Registro correcto" onConfirm={()=> {return setConfirm(false)}}>La junta ha sido registrada correctamente</SweetAlert>: null}
+
                         <button
                           type="submit"
                           className="btn-border-yellow"

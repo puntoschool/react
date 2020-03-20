@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Link } from "react-router-dom";
+import SweetAlert from 'react-bootstrap-sweetalert'
 
 const Meeting = ({meeting, handleDeleteMeeting}) => {
 
@@ -35,6 +35,12 @@ const Meeting = ({meeting, handleDeleteMeeting}) => {
             setCopySuccess('')
           }, 2000);
     };
+
+    const [sweetA, setSweetA] = useState(false)
+
+    const handleCancel = ()=>{ setSweetA(false)}
+
+    const handleClick = () =>{ setSweetA(true)}
    
     return ( 
         <article class="meeting-appointment">
@@ -58,16 +64,19 @@ const Meeting = ({meeting, handleDeleteMeeting}) => {
                     Iniciar Junta <i class="fas fa-chevron-right"></i>
                 </span>
                 <div className="meeting-actions">
-                    <button onClick={() =>{handleDeleteMeeting(meeting.id)}}>
+                    <button onClick={handleClick}>
                         <i className="fas fa-trash-alt"></i>
                     </button>
+                    { sweetA ? <SweetAlert showCancel confirmBtnText="Sí, deseo eliminarla" confirmBtnBsStyle="danger" title="¿Esta seguro" onCancel={handleCancel} onConfirm={() =>{handleDeleteMeeting(meeting.id)}} focusCancelBtn>
+                        que desea borrar la junta seleccionada?
+                    </SweetAlert> : null }
                     <button>
                         <i className="fas fa-edit"></i>
                     </button>
                 </div>
             </div>
         </article>
+        
         )
 }
- 
 export default Meeting;
