@@ -82,6 +82,13 @@ function App() {
       setMeetings([...meetings, meeting])
     }
 
+    const [filterParentMeeting, setFilterParentMeeting] = useState('')
+    
+    const [usersIds, setUsersIds]= useState([])
+
+    const addMeetingId = (userId) => {
+      setUsersIds([...usersIds, userId])
+    }
     ///////////////POLL////////////////////////////////////////////////////////////77777
 
     // Declaring poll question and answers
@@ -150,6 +157,10 @@ function App() {
             setLoginParent={setLoginParent}
             login={login}
             setLogin={setLogin}
+            meetings={meetings}
+            filterParentMeeting={filterParentMeeting}
+            setFilterParentMeeting={setFilterParentMeeting}
+            addMeetingId={addMeetingId}
           />
         </Route>
         <Route exact path="/DashboardTeachers">
@@ -169,12 +180,12 @@ function App() {
             newMeeting={newMeeting}
           />
         </Route>
-        <Route exact path={`/DetailMeeting/:${meetings.id}`}>
+        <Route exact path="/DetailMeeting">
           <DetailMeeting
             setLoginParent={setLoginParent}
             login={login}
             setLogin={setLogin}
-            meetings={meetings}
+            filterParentMeeting={filterParentMeeting}
           />
         </Route>
         <Route exact path="/MeetingList">
