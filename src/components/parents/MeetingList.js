@@ -4,8 +4,11 @@ import Footer from "../Footer";
 import MenuParents from "./MenuParents";
 import MeetingVideo from '../teachers/MeetingVideo'
 
-const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
+const MeetingList = ({setLoginParent, login, setLogin, meetings, filteredMeetings, setFilterInput}) => {
 
+  const handleChange = e => {
+    setFilterInput (e.target.name= e.target.value)
+  }
 
   return (
     <Fragment>
@@ -24,11 +27,28 @@ const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
                 setLogin={setLogin}
               />
               <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
-                <section className="video-list">
-                  <h2>Historial de juntas</h2>
+              <div className="row">
+                  <div className="col-sm-8">
+                    <h1 className="dash-new-meeting__title">Historial de juntas</h1>
+                  </div>
+                  <div className="col-sm-4 dash-parents__search-nav mb-3">
+                    <input 
+                      type='search' 
+                      className="dash-parents__input" 
+                      placeholder='Buscar por título de junta'
+                      name='filterInput'
+                      onChange={handleChange}
+                    />
+                    <span className="dash-parents__filter-icon">
+                      <i className="fas fa-filter fa-fw"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="video-list">
                   {meetings.length > 0 
                       ?
-                    meetings.map(meetingVideo =>(
+                      filteredMeetings.map(meetingVideo =>(
                       <MeetingVideo 
                         key={meetingVideo.id}
                         meetingVideo={meetingVideo}
@@ -36,7 +56,7 @@ const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
                     ))
                     : <b>No hay juntas programadas</b>
                   }
-                </section>
+                </div>
               </main>s
             </div>
           </div>

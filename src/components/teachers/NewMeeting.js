@@ -2,7 +2,6 @@ import React, { Fragment, useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
-import Error from "../Error";
 import uuid from "uuid/v4";
 import SweetAlert from "react-bootstrap-sweetalert";
 import Modal from "react-bootstrap/Modal";
@@ -55,6 +54,8 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
     // Asignarle un id a la junta
     meeting.id = uuid(); // instale el paquete uuid para generar ids por cada cita npm install uuid
 
+    meeting.user = login.userName
+    
     newMeeting(meeting);
 
     //Limpio el formulario de información
@@ -105,7 +106,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                   >
                     <div className="col-sm-8 col-11">
                       <div className="d-flex mb-5">
-                        <label className="labels" for="title">
+                        <label className="labels" htmlFor="title">
                           Titulo:
                         </label>
                         <input
@@ -123,7 +124,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                         <div className="col-sm-6 col-12 d-flex align-items-center mb-5 mb-sm-0">
                           <label
                             className="labels d-flex align-items-center"
-                            for="grade"
+                            htmlFor="grade"
                           >
                             <i className="fas fa-user-graduate ml-2 pr-1"></i>{" "}
                             Grado
@@ -134,7 +135,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                             onChange={handleChange}
                             value={meeting.grade}
                           >
-                            <option selected>Selecciona...</option>
+                            <option selected >Selecciona...</option>
                             <option value="1ro">1ro</option>
                             <option value="2do">2do</option>
                             <option value="3ro">3ro</option>
@@ -147,7 +148,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                         <div className="col-sm-6 col-12 d-flex align-items-center">
                           <label
                             className="labels d-flex align-items-center"
-                            for="group mr-2"
+                            htmlFor="group mr-2"
                           >
                             <i className="fas fa-users ml-2 pr-1"></i> Grupo
                           </label>
@@ -169,7 +170,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                       </div>
 
                       <div className="row mb-5">
-                        <label className="labels col-sm-3 col-5" for="date">
+                        <label className="labels col-sm-3 col-5" htmlFor="date">
                           Fecha:
                         </label>
                         <input
@@ -185,7 +186,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                       <div className="row mb-5">
                         <label
                           className="labels col-sm-3 col-5"
-                          for="startTime"
+                          htmlFor="startTime"
                         >
                           Hora de Inicio:
                         </label>
@@ -200,7 +201,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                       </div>
 
                       <div className="row mb-5">
-                        <label className="labels col-sm-3 col-5" for="endTime">
+                        <label className="labels col-sm-3 col-5" htmlFor="endTime">
                           Hora de Fin:
                         </label>
                         <input
@@ -214,7 +215,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                       </div>
 
                       <div className="row d-flex mb-1">
-                        <label className="labels col-sm-3 col-5" for="link">
+                        <label className="labels col-sm-3 col-5" htmlFor="link">
                           Link de junta:
                         </label>
                         <input
@@ -228,7 +229,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                         <button
                           type="button"
                           className="btn labels text-yellow col-sm-3 col-12 text-right text-sm-center mb-5 mb-sm-0"
-                          for="link"
+                          htmlFor="link"
                           onClick={showModal}
                         >
                           ¿Cómo crear un link?
@@ -278,9 +279,9 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
       </div>
       <Modal show={isOpen} onHide={hideModal} className="modal fade modal-video">
         <Modal.Body>
-        <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/5ij9nNr93Mo" allowfullscreen></iframe>
-              </div>
+          <div className="embed-responsive embed-responsive-16by9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/5ij9nNr93Mo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <button className="btn btn-transparent color-white" onClick={hideModal}>Regresar <i className="fas fa-arrow-right"></i></button>

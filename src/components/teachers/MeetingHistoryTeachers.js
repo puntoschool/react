@@ -62,7 +62,7 @@ const MeetingHistoryTeachers = ({setLoginParent, login, setLogin, meetings}) => 
                         </Link>
                       </div>
                       <div className="col-md-3 col-12 text-right">
-                      <a href="#" download className="btn-border-yellow btn-sm mb-3 d-block">
+                      <a href="#!" download className="btn-border-yellow btn-sm mb-3 d-block">
                           <i className="fas fa-download"></i> Descargar Minuta
                         </a>
                         <Link className="btn-plain" to={'/DetailMeetingTeachers'} >Ver Junta <i
@@ -87,7 +87,7 @@ const MeetingHistoryTeachers = ({setLoginParent, login, setLogin, meetings}) => 
                         </Link>
                       </div>
                       <div className="col-md-3 col-12 text-right">
-                        <a href="#" download className="btn-border-yellow btn-sm mb-3 d-block">
+                        <a href="#!" download className="btn-border-yellow btn-sm mb-3 d-block">
                           <i className="fas fa-download"></i> Descargar Minuta
                         </a>
                         <Link className="btn-plain" to={'/DetailMeetingTeachers'} >Ver Junta <i

@@ -6,9 +6,9 @@ const MeetingVideo = ({meetingVideo}) => {
 
     var getM = new Date(meetingVideo.date).getMonth()
 
-    var getD = new Date(meetingVideo.date).getDay()
+    var getD = new Date(meetingVideo.date).getDate()
 
-    var month = new Array()
+    var month = []
     month[0] = "Enero"
     month[1] = "Febrero"
     month[2] = "Marzo"
@@ -41,7 +41,7 @@ const MeetingVideo = ({meetingVideo}) => {
                 <Link to={`/DetailMeeting/:${meetingVideo.id}`} >
                     <div className="meeting-text">
                     <h3>{meetingVideo.title}</h3>
-                    <p><i className="far fa-clock"></i>{getD} de {getM}, {meetingVideo.startTime} hrs.</p>
+                    <p><i className="far fa-clock"></i>{getD+1} de {getM}, {meetingVideo.startTime} hrs.</p>
                     <p><i className="fas fa-map-marker-alt"></i>{meetingVideo.grade}{meetingVideo.group} </p>
                     </div>
                 </Link>

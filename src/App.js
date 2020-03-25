@@ -10,6 +10,7 @@ import DashboardTeachers from './components/teachers/DashboardTeachers';
 import NewMeeting from './components/teachers/NewMeeting';
 import MeetingHistoryTeachers from './components/teachers/MeetingHistoryTeachers';
 import DetailMeetingTeachers from './components/teachers/DetailMeetingTeachers';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./sass/main.scss";
 import {
   BrowserRouter as Router,
@@ -65,7 +66,7 @@ function App() {
     // inicializando el State con el arreglo de las juntas de local storage
     const [meetings, setMeetings] = useState(recordedMeeting)
   
-    // UseEffect para actualizar algo en caso de que cambie algo
+    //UseEffect para actualizar algo en caso de que cambie algo
     useEffect(() => {
       let recordedMeeting = JSON.parse(localStorage.getItem("meetings"))
   
@@ -80,15 +81,6 @@ function App() {
     const newMeeting = (meeting) => {
       setMeetings([...meetings, meeting])
     }
-
-    // Creo el state para las juntas filtradas
-    const [filterInput, setFilterInput] = useState('')
-
-    // funcion para obtener las juntas filtradas
-    const filteredMeetings = meetings.filter( meeting => meeting.title.toLowerCase().includes(filterInput.toLowerCase()))
-
-
-
 
     ///////////////POLL////////////////////////////////////////////////////////////77777
 
@@ -146,6 +138,7 @@ function App() {
         <Route exact path="/ParentsLogin">
           <ParentsLogin
             newUserAccount={newUserAccount}
+            setLogin= {setLogin}
             loginParent={loginParent}
             setLoginTeacher={setLoginTeacher}
             setLoginParent={setLoginParent}
@@ -165,9 +158,7 @@ function App() {
             login={login}
             setLogin={setLogin}
             meetings={meetings}
-            filteredMeetings={filteredMeetings}
             setMeetings={setMeetings}
-            setFilterInput={setFilterInput}
           />
         </Route>
         <Route exact path="/NewMeeting"> 

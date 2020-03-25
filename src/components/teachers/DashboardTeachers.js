@@ -1,20 +1,30 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
 import Meeting from '../teachers/Meeting'
 
-const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeetings, setFilterInput, filteredMeetings}) => {
+const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeetings}) => {
 
   const handleChange = e => {
     setFilterInput (e.target.name= e.target.value)
   }
 
-   const handleDeleteMeeting = (meetingId) => {
+  const handleDeleteMeeting = (meetingId) => {
      meetings = meetings.filter( meeting => meeting.id !== meetingId)
      setMeetings(meetings)
-   }
+  }
+
   
+  const filteredTeachersMeetings = meetings.filter( meeting => meeting.user.toLowerCase().includes(login.userName.toLowerCase()))
+
+  // Creo el state para las juntas filtradas
+  const [filterInput, setFilterInput] = useState('')
+
+  // funcion para obtener las juntas filtradas
+  const filteredMeetings = filteredTeachersMeetings.filter( meeting => meeting.title.toLowerCase().includes(filterInput.toLowerCase()))
+
+  console.log(filteredTeachersMeetings)
   return (
     <Fragment>
       <div className="admin teachers">
@@ -45,15 +55,15 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
                       onChange={handleChange}
                     />
                     <span className="dash-teachers__filter-icon">
-                      <i class="fas fa-filter fa-fw"></i>
+                      <i className="fas fa-filter fa-fw"></i>
                     </span>
                   </div>
                 </div>
 
                 <div className="row justify-content-center">
-                  <div className="col-sm-9 col-12 scroll-sm">
+                  <div className="col-sm-11 col-12 scroll-sm">
                     { 
-                      meetings.length > 0 
+                      filteredTeachersMeetings.length > 0 
                       ?
                       filteredMeetings.map(meeting => (
                           <Meeting

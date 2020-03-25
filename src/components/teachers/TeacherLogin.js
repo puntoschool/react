@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import Header from '../HeaderLogin'
 import Footer from '../Footer'
 import Error from '../Error'
 import { Redirect } from "react-router-dom";
@@ -12,7 +11,7 @@ const TeacherLogin = ({newUserAccount, setLogin, setLoginTeacher, loginTeacher, 
     fullName:'', 
     userName:'', 
     password:'', 
-    userType:'teacher',
+    userType:'Maestro',
     confirm:''
   })
 
@@ -60,7 +59,7 @@ const TeacherLogin = ({newUserAccount, setLogin, setLoginTeacher, loginTeacher, 
     fullName:'', 
     userName:'', 
     password:'', 
-    userType:'teacher',
+    userType:'Maestro',
     confirm:''
    })
 

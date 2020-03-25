@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect} from "react";
+import React, { Fragment, useState} from "react";
 import Footer from './Footer';
 import Error from './Error'
 import { Link } from "react-router-dom";
@@ -46,11 +46,10 @@ const Login = ({accounts, setLogin, setLoginParent, setLoginTeacher}) => {
     // Validando que la info ingresada corresponda a un usuario y password registrado
     if(validation){
       setError(false)
-      console.log(validation)
       // Evaluar el tipo de usuario para poder direccionarlo a su dashboard correspondiente
-      if (validation.userType === 'teacher'){
+      if (validation.userType === 'Maestro'){
         setLoginTeacher(true)
-      } else if(validation.userType === 'parent'){
+      } else if(validation.userType === 'Padre de Familia'){
         setLoginParent(true)
       }
 

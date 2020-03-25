@@ -30,14 +30,15 @@ const WelcomeParents = ({setLoginParent, login, setLogin}) => {
                         Bienvenido al administrador escolar
                       </p>
                       <form className="form-group parents-login__inputs mt-5">
-                        <label for="enterID">Ingresa el ID de tu junta</label>
+                        <label htmlFor="enterID">Ingresa el ID de tu junta</label>
                         <input type="text" name="enterID" id="enterID" placeholder="Número de ID otorgado por el maestro" className="mt-0"/>
                         <Link to="/DetailMeeting" className="btn-blue-gradient">Ir a la junta</Link>
                       </form>
                     </div>
 
                     <div className="col-md-11 mt-2">
-                      <img src="./assets/img/welcome-kids.png" className="img-fluid" />
+                      <img src="./assets/img/welcome-kids.png" className="img-fluid"
+                      alt="welcome_image" />
                     </div>
                   </section>
                 </main>

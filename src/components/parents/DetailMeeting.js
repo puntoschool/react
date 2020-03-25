@@ -3,7 +3,6 @@ import Header from "../Header";
 import Footer from "../Footer";
 import MenuParents from "./MenuParents";
 import Poll from './Poll'
-import MeetingVideo from "../teachers/MeetingVideo";
 
 const DetailMeeting = ({setLoginParent, login, setLogin}) => {
 
@@ -71,7 +70,7 @@ const DetailMeeting = ({setLoginParent, login, setLogin}) => {
                                     </div>
                                 </div>
                                 <div className="col-sm-6 text-right mt-2">
-                                    <a href="#" download className="btn-border-blue btn-sm align-items-center">
+                                    <a href="#!" download className="btn-border-blue btn-sm align-items-center">
                                         <i className="fas fa-download"></i> Descargar Minuta
                                     </a>
                                 </div>
