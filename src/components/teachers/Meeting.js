@@ -79,6 +79,12 @@ const Meeting = ({meeting, handleDeleteMeeting}) => {
                 </div>
             </div>
         </article>
+
+        <EditMeeting
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            meeting={meeting}
+        />
         
         )
 }
