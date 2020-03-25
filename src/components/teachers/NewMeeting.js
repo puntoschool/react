@@ -5,6 +5,7 @@ import MenuTeachers from "./MenuTeachers";
 import Error from "../Error";
 import uuid from "uuid/v4";
 import SweetAlert from "react-bootstrap-sweetalert";
+import Modal from "react-bootstrap/Modal";
 
 const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
   const [meeting, setMeeting] = useState({
@@ -66,6 +67,16 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
       endTime: "",
       link: ""
     });
+  };
+
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const showModal = () => {
+    setIsOpen(true);
+  };
+
+  const hideModal = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -218,8 +229,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                           type="button"
                           className="btn labels text-yellow col-sm-3 col-12 text-right text-sm-center mb-5 mb-sm-0"
                           for="link"
-                          data-toggle="modal"
-                          data-target="#howToCreateLink"
+                          onClick={showModal}
                         >
                           ¿Cómo crear un link?
                         </button>
@@ -266,39 +276,16 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
         </section>
         <Footer />
       </div>
-      <div
-        className="modal fade bd-example-modal-lg"
-        tabindex="-1"
-        id="howToCreateLink"
-        role="dialog"
-        aria-labelledby="myLargeModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-lg modal-dark">
-          <div className="modal-content">
-            <div class="modal-header">
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              <div class="embed-responsive embed-responsive-16by9">
+      <Modal show={isOpen} onHide={hideModal} className="modal fade modal-video">
+        <Modal.Body>
+        <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/5ij9nNr93Mo" allowfullscreen></iframe>
               </div>
-            </div>
-            <div className="modal-footer">
-              <button type="button" class="btn btn-transparent color-white" data-dismiss="modal">
-              Regresar <i className="fas fa-arrow-right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-transparent color-white" onClick={hideModal}>Regresar <i className="fas fa-arrow-right"></i></button>
+        </Modal.Footer>
+      </Modal>
     </Fragment>
   );
 };

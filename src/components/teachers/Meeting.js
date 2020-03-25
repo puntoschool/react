@@ -61,7 +61,7 @@ const Meeting = ({meeting, handleDeleteMeeting}) => {
             </div>
             
             <div class="meeting-arrow">
-                <Link to={`/DetailMeeting/:${meeting.id}`} >
+                <Link to={`/DetailMeetingTeachers/:${meeting.id}`} >
                     <span className="start-meeting d-block d-sm-inline text-left text-sm-right">
                         Iniciar Junta <i class="fas fa-chevron-right"></i>
                     </span>

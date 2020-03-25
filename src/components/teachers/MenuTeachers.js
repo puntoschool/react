@@ -54,7 +54,7 @@ const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink activeClassName="is-selected"  to={'/meetingHistory'} className="nav-link">
+                <NavLink activeClassName="is-selected"  to={'/meetingHistoryTeachers'} className="nav-link">
                   <i className="fas fa-folder-open fa-fw"></i>
                   <span>Historial de Juntas</span>
                 </NavLink>
