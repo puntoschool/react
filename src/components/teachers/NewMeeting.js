@@ -1,13 +1,12 @@
-import React, { Fragment, useState } from "react"
-import Header from "../Header"
-import Footer from "../Footer"
-import MenuTeachers from "./MenuTeachers"
-import Error from '../Error'
-import uuid from 'uuid/v4'
-import SweetAlert from 'react-bootstrap-sweetalert'
+import React, { Fragment, useState } from "react";
+import Header from "../Header";
+import Footer from "../Footer";
+import MenuTeachers from "./MenuTeachers";
+import Error from "../Error";
+import uuid from "uuid/v4";
+import SweetAlert from "react-bootstrap-sweetalert";
 
-const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
-
+const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
   const [meeting, setMeeting] = useState({
     title: "",
     grade: "",
@@ -25,57 +24,54 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
     });
   };
 
-  const [ error, setError ] = useState(false)
-  const [ errorType, setErrorType ] = useState('')
-  const[confirm, setConfirm] = useState(false)
+  const [error, setError] = useState(false);
+  const [errorType, setErrorType] = useState("");
+  const [confirm, setConfirm] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
 
     // Valido informacion capturada
     if (
-      meeting.title.trim()      === "" ||
-      meeting.grade.trim()      === "" ||
-      meeting.group.trim()      === "" ||
-      meeting.startTime.trim()  === "" ||
-      meeting.link.trim()       === "" ||
-      meeting.endTime.trim()    === "" ||
-      meeting.date.trim()       === ""
+      meeting.title.trim() === "" ||
+      meeting.grade.trim() === "" ||
+      meeting.group.trim() === "" ||
+      meeting.startTime.trim() === "" ||
+      meeting.link.trim() === "" ||
+      meeting.endTime.trim() === "" ||
+      meeting.date.trim() === ""
     ) {
       setError(true);
       setErrorType("Todos los campos son obligatorios");
       return;
-
-    } else if ( !meeting.link.includes('<iframe')){
+    } else if (!meeting.link.includes("<iframe")) {
       setError(true);
       setErrorType("Favor de ingresar un link valido");
       return;
-    } 
-    else 
-      setError(false);
-      setConfirm(true);
-    
-     // Asignarle un id a la junta 
-     meeting.id = uuid() // instale el paquete uuid para generar ids por cada cita npm install uuid
+    } else setError(false);
+    setConfirm(true);
 
-    newMeeting(meeting)
+    // Asignarle un id a la junta
+    meeting.id = uuid(); // instale el paquete uuid para generar ids por cada cita npm install uuid
+
+    newMeeting(meeting);
 
     //Limpio el formulario de información
-   setMeeting ({
-    title: "",
-    grade: "",
-    group: "",
-    date: "",
-    startTime: "",
-    endTime: "",
-    link: ""
-   })
+    setMeeting({
+      title: "",
+      grade: "",
+      group: "",
+      date: "",
+      startTime: "",
+      endTime: "",
+      link: ""
+    });
   };
-  
+
   return (
     <Fragment>
       <div className="admin teachers">
-        <Header 
+        <Header
           setLoginTeacher={setLoginTeacher}
           login={login}
           setLogin={setLogin}
@@ -83,7 +79,7 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
         <section className="dashboard mt-80">
           <div className="container-fluid">
             <div className="row">
-              <MenuTeachers 
+              <MenuTeachers
                 setLoginTeacher={setLoginTeacher}
                 login={login}
                 setLogin={setLogin}
@@ -92,7 +88,10 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                 <div className="justify-content-center">
                   <h1 className="dash-new-meeting__title">Agendar Junta</h1>
 
-                  <form className="row justify-content-center mt-5 mt-sm-0" onSubmit={handleSubmit}>
+                  <form
+                    className="row justify-content-center mt-5 mt-sm-0"
+                    onSubmit={handleSubmit}
+                  >
                     <div className="col-sm-8 col-11">
                       <div className="d-flex mb-5">
                         <label className="labels" for="title">
@@ -105,7 +104,7 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                           placeholder="Ingrese el tema de la junta"
                           name="title"
                           onChange={handleChange}
-                          value = {meeting.title}
+                          value={meeting.title}
                         />
                       </div>
 
@@ -115,7 +114,8 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                             className="labels d-flex align-items-center"
                             for="grade"
                           >
-                            <i class="fas fa-user-graduate ml-2 pr-1"></i> Grado
+                            <i className="fas fa-user-graduate ml-2 pr-1"></i>{" "}
+                            Grado
                           </label>
                           <select
                             id="grade"
@@ -138,7 +138,7 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                             className="labels d-flex align-items-center"
                             for="group mr-2"
                           >
-                            <i class="fas fa-users ml-2 pr-1"></i> Grupo
+                            <i className="fas fa-users ml-2 pr-1"></i> Grupo
                           </label>
                           <select
                             id="group"
@@ -167,7 +167,7 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                           id="date"
                           name="date"
                           onChange={handleChange}
-                          value = {meeting.date}
+                          value={meeting.date}
                         />
                       </div>
 
@@ -184,7 +184,7 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                           id="startTime"
                           name="startTime"
                           onChange={handleChange}
-                          value = {meeting.startTime}
+                          value={meeting.startTime}
                         />
                       </div>
 
@@ -198,7 +198,7 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                           id="endTime"
                           name="endTime"
                           onChange={handleChange}
-                          value = {meeting.endTime}
+                          value={meeting.endTime}
                         />
                       </div>
 
@@ -218,20 +218,43 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
                           type="button"
                           className="btn labels text-yellow col-sm-3 col-12 text-right text-sm-center mb-5 mb-sm-0"
                           for="link"
+                          data-toggle="modal"
+                          data-target="#howToCreateLink"
                         >
                           ¿Cómo crear un link?
                         </button>
                       </div>
                       <div className="text-center mb-3">
-                      
-                      {error ? <SweetAlert danger title="Error" onConfirm={()=> {return setError(false)}}> {errorType}</SweetAlert> : null}
-                      {confirm ? <SweetAlert success title="Registro correcto" onConfirm={()=> {return setConfirm(false)}}>La junta ha sido registrada correctamente</SweetAlert>: null}
+                        {error ? (
+                          <SweetAlert
+                            danger
+                            title="Error"
+                            onConfirm={() => {
+                              return setError(false);
+                            }}
+                          >
+                            {" "}
+                            {errorType}
+                          </SweetAlert>
+                        ) : null}
+                        {confirm ? (
+                          <SweetAlert
+                            success
+                            title="Registro correcto"
+                            onConfirm={() => {
+                              return setConfirm(false);
+                            }}
+                          >
+                            La junta ha sido registrada correctamente
+                          </SweetAlert>
+                        ) : null}
 
                         <button
                           type="submit"
                           className="btn-border-yellow"
                           onSubmit={handleSubmit}
-                        >Crear
+                        >
+                          Crear
                         </button>
                       </div>
                     </div>
@@ -242,6 +265,39 @@ const NewMeeting = ({newMeeting, setLoginTeacher, login, setLogin}) => {
           </div>
         </section>
         <Footer />
+      </div>
+      <div
+        className="modal fade bd-example-modal-lg"
+        tabindex="-1"
+        id="howToCreateLink"
+        role="dialog"
+        aria-labelledby="myLargeModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-lg modal-dark">
+          <div className="modal-content">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/5ij9nNr93Mo" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button type="button" class="btn btn-transparent color-white" data-dismiss="modal">
+              Regresar <i className="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </Fragment>
   );

@@ -38,7 +38,7 @@ const MeetingVideo = ({meetingVideo}) => {
                 </Link>
                 </div>
                 <div className="col-sm-6 col-12">
-                <Link to={'/DetailMeeting'} >
+                <Link to={`/DetailMeeting/:${meetingVideo.id}`} >
                     <div className="meeting-text">
                     <h3>{meetingVideo.title}</h3>
                     <p><i className="far fa-clock"></i>{getD} de {getM}, {meetingVideo.startTime} hrs.</p>
@@ -47,8 +47,10 @@ const MeetingVideo = ({meetingVideo}) => {
                 </Link>
                 </div>
                 <div className="col-lg-2 col-md-3  col-12 text-right">
-                <Link className="btn-plain" to={'/DetailMeeting'} >Ver Junta <i
-                    className="fas fa-chevron-right"></i></Link>
+                <Link className="btn-plain" to={`/DetailMeeting/:${meetingVideo.id}`} >
+                    Ver Junta 
+                    <i className="fas fa-chevron-right"></i>
+                </Link>
                 </div>
             </div>
         </article>

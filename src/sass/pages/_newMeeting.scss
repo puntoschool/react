@@ -45,3 +45,22 @@
         overflow-y: auto;
     }
 }
+
+.modal-dark {
+    .modal-content {
+        background-color: #000;
+        border: none;
+        border-radius: 0;
+        .modal-header {
+            padding-bottom: 0;
+            border-bottom: 0;
+            button {
+                color: #fff;
+                font-size: 20px;
+            }
+        }
+        .modal-footer {
+            border-top: 0;
+        }
+    }
+}

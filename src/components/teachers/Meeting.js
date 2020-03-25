@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import SweetAlert from 'react-bootstrap-sweetalert'
+import { Link } from "react-router-dom";
 
 const Meeting = ({meeting, handleDeleteMeeting}) => {
 
@@ -60,9 +61,11 @@ const Meeting = ({meeting, handleDeleteMeeting}) => {
             </div>
             
             <div class="meeting-arrow">
-                <span className="start-meeting d-block d-sm-inline text-left text-sm-right">
-                    Iniciar Junta <i class="fas fa-chevron-right"></i>
-                </span>
+                <Link to={`/DetailMeeting/:${meeting.id}`} >
+                    <span className="start-meeting d-block d-sm-inline text-left text-sm-right">
+                        Iniciar Junta <i class="fas fa-chevron-right"></i>
+                    </span>
+                </Link>
                 <div className="meeting-actions">
                     <button onClick={handleClick}>
                         <i className="fas fa-trash-alt"></i>

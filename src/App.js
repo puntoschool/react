@@ -178,7 +178,7 @@ function App() {
             newMeeting={newMeeting}
           />
         </Route>
-        <Route exact path="/DetailMeeting">
+        <Route exact path={`/DetailMeeting/:${meetings.id}`}>
           <DetailMeeting
             setLoginParent={setLoginParent}
             login={login}
@@ -202,7 +202,7 @@ function App() {
             meetings={meetings}
           />
         </Route>
-        <Route exact path="/DetailMeetingTeachers:id">
+        <Route exact path={`/DetailMeetingTeachers/:${meetings.id}`}>
           <DetailMeetingTeachers
             setLoginParent={setLoginParent}
             login={login}
