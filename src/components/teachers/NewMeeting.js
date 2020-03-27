@@ -70,7 +70,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
       link: ""
     });
   };
-
+  // Modal
   const [isOpen, setIsOpen] = React.useState(false);
 
   const showModal = () => {
@@ -231,7 +231,8 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                           type="button"
                           className="btn labels text-yellow col-sm-3 col-12 text-right text-sm-center mb-5 mb-sm-0"
                           htmlFor="link"
-                          onClick={showModal}
+                          // Modal link
+                          onClick={showModal} 
                         >
                           ¿Cómo crear un link?
                         </button>
@@ -278,6 +279,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
         </section>
         <Footer />
       </div>
+      {/* Modal */}
       <Modal show={isOpen} onHide={hideModal} className="modal fade modal-video">
         <Modal.Body>
           <div className="embed-responsive embed-responsive-16by9">
