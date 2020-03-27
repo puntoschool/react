@@ -52,7 +52,7 @@ const DetailMeeting = ({setLoginParent, login, setLogin, filterParentMeeting}) =
                         </div>
                         <div className="col-md-4 col-6">
                             <h3 className="dash-teachers__title mt-0">Profesor:</h3>
-                            <h5 className="meeting-info">Sara Molina</h5>
+                            <h5 className="meeting-info">{info.userName}</h5>
                         </div>
                     </div>
                     <section className="row video-detail">

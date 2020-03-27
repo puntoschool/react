@@ -12,10 +12,10 @@ const WelcomeParents = ({setLoginParent, login, setLogin, meetings, setFilterPar
 
   const [error, setError] = useState(false);
 
-  const [userId, setUserId]= useState({
-    user:'',
-    id:''
-  })
+  // const [userId, setUserId]= useState({
+  //   user:'',
+  //   id:''
+  // })
 
   const handleChange = (e) => {
      setFilterParentInput(e.target.name=e.target.value)
@@ -25,12 +25,22 @@ const WelcomeParents = ({setLoginParent, login, setLogin, meetings, setFilterPar
    
     // validaciones
     if(filterParentInput.trim()){
-      setFilterParentMeeting(meetings.filter( meeting => meeting.id.toLowerCase().includes(filterParentInput.toLowerCase())))
+      
+      const filter = meetings.filter( meeting => meeting.id.toLowerCase().includes(filterParentInput.toLowerCase()))
 
-      if(filterParentMeeting.length === 0){
+      if(typeof filter != "undefined" && filter != null && filter.length != null
+      && filter.length > 0){
+        setFilterParentMeeting(filter)
+      }else{
         setError(true);
         return;
-      }else{
+      }
+      
+
+      // if(filterParentMeeting.length === 0){
+      //   setError(true);
+      //   return;
+      // }else{
         // const meetingInfo = filterParentMeeting[0]
         // const {id} = meetingInfo
 
@@ -39,7 +49,7 @@ const WelcomeParents = ({setLoginParent, login, setLogin, meetings, setFilterPar
         // addMeetingId(userId)
 
         // setUserId({user:'', id:''})
-      }
+      // }
 
     } else {
       setError(true);

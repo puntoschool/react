@@ -55,6 +55,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
     meeting.id = uuid(); // instale el paquete uuid para generar ids por cada cita npm install uuid
 
     meeting.user = login.userName
+    meeting.userName = login.fullName
     
     newMeeting(meeting);
 
