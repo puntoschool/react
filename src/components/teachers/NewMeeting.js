@@ -14,7 +14,8 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
     date: "",
     startTime: "",
     endTime: "",
-    link: ""
+    link: "",
+    usersParents:[]
   });
 
   const handleChange = e => {

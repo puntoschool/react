@@ -4,7 +4,7 @@ import Footer from "../Footer";
 import { Link } from "react-router-dom";
 import MenuTeachers from "./MenuTeachers";
 
-const MeetingHistoryTeachers = ({setLoginParent, login, setLogin, meetings}) => {
+const MeetingHistoryTeachers = ({setLoginParent, login, setLogin}) => {
 
   return (
     <Fragment>
@@ -32,7 +32,6 @@ const MeetingHistoryTeachers = ({setLoginParent, login, setLogin, meetings}) => 
                         <Link to={'/DetailMeetingTeachers'} >
                           <div className="meeting-text">
                             <h3>Junta de Inicio de cursos 
-                              {/* <small>324 vistas</small> */}
                             </h3>
                             <p><i className="far fa-clock"></i>9 de Febrero, 9:00 hrs.</p>
                             <p><i className="fas fa-graduation-cap"></i>3ro A </p>

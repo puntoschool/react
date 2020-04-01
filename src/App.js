@@ -84,10 +84,10 @@ function App() {
 
     const [filterParentMeeting, setFilterParentMeeting] = useState('')
     
-    const [usersIds, setUsersIds]= useState([])
+    const [userMeetings, setUserMeetings]= useState([])
 
-    const addMeetingId = (userId) => {
-      setUsersIds([...usersIds, userId])
+    const newUserMeeting = (userMeeting) => {
+      setUserMeetings([...userMeetings, userMeeting])
     }
     ///////////////POLL////////////////////////////////////////////////////////////77777
 
@@ -160,7 +160,8 @@ function App() {
             meetings={meetings}
             filterParentMeeting={filterParentMeeting}
             setFilterParentMeeting={setFilterParentMeeting}
-            addMeetingId={addMeetingId}
+            newUserMeeting={newUserMeeting}
+            userMeetings={userMeetings}
           />
         </Route>
         <Route exact path="/DashboardTeachers">
@@ -194,6 +195,7 @@ function App() {
             login={login}
             setLogin={setLogin}
             meetings={meetings}
+            filterParentMeeting={filterParentMeeting}
           />
         </Route>
         <Route exact path="/MeetingHistoryTeachers">

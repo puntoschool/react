@@ -31,14 +31,14 @@ const MeetingVideo = ({meetingVideo}) => {
         <article className="video-meeting">
             <div className="row align-items-center">
                 <div className="col-sm-3 col-12 cont-video">
-                <Link to={'/DetailMeeting'} >
+                <Link to="/DetailMeeting" >
                     {   
                         require('html-react-parser')(link)
                     }
                 </Link>
                 </div>
                 <div className="col-sm-6 col-12">
-                <Link to={`/DetailMeeting/:${meetingVideo.id}`} >
+                <Link to="/DetailMeeting" >
                     <div className="meeting-text">
                     <h3>{meetingVideo.title}</h3>
                     <p><i className="far fa-clock"></i>{getD+1} de {getM}, {meetingVideo.startTime} hrs.</p>

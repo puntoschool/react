@@ -1,10 +1,18 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuParents from "./MenuParents";
 import MeetingVideo from '../teachers/MeetingVideo'
 
-const MeetingList = ({setLoginParent, login, setLogin, meetings, filteredMeetings, setFilterInput}) => {
+const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
+
+  const meetingsUserParent = meetings.filter( meeting => meeting.usersParents.includes(login.userName))
+
+  // Creo el state para las juntas filtradas
+  const [filterInput, setFilterInput] = useState('')
+
+  // funcion para obtener las juntas filtradas
+  const filteredMeetings = meetingsUserParent.filter( meeting => meeting.title.toLowerCase().includes(filterInput.toLowerCase()))
 
   const handleChange = e => {
     setFilterInput (e.target.name= e.target.value)
@@ -46,7 +54,7 @@ const MeetingList = ({setLoginParent, login, setLogin, meetings, filteredMeeting
                 </div>
 
                 <div className="video-list">
-                  {meetings.length > 0 
+                  {meetingsUserParent.length > 0 
                       ?
                       filteredMeetings.map(meetingVideo =>(
                       <MeetingVideo 
