@@ -16,7 +16,7 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
   }
 
   
-  const filteredTeachersMeetings = meetings.filter( meeting => meeting.user.toLowerCase().includes(login.userName.toLowerCase()))
+  const filteredTeachersMeetings = meetings.filter( meeting => meeting.user.includes(login.userName))
 
   // Creo el state para las juntas filtradas
   const [filterInput, setFilterInput] = useState('')

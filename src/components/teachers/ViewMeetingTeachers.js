@@ -1,13 +1,12 @@
 import React, { Fragment } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
-import MenuParents from "./MenuParents";
-import Poll from './Poll'
+import MenuTeachers from "./MenuTeachers";
 
 
-const DetailMeeting = ({setLoginParent, login, setLogin, filterParentMeeting}) => {
+const ViewMeeting = ({setLoginTeacher, login, setLogin, filterTeacherMeeting}) => {
 
-    const info = filterParentMeeting[0]
+    const info = filterTeacherMeeting
 
     var getM = new Date(info.date).getMonth()
 
@@ -29,30 +28,32 @@ const DetailMeeting = ({setLoginParent, login, setLogin, filterParentMeeting}) =
 
     getM = month[getM]
 
+    const link = info.link.replace('560','100%').replace('315','100%')
+
   return (
     <Fragment>
       <div className="admin parents">
         <Header 
-            setLoginParent={setLoginParent}
+            setLoginParent={setLoginTeacher}
             login={login}
             setLogin={setLogin}
         />
         <section className="dashboard mt-80">
           <div className="container-fluid">
             <div className="row">
-              <MenuParents 
-                setLoginParent={setLoginParent}
+              <MenuTeachers 
+                setLoginParent={setLoginTeacher}
                 login={login}
                 setLogin={setLogin}
               />
               <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
                     <div className="row mb-4">
                         <div className="col-md-4 col-6">
-                            <h3 className="dash-parents__title mt-0">Grado escolar:</h3>
+                            <h3 className="dash-teachers__title mt-0">Grado escolar:</h3>
                             <h5 className="meeting-info">{info.grade} {info.group}</h5>
                         </div>
                         <div className="col-md-4 col-6">
-                            <h3 className="dash-parents__title mt-0">Profesor:</h3>
+                            <h3 className="dash-teachers__title mt-0">Profesor:</h3>
                             <h5 className="meeting-info">{info.userName}</h5>
                         </div>
                     </div>
@@ -61,7 +62,7 @@ const DetailMeeting = ({setLoginParent, login, setLogin, filterParentMeeting}) =
                             <h2 className="meeting-title">{info.title}</h2>
                             <div className="embed-responsive embed-responsive-16by9">
                                {
-                                     require('html-react-parser')(info.link)
+                                     require('html-react-parser')(link)
                                }
                             </div>
                             <div className="row mt-2">
@@ -91,8 +92,8 @@ const DetailMeeting = ({setLoginParent, login, setLogin, filterParentMeeting}) =
                             </form>
                         </div>
                         <div className="col-9">
-                            <Poll
-                            />
+                            {/* <Poll
+                            /> */}
                         </div>
                     </section>
                 </main>
@@ -105,4 +106,4 @@ const DetailMeeting = ({setLoginParent, login, setLogin, filterParentMeeting}) =
   );
 };
 
-export default DetailMeeting;
+export default ViewMeeting;

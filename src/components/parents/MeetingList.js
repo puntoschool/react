@@ -2,9 +2,11 @@ import React, { Fragment, useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuParents from "./MenuParents";
-import MeetingVideo from '../teachers/MeetingVideo'
+import MeetingVideoParents from './MeetingVideoParents'
 
-const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
+import { Redirect } from "react-router-dom";
+
+const MeetingList = ({setLoginParent, login, setLogin, meetings, filterParentMeeting, setFilterParentMeeting}) => {
 
   const meetingsUserParent = meetings.filter( meeting => meeting.usersParents.includes(login.userName))
 
@@ -35,7 +37,7 @@ const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
                 setLogin={setLogin}
               />
               <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
-              <div className="row">
+                <div className="row">
                   <div className="col-sm-8">
                     <h1 className="dash-new-meeting__title">Historial de juntas</h1>
                   </div>
@@ -56,16 +58,18 @@ const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
                 <div className="video-list">
                   {meetingsUserParent.length > 0 
                       ?
-                      filteredMeetings.map(meetingVideo =>(
-                      <MeetingVideo 
-                        key={meetingVideo.id}
-                        meetingVideo={meetingVideo}
+                      filteredMeetings.map(meetingVideoParents =>(
+                      <MeetingVideoParents 
+                        key={meetingVideoParents.id}
+                        meetingVideoParents={meetingVideoParents}
+                        setFilterParentMeeting={setFilterParentMeeting}
                       />
                     ))
                     : <b>No hay juntas programadas</b>
                   }
                 </div>
-              </main>s
+                {filterParentMeeting ? <Redirect from="/MeetingList" to="/ViewMeeting" />: null }
+              </main>
             </div>
           </div>
         </section>

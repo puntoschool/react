@@ -39,21 +39,21 @@ const MenuParents = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
                 </h5>
               </li>
               <li>
-              <Link to={'/WelcomeParents'} ><i className="fas fa-home"></i></Link>
+              <Link to="/WelcomeParents"><i className="fas fa-home"></i></Link>
               </li>
               <li>
-              <Link to={'/'} ><i onClick={handleLogout} className="fas fa-sign-out-alt"></i></Link>
+              <Link to="/" ><i onClick={handleLogout} className="fas fa-sign-out-alt"></i></Link>
               </li>
             </ul>
             <ul className="navbar-nav">
               <li className="nav-item active">
-              <Link className="nav-link" to={'/WelcomeParents'} >
+              <Link className="nav-link" to="/WelcomeParents">
                 <i className="fas fa-home fa-fw"></i>
                 <span>Inicio</span>
               </Link>
               </li>
               <li className="nav-item">
-              <Link className="nav-link" to={'/MeetingList'} >
+              <Link className="nav-link" to="/MeetingList" >
               <i className="fas fa-chalkboard-teacher fa-fw"></i>
                   <span>Historial de juntas</span>
               </Link>
