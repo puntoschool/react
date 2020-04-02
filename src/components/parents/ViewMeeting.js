@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuParents from "./MenuParents";
-import Poll from '../Poll'
+import Poll from '../Polling'
 
 const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting}) => {
 

@@ -20,6 +20,8 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
+
+import Poll from 'react-polls';
   
 function App() {
 
@@ -87,32 +89,6 @@ function App() {
     const [filterParentMeeting, setFilterParentMeeting] = useState('')
 
     const [filterTeacherMeeting, setFilterTeacherMeeting] = useState('')
-    
-    ///////////////POLL////////////////////////////////////////////////////////////77777
-
-    // Declaring poll question and answers
-    //const pollQuestion = '¿Vocal del grupo?'
-    // const posibleAnswers = [
-    //     { option: 'Karya', votes: 8 },
-    //     { option: 'Martina', votes: 2 },
-    //     { option: 'Isabella', votes: 10 }
-    // ]
-
-    //const [pollAnswers, setPollAnswers] = useState(posibleAnswers)
-
-    // Handling user vote
-    // Increments the votes count of answer when the user votes
-    // const handleVote = voteAnswer => {
-        
-    //     const newPollAnswers = pollAnswers.map(answer => {
-    //     if (answer.option === voteAnswer) answer.votes++
-    //     return answer
-    //     })
-
-    //     setPollAnswers({
-    //     pollAnswers: newPollAnswers
-    //     })
-    // }
 
   return (
     <Router>
@@ -235,6 +211,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
+
   );
 }
 
