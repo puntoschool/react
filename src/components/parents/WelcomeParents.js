@@ -5,17 +5,14 @@ import Footer from "../Footer";
 import { Redirect } from "react-router-dom";
 import SweetAlert from "react-bootstrap-sweetalert";
 
-const WelcomeParents = ({setLoginParent, login, setLogin, meetings, setFilterParentMeeting, filterParentMeeting, addMeetingId}) => {
+const WelcomeParents = ({setLoginParent, login, setLogin, meetings, setFilterParentMeeting, filterParentMeeting}) => {
   
   // Creo el state para filtrar la junta por id
   const [filterParentInput, setFilterParentInput] = useState('')
 
   const [error, setError] = useState(false);
 
-  // const [userId, setUserId]= useState({
-  //   user:'',
-  //   id:''
-  // })
+  // const [userMeeting, setUserMeeting]= useState([])
 
   const handleChange = (e) => {
      setFilterParentInput(e.target.name=e.target.value)
@@ -30,35 +27,25 @@ const WelcomeParents = ({setLoginParent, login, setLogin, meetings, setFilterPar
 
       if(typeof filter != "undefined" && filter != null && filter.length != null
       && filter.length > 0){
+
+        const noRepeatUserParent = filter[0].usersParents.includes(login.userName)
+
+        if(! noRepeatUserParent){
+          filter[0].usersParents.push(login.userName)
+          localStorage.setItem("meetings", JSON.stringify(meetings))
+        }
+
         setFilterParentMeeting(filter)
+        
       }else{
         setError(true);
         return;
       }
-      
-
-      // if(filterParentMeeting.length === 0){
-      //   setError(true);
-      //   return;
-      // }else{
-        // const meetingInfo = filterParentMeeting[0]
-        // const {id} = meetingInfo
-
-        // setUserId({user:login.userName, id:id})
-        
-        // addMeetingId(userId)
-
-        // setUserId({user:'', id:''})
-      // }
 
     } else {
       setError(true);
       return;
     }
-
-    
-    
-
   }
 
   return (

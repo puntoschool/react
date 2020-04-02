@@ -16,7 +16,7 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
   }
 
   
-  const filteredTeachersMeetings = meetings.filter( meeting => meeting.user.toLowerCase().includes(login.userName.toLowerCase()))
+  const filteredTeachersMeetings = meetings.filter( meeting => meeting.user.includes(login.userName))
 
   // Creo el state para las juntas filtradas
   const [filterInput, setFilterInput] = useState('')
@@ -24,7 +24,6 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
   // funcion para obtener las juntas filtradas
   const filteredMeetings = filteredTeachersMeetings.filter( meeting => meeting.title.toLowerCase().includes(filterInput.toLowerCase()))
 
-  console.log(filteredTeachersMeetings)
   return (
     <Fragment>
       <div className="admin teachers">
