@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
+import PollingTeachers from './PollingTeachers'
 
 
 const ViewMeeting = ({setLoginTeacher, login, setLogin, filterTeacherMeeting}) => {
@@ -32,7 +33,7 @@ const ViewMeeting = ({setLoginTeacher, login, setLogin, filterTeacherMeeting}) =
 
   return (
     <Fragment>
-      <div className="admin parents">
+      <div className="admin teachers">
         <Header 
             setLoginParent={setLoginTeacher}
             login={login}
@@ -72,14 +73,14 @@ const ViewMeeting = ({setLoginTeacher, login, setLogin, filterTeacherMeeting}) =
                                     </div>
                                 </div>
                                 <div className="col-sm-6 text-right mt-2">
-                                    <a href="#!" download className="btn-border-blue btn-sm align-items-center">
-                                        <i className="fas fa-download"></i> Descargar Minuta
-                                    </a>
+                                    <button href="#!" download className="btn-border-yellow btn-sm align-items-center">
+                                        <i className="fas fa-download"></i> Cargar Minuta
+                                    </button>
                                 </div>
                             </div>
                         </article>
                         <div className="col-sm-3 meeting-chat">
-                            <h5 className="blue-color bold">Preguntas</h5>
+                            <h5 className="yellow-color bold">Preguntas</h5>
                             <div className="meeting-comments">
                                 <div className="comment">
                                     <h5>Alberto Rivas</h5>
@@ -92,8 +93,7 @@ const ViewMeeting = ({setLoginTeacher, login, setLogin, filterTeacherMeeting}) =
                             </form>
                         </div>
                         <div className="col-9">
-                            {/* <Poll
-                            /> */}
+                            <PollingTeachers />
                         </div>
                     </section>
                 </main>

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuParents from "./MenuParents";
-import Poll from '../Poll'
+import Polling from '../Polling'
 
 
 const DetailMeeting = ({setLoginParent, login, setLogin, filterParentMeeting}) => {
@@ -91,7 +91,8 @@ const DetailMeeting = ({setLoginParent, login, setLogin, filterParentMeeting}) =
                             </form>
                         </div>
                         <div className="col-9">
-                            <Poll
+                            <Polling
+                                
                             />
                         </div>
                     </section>
