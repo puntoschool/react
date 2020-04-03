@@ -23,7 +23,7 @@ const MenuParents = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
   return (
     <Fragment>
       <aside className="dash-menu col-md-2 col-sm-3">
-      <Navbar className="navbar" expand="lg">
+      <Navbar className="navbar" expand="md">
           <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")} />
           <Navbar.Collapse id="basic-navbar-nav">
             <ul className="dash-nav d-flex d-sm-none justify-content-between mb-5">
