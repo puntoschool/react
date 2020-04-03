@@ -2,8 +2,15 @@
     .dash-header {
         border-bottom: 3px solid $color-blue-light;
     }
-    .dash-menu .navbar-expand-sm .navbar-nav li a:hover {
-        color: $color-blue-light;
+    .dash-menu .navbar-nav li {
+        .nav-link {
+            &:hover, &:active, &:focus {
+                color: $color-blue-light;
+            }
+        } 
+        .nav-link.active {
+            color: $color-blue-light;
+        }
     }
     a {
         &:hover {
