@@ -2,9 +2,9 @@ import React, { Fragment } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuParents from "./MenuParents";
-import Poll from '../Polling'
 
-const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting}) => {
+
+const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setFilterParentMeeting}) => {
 
     const info = filterParentMeeting
 
@@ -45,6 +45,8 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting}) => 
                 setLoginParent={setLoginParent}
                 login={login}
                 setLogin={setLogin}
+                filterParentMeeting={filterParentMeeting}
+                setFilterParentMeeting={setFilterParentMeeting}
               />
               <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
                     <div className="row mb-4">
@@ -72,9 +74,9 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting}) => 
                                     </div>
                                 </div>
                                 <div className="col-sm-6 text-right mt-2">
-                                    <a href="#!" download className="btn-border-blue btn-sm align-items-center">
+                                    <button download className="btn-border-blue btn-sm align-items-center">
                                         <i className="fas fa-download"></i> Descargar Minuta
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </article>
@@ -92,8 +94,8 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting}) => 
                             </form>
                         </div>
                         <div className="col-9">
-                            <Poll
-                            />
+                            {/* <Poll
+                            /> */}
                         </div>
                     </section>
                 </main>

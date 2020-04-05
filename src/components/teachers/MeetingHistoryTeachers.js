@@ -24,7 +24,7 @@ const MeetingHistoryTeachers = ({setLoginTeacher, login, setLogin, meetings, fil
     <Fragment>
       <div className="admin teachers">
         <Header 
-          setLoginParent={setLoginTeacher}
+          setLoginTeacher={setLoginTeacher}
           login={login}
           setLogin={setLogin}
         />
@@ -32,7 +32,7 @@ const MeetingHistoryTeachers = ({setLoginTeacher, login, setLogin, meetings, fil
           <div className="container-fluid">
             <div className="row">
               <MenuTeachers 
-                setLoginParent={setLoginTeacher}
+                setLoginTeacher={setLoginTeacher}
                 login={login}
                 setLogin={setLogin}
               />

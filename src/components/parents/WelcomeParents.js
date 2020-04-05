@@ -35,7 +35,8 @@ const WelcomeParents = ({setLoginParent, login, setLogin, meetings, setFilterPar
           localStorage.setItem("meetings", JSON.stringify(meetings))
         }
 
-        setFilterParentMeeting(filter)
+        const fil = filter[0]
+        setFilterParentMeeting(fil)
         
       }else{
         setError(true);
@@ -97,7 +98,7 @@ const WelcomeParents = ({setLoginParent, login, setLogin, meetings, setFilterPar
                           </SweetAlert>
                         ) : null}
                          
-                        {filterParentMeeting ? <Redirect from="/WelcomeParents" to="/DetailMeeting" />: null }
+                        {filterParentMeeting ? <Redirect from="/WelcomeParents" to="/ViewMeeting" />: null }
                     </div>
 
                     <div className="col-md-11 mt-2">

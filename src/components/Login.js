@@ -1,7 +1,7 @@
 import React, { Fragment, useState} from "react";
 import Footer from './Footer';
-import Error from './Error'
 import { Link } from "react-router-dom";
+import SweetAlert from "react-bootstrap-sweetalert";
 
 const Login = ({accounts, setLogin, setLoginParent, setLoginTeacher}) => {
   
@@ -92,7 +92,18 @@ const Login = ({accounts, setLogin, setLoginParent, setLoginTeacher}) => {
                   <div className="login-form">
                     <input type="email" name='userName' value={userName} onChange={handleChange} placeholder="Correo Electrónico" />
                     <input type="password" name='password' value={password} onChange={handleChange} placeholder="Contraseña" />
-                    {error ? <Error style={{color:'white', display:'block', marginBottom:'2rem', fontSize:'3rem'}} message={errorType}/> : null}
+                    {error ? (
+                          <SweetAlert
+                            danger
+                            title="Error"
+                            onConfirm={() => {
+                              return setError(false);
+                            }}
+                          >
+                            {" "}
+                            {errorType}
+                          </SweetAlert>
+                        ) : null}
                     <input className="btn-login" type='submit' value='ingresar'/>
                   </div>
                 </form>

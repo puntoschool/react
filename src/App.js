@@ -4,12 +4,10 @@ import UserSelecter from './components/UserSelecter';
 import TeacherLogin from './components/teachers/TeacherLogin';
 import ParentsLogin from './components/parents/ParentsLogin';
 import WelcomeParents from './components/parents/WelcomeParents';
-import DetailMeeting from './components/parents/DetailMeeting';
 import MeetingList from './components/parents/MeetingList';
 import DashboardTeachers from './components/teachers/DashboardTeachers';
 import NewMeeting from './components/teachers/NewMeeting';
 import MeetingHistoryTeachers from './components/teachers/MeetingHistoryTeachers';
-import DetailMeetingTeachers from './components/teachers/DetailMeetingTeachers';
 import ViewMeeting from './components/parents/ViewMeeting';
 import ViewMeetingTeachers from './components/teachers/ViewMeetingTeachers';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -144,6 +142,8 @@ function App() {
             setLogin={setLogin}
             meetings={meetings}
             setMeetings={setMeetings}
+            filterTeacherMeeting={filterTeacherMeeting}
+            setFilterTeacherMeeting={setFilterTeacherMeeting}
           />
         </Route>
         <Route exact path="/NewMeeting"> 
@@ -152,14 +152,6 @@ function App() {
             login={login}
             setLogin={setLogin}
             newMeeting={newMeeting}
-          />
-        </Route>
-        <Route exact path="/DetailMeeting">
-          <DetailMeeting
-            setLoginParent={setLoginParent}
-            login={login}
-            setLogin={setLogin}
-            filterParentMeeting={filterParentMeeting}
           />
         </Route>
         <Route exact path="/MeetingList">
@@ -182,15 +174,6 @@ function App() {
             setFilterTeacherMeeting={setFilterTeacherMeeting}
           />
         </Route>
-        <Route exact path="/DetailMeetingTeachers">
-          <DetailMeetingTeachers
-            setLoginParent={setLoginParent}
-            login={login}
-            setLogin={setLogin}
-            meetings={meetings}
-            filterTeacherMeeting={filterTeacherMeeting}
-          />
-        </Route>
         <Route exact path="/ViewMeeting">
           <ViewMeeting
             setLoginParent={setLoginParent}
@@ -198,15 +181,17 @@ function App() {
             setLogin={setLogin}
             meetings={meetings}
             filterParentMeeting={filterParentMeeting}
+            setFilterParentMeeting={setFilterParentMeeting}
           />
         </Route>  
         <Route exact path="/ViewMeetingTeachers">
           <ViewMeetingTeachers
-            setLoginParent={setLoginTeacher}
+            setLoginTeacher={setLoginTeacher}
             login={login}
             setLogin={setLogin}
             meetings={meetings}
             filterTeacherMeeting={filterTeacherMeeting}
+            setFilterTeacherMeeting={setFilterTeacherMeeting}
           />
         </Route>
       </Switch>
