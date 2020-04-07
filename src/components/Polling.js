@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Poll from 'react-polls';
 
 // Declaring poll question and answers
-const pollQuestion = 'Is react-polls useful?'
+const pollQuestion = 'Vocal del grupo?'
 const pollAnswers = [
-  { option: 'Yes', votes: 8 },
-  { option: 'No', votes: 2 }
+  { option: 'Karya', votes: 8 },
+  { option: 'Isabella', votes: 2 },
+  { option: 'Alexa', votes: 9 }
 ]
 
 class Polling extends Component {
@@ -31,7 +32,7 @@ class Polling extends Component {
     const { pollAnswers } = this.state
     return (
       <div>
-        <Poll question={pollQuestion} answers={pollAnswers} onVote={this.handleVote} noStorage={true} customStyles={{"align": "center", "questionBold": true, "questionColor":  "#fcbf00", "questionSeparator": true, "questionSeparatorWidth":"question", "theme": "black"}}/>
+        <Poll question={pollQuestion} answers={pollAnswers} onVote={this.handleVote} noStorage={true} customStyles={{"align": "center", "questionBold": true, "questionColor":  "#1d71b8", "questionSeparator": true, "questionSeparatorWidth":"question", "theme": "blue"}}/>
       </div>
     );
   }

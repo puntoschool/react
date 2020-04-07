@@ -3,8 +3,9 @@ import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
 import Meeting from '../teachers/Meeting'
+import { Redirect } from "react-router-dom";
 
-const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeetings}) => {
+const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeetings, filterTeacherMeeting, setFilterTeacherMeeting}) => {
 
   const handleChange = e => {
     setFilterInput (e.target.name= e.target.value)
@@ -69,10 +70,12 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
                           key={meeting.id}
                           meeting={meeting}
                           handleDeleteMeeting={handleDeleteMeeting}
+                          setFilterTeacherMeeting={setFilterTeacherMeeting}
                           /> 
                         ))
                       : <b>No hay juntas programadas</b>
                     }                                   
+                    {filterTeacherMeeting ? <Redirect from="/MeetingList" to="/ViewMeetingTeachers" />: null }
                   </div>
                 </div>
               </main>

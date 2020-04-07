@@ -2,16 +2,15 @@ import React, { Fragment, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Nav, Navbar } from 'react-bootstrap'
 
-const MenuTeachers = ({ setLoginTeacher, setLoginParent, login, setLogin }) => {
-
-  const { fullName, userType } = login
+const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterTeacherMeeting, setFilterTeacherMeeting}) => {
+  
+  const {fullName, userType} = login
 
   const handleLogout = () => {
-
-    if (userType === 'parent') {
+    if(userType === 'Padre de Familia'){
       setLoginParent(false)
       setLogin({})
-    } else if (userType === 'teacher') {
+    }else if(userType === 'Maestro'){
       setLoginTeacher(false)
       setLogin({})
     }
@@ -19,6 +18,13 @@ const MenuTeachers = ({ setLoginTeacher, setLoginParent, login, setLogin }) => {
 
   // Close nav when select a link
   const [expanded, setExpanded] = useState(false);
+
+  const handleFilterTeachers =() =>{
+    if(filterTeacherMeeting){
+       setFilterTeacherMeeting('')
+    }
+    return
+  }
 
   return (
     <Fragment>
@@ -39,19 +45,19 @@ const MenuTeachers = ({ setLoginTeacher, setLoginParent, login, setLogin }) => {
             </ul>
             <Nav className="navbar-nav" activeKey="/DashboardTeachers" as="ul">
               <Nav.Item as="li">
-                <NavLink className="nav-link" activeClassName="active" onClick={() => setExpanded(false)} to={"/DashboardTeachers"}>
+                <NavLink className="nav-link" activeClassName="active" onClick={() => setExpanded(false)} to={"/DashboardTeachers"} onClick={handleFilterTeachers}>
                   <i className="fas fa-calendar-alt fa-fw"></i>
                   <span>Calendario de Juntas</span>
                 </NavLink>
               </Nav.Item>
               <Nav.Item as="li">
-                <NavLink className="nav-link" activeClassName="active" onClick={() => setExpanded(false)} eventKey="link-2" to="/meetingHistoryTeachers">
+                <NavLink className="nav-link" activeClassName="active" onClick={() => setExpanded(false)} eventKey="link-2" to="/meetingHistoryTeachers" onClick={handleFilterTeachers}>
                   <i className="fas fa-folder-open fa-fw"></i>
                   <span>Historial de Juntas</span>
                 </NavLink>
               </Nav.Item>
               <Nav.Item as="li">
-                <NavLink className="nav-link" activeClassName="active" onClick={() => setExpanded(false)} eventKey="link-3" to="/NewMeeting">
+                <NavLink className="nav-link" activeClassName="active" onClick={() => setExpanded(false)} eventKey="link-3" to="/NewMeeting" onClick={handleFilterTeachers}>
                   <i className="far fa-calendar-check fa-fw"></i>
                   <span>Agendar Nueva Junta</span>
                 </NavLink>

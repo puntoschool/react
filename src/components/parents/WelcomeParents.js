@@ -46,8 +46,10 @@ const WelcomeParents = ({
           localStorage.setItem("meetings", JSON.stringify(meetings));
         }
 
-        setFilterParentMeeting(filter);
-      } else {
+        const fil = filter[0]
+        setFilterParentMeeting(fil)
+        
+      }else{
         setError(true);
         return;
       }
@@ -83,9 +85,7 @@ const WelcomeParents = ({
                     <div className="row justify-content-center">
                       <div className="col-md-7 col-sm-10 col-12">
                         <form className="form-group parents-login__inputs mt-5">
-                          <label htmlFor="enterID">
-                            Ingresa el ID de tu junta
-                          </label>
+                          <label htmlFor="enterID"> Ingresa el ID de tu junta</label>
                           <input
                             type="text"
                             name="enterID"
@@ -112,9 +112,12 @@ const WelcomeParents = ({
                               return setError(false);
                             }}
                           >
-                            {"Link no valido, favor de verificarlo"}
+                            {"Link no válido, favor de verificarlo"}
                           </SweetAlert>
                         ) : null}
+                         
+                        {filterParentMeeting ? <Redirect from="/WelcomeParents" to="/ViewMeeting" />: null }
+                      </div>
 
                         {filterParentMeeting ? (
                           <Redirect
@@ -122,7 +125,6 @@ const WelcomeParents = ({
                             to="/DetailMeeting"
                           />
                         ) : null}
-                      </div>
                     </div>
                   </div>
 

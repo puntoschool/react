@@ -5,7 +5,7 @@ import MenuTeachers from "./MenuTeachers";
 import PollingTeachers from './PollingTeachers'
 
 
-const ViewMeeting = ({setLoginTeacher, login, setLogin, filterTeacherMeeting}) => {
+const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filterTeacherMeeting, setFilterTeacherMeeting}) => {
 
     const info = filterTeacherMeeting
 
@@ -35,7 +35,7 @@ const ViewMeeting = ({setLoginTeacher, login, setLogin, filterTeacherMeeting}) =
     <Fragment>
       <div className="admin teachers">
         <Header 
-            setLoginParent={setLoginTeacher}
+            setLoginTeacher={setLoginTeacher}
             login={login}
             setLogin={setLogin}
         />
@@ -43,9 +43,11 @@ const ViewMeeting = ({setLoginTeacher, login, setLogin, filterTeacherMeeting}) =
           <div className="container-fluid">
             <div className="row">
               <MenuTeachers 
-                setLoginParent={setLoginTeacher}
+                setLoginTeacher={setLoginTeacher}
                 login={login}
                 setLogin={setLogin}
+                setFilterTeacherMeeting={setFilterTeacherMeeting}
+                filterTeacherMeeting={filterTeacherMeeting}
               />
               <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
                     <div className="row mb-4">
@@ -73,7 +75,7 @@ const ViewMeeting = ({setLoginTeacher, login, setLogin, filterTeacherMeeting}) =
                                     </div>
                                 </div>
                                 <div className="col-sm-6 text-right mt-2">
-                                    <button href="#!" download className="btn-border-yellow btn-sm align-items-center">
+                                    <button download className="btn-border-yellow btn-sm align-items-center">
                                         <i className="fas fa-download"></i> Cargar Minuta
                                     </button>
                                 </div>
@@ -93,7 +95,10 @@ const ViewMeeting = ({setLoginTeacher, login, setLogin, filterTeacherMeeting}) =
                             </form>
                         </div>
                         <div className="col-9">
-                            <PollingTeachers />
+                            <PollingTeachers 
+                                meetings={meetings}
+                                filterTeacherMeeting={filterTeacherMeeting}
+                            />
                         </div>
                     </section>
                 </main>
@@ -106,4 +111,4 @@ const ViewMeeting = ({setLoginTeacher, login, setLogin, filterTeacherMeeting}) =
   );
 };
 
-export default ViewMeeting;
+export default ViewMeetingTeachers;

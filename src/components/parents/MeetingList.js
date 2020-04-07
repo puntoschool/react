@@ -67,8 +67,10 @@ const MeetingList = ({setLoginParent, login, setLogin, meetings, filterParentMee
                     ))
                     : <b>No hay juntas programadas</b>
                   }
+      
+                {filterParentMeeting ? <Redirect from="/MeetingList" to="/ViewMeeting" />: 
+                null }
                 </div>
-                {filterParentMeeting ? <Redirect from="/MeetingList" to="/ViewMeeting" />: null }
               </main>
             </div>
           </div>

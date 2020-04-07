@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import SweetAlert from 'react-bootstrap-sweetalert'
 import { Link } from "react-router-dom";
 
-const Meeting = ({meeting, handleDeleteMeeting}) => {
+const Meeting = ({meeting, handleDeleteMeeting, setFilterTeacherMeeting}) => {
 
     var getM = new Date(meeting.date).getMonth()
 
@@ -44,6 +44,10 @@ const Meeting = ({meeting, handleDeleteMeeting}) => {
     const handleClick = () =>{ setSweetA(true)}
 
     const handleChange = () =>{}
+
+    const handleClickStart = () => {
+        setFilterTeacherMeeting(meeting)
+    }
    
     return ( 
         <article className="meeting-appointment">
@@ -63,7 +67,7 @@ const Meeting = ({meeting, handleDeleteMeeting}) => {
             </div>
             
             <div className="meeting-arrow">
-                <Link to={`/DetailMeetingTeachers/:${meeting.id}`} >
+                <Link to={`/ViewMeetingTeachers`} onClick={handleClickStart} >
                     <span className="start-meeting d-block d-sm-inline text-left text-sm-right">
                         Iniciar Junta <i className="fas fa-chevron-right"></i>
                     </span>
@@ -75,9 +79,6 @@ const Meeting = ({meeting, handleDeleteMeeting}) => {
                     { sweetA ? <SweetAlert showCancel confirmBtnText="Sí, deseo eliminarla" confirmBtnBsStyle="danger" title="¿Esta seguro" onCancel={handleCancel} onConfirm={() =>{handleDeleteMeeting(meeting.id)}} focusCancelBtn>
                         que desea borrar la junta seleccionada?
                     </SweetAlert> : null }
-                    <button>
-                        <i className="fas fa-edit"></i>
-                    </button>
                 </div>
             </div>
         </article>

@@ -254,7 +254,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                         {confirm ? (
                           <SweetAlert
                             success
-                            title="Registro correcto"
+                            title="Junta agendada"
                             onConfirm={() => {
                               return setConfirm(false);
                             }}
