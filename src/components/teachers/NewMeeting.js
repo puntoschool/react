@@ -15,7 +15,10 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin}) => {
     startTime: "",
     endTime: "",
     link: "",
-    usersParents:[]
+    usersParents:[],
+    pollingA:[],
+    pollingQ:'',
+    userParentsVote:[]
   });
 
   const handleChange = e => {
@@ -247,7 +250,6 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin}) => {
                               return setError(false);
                             }}
                           >
-                            {" "}
                             {errorType}
                           </SweetAlert>
                         ) : null}

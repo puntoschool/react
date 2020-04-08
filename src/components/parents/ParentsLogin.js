@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from '../Footer'
-import Error from '../Error'
 import { Redirect } from "react-router-dom";
+import SweetAlert from "react-bootstrap-sweetalert";
 
-const ParentsLogin = ({newUserAccount, setLogin, setLoginParent, loginParent, setLoginTeacher, accounts}) => {
+const ParentsLogin = ({newUserAccount, setLogin, setLoginParent, loginParent, setLoginTeacher, accounts, setFilterParentMeeting}) => {
 
   // Defino el objeto de cuenta
   const [account, setAccount] = useState({
@@ -65,6 +65,7 @@ const ParentsLogin = ({newUserAccount, setLogin, setLoginParent, loginParent, se
 
     setLoginParent(true)
     setLoginTeacher(false)
+    setFilterParentMeeting('')
   }
 
   // Creo una variable por cada propiedad del objeto acount
@@ -83,7 +84,7 @@ const ParentsLogin = ({newUserAccount, setLogin, setLoginParent, loginParent, se
               <input type="email" name="userName" onChange = {handleChange} placeholder="Correo Electrónico" />
               <input type="password" name="password" onChange = {handleChange} placeholder="Contraseña" />
               <input type="password" name="confirm" onChange = {handleChange} placeholder="Confirma tu contraseña" />
-              {error ? <Error className='error-red' message={errorType}/> : null}
+              {error ?  <SweetAlert danger title="Error" onConfirm={() => { return setError(false);}}> {errorType} </SweetAlert> : null}
               {loginParent ? <Redirect from="/ParentsLogin" to="/WelcomeParents" />: null }
               <div className="parents-login__btns">
                   <Link className="btn-back-blue" to="/UserSelecter">Regresar</Link>

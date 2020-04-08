@@ -55,20 +55,24 @@ const MeetingHistoryTeachers = ({setLoginTeacher, login, setLogin, meetings, fil
                   </div>
                 </div>
 
-                <div className="video-list">
-                  {filteredTeachersMeetings.length > 0 
-                      ?
-                      filteredMeetings.map(meetingVideoTeachers =>(
-                      <MeetingVideoTeachers
-                        key={meetingVideoTeachers.id}
-                        meetingVideoTeachers={meetingVideoTeachers}
-                        setFilterTeacherMeeting={setFilterTeacherMeeting}
-                      />
-                    ))
-                    : <b>No hay juntas programadas</b>
-                  }
+                <div className="row justify-content-center">
+                  <div className="col-sm-11 col-12 scroll-sm">
+                    <div className="video-list">
+                      {filteredTeachersMeetings.length > 0 
+                          ?
+                          filteredMeetings.map(meetingVideoTeachers =>(
+                          <MeetingVideoTeachers
+                            key={meetingVideoTeachers.id}
+                            meetingVideoTeachers={meetingVideoTeachers}
+                            setFilterTeacherMeeting={setFilterTeacherMeeting}
+                          />
+                        ))
+                        : <b>No hay juntas programadas</b>
+                      }
 
-                  {filterTeacherMeeting ? <Redirect from="/MeetingList" to="/ViewMeetingTeachers" />: null }
+                      {filterTeacherMeeting ? <Redirect from="/MeetingList" to="/ViewMeetingTeachers" />: null }
+                    </div>
+                  </div>
                 </div>
               </main>
             </div>

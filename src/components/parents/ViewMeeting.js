@@ -1,12 +1,15 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuParents from "./MenuParents";
+import Polling from "./Polling"
 
 
-const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setFilterParentMeeting}) => {
+const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setFilterParentMeeting, meetings, vote, setVote}) => {
 
     const info = filterParentMeeting
+
+    // const {userParentsVote} = info
 
     var getM = new Date(info.date).getMonth()
 
@@ -29,6 +32,13 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
     getM = month[getM]
 
     const link = info.link.replace('560','100%').replace('315','100%')
+
+    // const [vote, setVote] = useState(false)
+
+    // if(vote){
+    //     setFilterParentMeeting(filterParentMeeting.userParentsVote.push(login.userName))
+    //     localStorage.setItem("meetings", JSON.stringify(meetings))
+    // }
 
   return (
     <Fragment>
@@ -94,8 +104,12 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
                             </form>
                         </div>
                         <div className="col-9">
-                            {/* <Poll
-                            /> */}
+                            <Polling
+                                filterParentMeeting={filterParentMeeting}
+                                setFilterParentMeeting={setFilterParentMeeting}
+                                meetings={meetings}
+                                login={login}
+                            />
                         </div>
                     </section>
                 </main>
