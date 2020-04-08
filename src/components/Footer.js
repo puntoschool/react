@@ -43,7 +43,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="d-none d-sm-block">
-                  <button onClick={() => showModal(prev => !prev)}>
+                  <button className="contact-button" onClick={() => showModal(prev => !prev)}>
                     contacto@puntoschool.com
                   </button>
                 </li>
@@ -55,22 +55,21 @@ const Footer = () => {
                 onHide={hideModal}
                 className="modal fade modal-video"
               >
-                <Modal.Body>
+                <Modal.Body className="text-center">
                   <Form>
-                    <Form.Group controlId="formBasicEmail">
+                    <Form.Group className="Modal-contact" controlId="formBasicEmail">
                       <Form.Label>Email address</Form.Label>
                       <Form.Control type="email" placeholder="Enter email" />
                       <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
                       </Form.Text>
                     </Form.Group>
                     <Form.Group controlId="formBasicPassword">
-                      <Form.Label>Password</Form.Label>
-                      <Form.Control type="password" placeholder="Password" />
+                      <Form.Label>¿Cómo te podemos ayudar?</Form.Label>
+                      <Form.Control type="textarea" placeholder="Escríbenos ;)" />
                     </Form.Group>
                   </Form>
                   <button
-                    className="btn btn-transparent color-white"
+                    className="btn btn-transparent color-black"
                     onClick={hideModal}
                   >
                     Regresar <i className="fas fa-arrow-right" />
