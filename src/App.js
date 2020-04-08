@@ -88,13 +88,6 @@ function App() {
 
     const [filterTeacherMeeting, setFilterTeacherMeeting] = useState('')
 
-    
-    const [vote, setVote] = useState(false)
-
-    if(vote){
-        setFilterParentMeeting(filterParentMeeting.userParentsVote.push(login.userName))
-        localStorage.setItem("meetings", JSON.stringify(meetings))
-    }
 
   return (
     <Router>
@@ -192,8 +185,6 @@ function App() {
             meetings={meetings}
             filterParentMeeting={filterParentMeeting}
             setFilterParentMeeting={setFilterParentMeeting}
-            vote={vote}
-            setVote={setVote}
           />
         </Route>  
         <Route exact path="/ViewMeetingTeachers">

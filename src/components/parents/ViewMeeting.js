@@ -33,6 +33,12 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
 
     const link = info.link.replace('560','100%').replace('315','100%')
 
+    // const [vote, setVote] = useState(false)
+
+    // if(vote){
+    //     setFilterParentMeeting(filterParentMeeting.userParentsVote.push(login.userName))
+    //     localStorage.setItem("meetings", JSON.stringify(meetings))
+    // }
 
   return (
     <Fragment>
@@ -100,9 +106,9 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
                         <div className="col-9">
                             <Polling
                                 filterParentMeeting={filterParentMeeting}
+                                setFilterParentMeeting={setFilterParentMeeting}
                                 meetings={meetings}
                                 login={login}
-                                setVote={setVote}
                             />
                         </div>
                     </section>

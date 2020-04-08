@@ -7,13 +7,15 @@ class Polling extends Component {
   state = {
     pollAnswers: [...this.props.filterParentMeeting.pollingA],
     error:false,
-    errorType:''
+    errorType:'',
+    userParentsVote:[...this.props.filterParentMeeting.userParentsVote],
+    user: this.props.login.userName
   }
 
   // Handling user vote
   // Increments the votes count of answer when the user votes
   handleVote = voteAnswer => {
-    const { pollAnswers } = this.state
+    const { pollAnswers, user, userParentsVote } = this.state
     // let usersVote=[this.props.filterParentMeeting.userParentsVote]
     
     const filterUser = this.props.filterParentMeeting.userParentsVote.includes(this.props.login.userName)
@@ -23,15 +25,17 @@ class Polling extends Component {
         if (answer.option === voteAnswer) answer.votes++
         return answer
       })
+
+      const newUserVote = [this.props.filterParentMeeting.userParentsVote.push(this.props.login.userName)]
+
+      console.log(newUserVote)
+
       this.setState({
-        pollAnswers: newPollAnswers
+        pollAnswers: newPollAnswers,
+        userParentsVote: [...this.props.filterParentMeeting.userParentsVote], newUserVote
       })
 
-      this.props.setVote(true)
-      
-      // this.props.filterParentMeeting= this.props.filterParentMeeting.userParentsVote.push(this.props.login.userName)
-
-      // localStorage.setItem("meetings", JSON.stringify(this.props.meetings))
+      localStorage.setItem("meetings", JSON.stringify(this.props.meetings))
   
     } else if(filterUser){
       this.setState({
