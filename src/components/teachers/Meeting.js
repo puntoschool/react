@@ -82,12 +82,6 @@ const Meeting = ({meeting, handleDeleteMeeting, setFilterTeacherMeeting}) => {
                 </div>
             </div>
         </article>
-
-        <EditMeeting
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-            meeting={meeting}
-        />
         
         )
 }
