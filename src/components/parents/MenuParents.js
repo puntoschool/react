@@ -10,6 +10,7 @@ const MenuParents = ({setLoginTeacher, setLoginParent, login, setLogin, filterPa
     if(userType === 'Padre de Familia'){
       setLoginParent(false)
       setLogin({})
+      setFilterParentMeeting('')
     }else if(userType === 'Maestro'){
       setLoginTeacher(false)
       setLogin({})

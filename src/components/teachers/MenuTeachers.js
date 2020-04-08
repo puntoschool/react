@@ -13,6 +13,7 @@ const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterT
     }else if(userType === 'Maestro'){
       setLoginTeacher(false)
       setLogin({})
+      setFilterTeacherMeeting('')
     }
   }
 

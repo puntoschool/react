@@ -88,6 +88,14 @@ function App() {
 
     const [filterTeacherMeeting, setFilterTeacherMeeting] = useState('')
 
+    
+    const [vote, setVote] = useState(false)
+
+    if(vote){
+        setFilterParentMeeting(filterParentMeeting.userParentsVote.push(login.userName))
+        localStorage.setItem("meetings", JSON.stringify(meetings))
+    }
+
   return (
     <Router>
       <Switch>
@@ -96,7 +104,7 @@ function App() {
           ? <Redirect from="/" to="/DashboardTeachers" />
           : loginParent
           ? <Redirect from="/" to="/WelcomeParents" />
-          : <Login setLogin = {setLogin} setLoginTeacher={setLoginTeacher} setLoginParent={setLoginParent} accounts={accounts}/> 
+          : <Login setLogin = {setLogin} setLoginTeacher={setLoginTeacher} setLoginParent={setLoginParent} accounts={accounts} setFilterParentMeeting={setFilterParentMeeting} setFilterTeacherMeeting={setFilterTeacherMeeting}/> 
         )}/>
 
         <Route exact path="/">
@@ -113,6 +121,7 @@ function App() {
             setLoginTeacher={setLoginTeacher}
             setLoginParent={setLoginParent}
             accounts={accounts}
+            setFilterTeacherMeeting={setFilterTeacherMeeting}
           />
         </Route>
         <Route exact path="/ParentsLogin">
@@ -123,6 +132,7 @@ function App() {
             setLoginTeacher={setLoginTeacher}
             setLoginParent={setLoginParent}
             accounts={accounts}
+            setFilterParentMeeting={setFilterParentMeeting}
           />
         </Route>
         <Route exact path="/WelcomeParents">
@@ -182,6 +192,8 @@ function App() {
             meetings={meetings}
             filterParentMeeting={filterParentMeeting}
             setFilterParentMeeting={setFilterParentMeeting}
+            vote={vote}
+            setVote={setVote}
           />
         </Route>  
         <Route exact path="/ViewMeetingTeachers">

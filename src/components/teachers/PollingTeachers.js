@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
+import SweetAlert from "react-bootstrap-sweetalert";
 
-const PollingTeachers = ({filterTeacherMeeting, meetings}) =>{
+const PollingTeachers = ({setPollingQ, setPollingA, pollingQ, pollingA, filterTeacherMeeting}) =>{
 
-  const [pollingInfo, setPollingInfo] = useState({});
+  const [pollingInfo, setPollingInfo] = useState({
+    pollQ:'',
+    option1:'',
+    option2:'',
+    option3:''
+  });
+
+  const {pollQ, option1, option2, option3} = pollingInfo
 
   const handleChange = e => {
     setPollingInfo({
@@ -11,30 +19,44 @@ const PollingTeachers = ({filterTeacherMeeting, meetings}) =>{
     });
   };
 
+  const [activePoll, setActivePoll] = useState(false);
+  const [confirm, setConfirm] = useState(false);
   const [error, setError] = useState(false);
   const [errorType, setErrorType] = useState("");
 
+  const handlePollingA = () =>{
+    if(!option3){
+      setPollingA([{option:option1,votes:0},{option:option2,votes:0}])
+    } else if(option3){
+      setPollingA([{option:option1,votes:0},{option:option2,votes:0},{option:option3,votes:0}])
+    }
+  }
+
   const handleSubmit = (e) =>{
     e.preventDefault()
-    console.log(pollingInfo)
+
+    if(filterTeacherMeeting.pollingQ){
+      setActivePoll(true)
+      setErrorType("El sistema de votación ha sido activado");
+      return;
+    }
 
     if(
-      pollingInfo === {} 
-      // pollingInfo.pollingQuestion.trim() === '' ||
-      // pollingInfo.posibleAnswers1.trim() === ''
+      pollQ.trim() === '' ||
+      option1.trim() === ''
     ){
       setError(true);
       setErrorType("Todos los campos son obligatorios");
-      console.log('error')
       return;
-    // } else if(pollingInfo.posibleAnswers2.trim() === ''){
-    //   setError(true);
-    //   setErrorType("Debe de haber al menos dos opciones para votar");
-    //   return;
+    } else if(option2.trim() === ''){
+      setError(true);
+      setErrorType("Debe de haber al menos dos opciones para votar");
+      return;
     } else setError(false);
-
-    // filterTeacherMeeting.pollingInfo = pollingInfo
-
+    
+    handlePollingA()
+    setPollingQ(pollQ)
+    setConfirm(true)
   }
 
   return(
@@ -45,18 +67,60 @@ const PollingTeachers = ({filterTeacherMeeting, meetings}) =>{
       >
         <div className="form-group col-12">
           <label for="pollingQuestion">Pregunta o Tema a votación</label>
-          <input type="text" className="form-control" id="pollingQuestion" name="pollingQuestion" value={pollingInfo.pollingQuestion} placeholder="Ingrese la pregunta o tema a someter a votación" onChange={handleChange}/>
+          {!filterTeacherMeeting.pollingQ ? <input type="text" className="form-control" name="pollQ" value={pollQ} placeholder="Ingrese la pregunta o tema a someter a votación" onChange={handleChange}/>:<p><b>{filterTeacherMeeting.pollingQ}</b></p>}
         </div>
 
         <div className="row ml-1">
           <div className="form-group col-6">
             <label>Opciones de respuesta</label>
-            <input type="text" className="form-control mb-4" name="posibleAnswers1" value={pollingInfo.posibleAnswer1} placeholder='opción 1' onChange={handleChange}/>
-            <input type="text" className="form-control mb-4" name="posibleAnswers2" value={pollingInfo.posibleAnswer2} placeholder='opción 2' onChange={handleChange}/>
-            <input type="text" className="form-control" name="posibleAnswers3" value={pollingInfo.posibleAnswer3} placeholder='opción 3' onChange={handleChange}/>
+            {!filterTeacherMeeting.pollingQ ? <input type="text" className="form-control mb-4" name="option1" value={option1} placeholder='opción 1' onChange={handleChange}/>: <p><b>{filterTeacherMeeting.pollingA[0].option} </b> -- 
+            {filterTeacherMeeting.pollingA[0].votes} voto(s)</p>}
+
+            {!filterTeacherMeeting.pollingQ ? <input type="text" className="form-control mb-4" name="option2" value={option2} placeholder='opción 2' onChange={handleChange}/>: <p><b>{filterTeacherMeeting.pollingA[1].option}</b> --
+            {filterTeacherMeeting.pollingA[1].votes} voto(s)</p>}
+
+            {!filterTeacherMeeting.pollingQ ? <input type="text" className="form-control" name="option3" value={option3} placeholder='opción 3' onChange={handleChange}/>: null} 
+            
+            {filterTeacherMeeting.pollingQ && filterTeacherMeeting.pollingA[2] ? <p><b>{filterTeacherMeeting.pollingA[2].option}</b> -- {filterTeacherMeeting.pollingA[2].votes} voto(s)</p>: null}
           </div>
     
           <button type="submit" className="btn-border-yellow col-6 btn-poll" onSubmit={handleSubmit}>Crear sistema de votación</button>
+
+          {activePoll ? (
+            <SweetAlert
+              danger
+              title="Error"
+              onConfirm={() => {
+                return setActivePoll(false);
+              }}
+            >
+              {errorType}
+            </SweetAlert>
+          ) : null}
+
+          {error ? (
+            <SweetAlert
+              danger
+              title="Error"
+              onConfirm={() => {
+                return setError(false);
+              }}
+            >
+              {errorType}
+            </SweetAlert>
+          ) : null}
+
+          {confirm ? (
+            <SweetAlert
+              success
+              title="Sistema de votación activado"
+              onConfirm={() => {
+                return setConfirm(false);
+              }}
+            >
+            </SweetAlert>
+          ) : null}
+
         </div>
       </form>
     </div>
