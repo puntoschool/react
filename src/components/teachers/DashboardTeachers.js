@@ -4,6 +4,7 @@ import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
 import Meeting from '../teachers/Meeting'
 import { Redirect } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
 
 const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeetings, filterTeacherMeeting, setFilterTeacherMeeting}) => {
 
@@ -24,6 +25,17 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
 
   // funcion para obtener las juntas filtradas
   const filteredMeetings = filteredTeachersMeetings.filter( meeting => meeting.title.toLowerCase().includes(filterInput.toLowerCase()))
+
+  // Modal
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const showModal = () => {
+    setIsOpen(true);
+  };
+
+  const hideModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <Fragment>
@@ -76,6 +88,17 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
                       : <b>No hay juntas programadas</b>
                     }                                   
                     {filterTeacherMeeting ? <Redirect from="/MeetingList" to="/ViewMeetingTeachers" />: null }
+                    <div className="text-right mt-5">
+                    <button
+                          type="button"
+                          className="btn btn-yellow"
+                          htmlFor="link"
+                          // Modal link
+                          onClick={showModal} 
+                        >
+                          ¿Cómo crear un link?
+                        </button>
+                    </div>
                   </div>
                 </div>
               </main>
@@ -84,6 +107,16 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
         </section>
         <Footer />
       </div>
+      <Modal show={isOpen} onHide={hideModal} className="modal fade modal-video">
+        <Modal.Body>
+          <div className="embed-responsive embed-responsive-16by9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/5ij9nNr93Mo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-transparent color-white" onClick={hideModal}>Regresar <i className="fas fa-arrow-right"></i></button>
+        </Modal.Footer>
+      </Modal>
     </Fragment>
   )
 }

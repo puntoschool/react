@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, setState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Nav, Navbar } from 'react-bootstrap'
+import { Nav, Navbar} from 'react-bootstrap'
 
 const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterTeacherMeeting, setFilterTeacherMeeting}) => {
   
@@ -26,9 +26,20 @@ const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterT
     return
   }
 
+
+  // show-hide menu
+ const [isToggled, setToggled] = useState('dash-menu col-md-2 col-sm-3');
+ const toggleTrueFalse = () => {
+   if (isToggled === 'd-none') {
+     setToggled('dash-menu col-md-2 col-sm-3') 
+   } else {
+    setToggled('d-none')
+   }
+ }
+
   return (
     <Fragment>
-      <aside className="dash-menu col-md-2 col-sm-3">
+      <aside className={isToggled}>
         <Navbar className="navbar" expand="md">
           <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")} />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -66,8 +77,18 @@ const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterT
           </Navbar.Collapse>
         </Navbar>
       </aside>
+      <div className="col-sm-1">
+      <button
+        onClick={toggleTrueFalse}
+        className="toggle-sidebar"
+      ><i className="fas fa-chevron-right"></i> </button>
+      </div>
     </Fragment>
   );
 };
+
+// () => setOpen(!open)
+// aria-controls="example-fade-text"
+//         aria-expanded={open}
 
 export default MenuTeachers;

@@ -6,7 +6,7 @@ import uuid from "uuid/v4";
 import SweetAlert from "react-bootstrap-sweetalert";
 import Modal from "react-bootstrap/Modal";
 
-const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
+const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin}) => {
   const [meeting, setMeeting] = useState({
     title: "",
     grade: "",
@@ -98,7 +98,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                 login={login}
                 setLogin={setLogin}
               />
-              <main className="dash-new-meeting col-md-10 col-sm-9">
+              <main className="dash-new-meeting col-md-9 col-sm-8">
                 <div className="justify-content-center">
                   <h1 className="dash-new-meeting__title">Agendar Junta</h1>
 

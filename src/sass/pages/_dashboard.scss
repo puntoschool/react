@@ -609,6 +609,22 @@
     }
 }
 
+.toggle-sidebar {
+    color: $color-grey-light;
+    background: $color-grey-mid;
+    border-radius: 0 5px 5px 0;
+    padding: 3px 5px;
+    font-size: 1.3rem;
+    margin-left: -15px;
+    @media screen and (max-width: $break-small) {
+        display: none;
+    }
+    &:focus {
+        box-shadow: 0;
+        outline: 0;
+    }
+}
+
 
 /*.border-input {
     display: flex;
