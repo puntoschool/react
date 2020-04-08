@@ -66,7 +66,7 @@ const PollingTeachers = ({setPollingQ, setPollingA, pollingQ, pollingA, filterTe
         onSubmit={handleSubmit}
       >
         <div className="form-group col-12">
-          <label for="pollingQuestion">Pregunta o Tema a votación</label>
+          <label htmlFor="pollingQuestion">Pregunta o Tema a votación</label>
           {!filterTeacherMeeting.pollingQ ? <input type="text" className="form-control" name="pollQ" value={pollQ} placeholder="Ingrese la pregunta o tema a someter a votación" onChange={handleChange}/>:<p><b>{filterTeacherMeeting.pollingQ}</b></p>}
         </div>
 

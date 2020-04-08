@@ -37,8 +37,6 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
     const a=pollingA
     const q=pollingQ
 
-    console.log(a,q)
-
     if(a && q){
         filterTeacherMeeting.pollingA = a
         filterTeacherMeeting.pollingQ = q

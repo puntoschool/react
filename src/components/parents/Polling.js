@@ -35,6 +35,7 @@ class Polling extends Component {
         userParentsVote: [...this.props.filterParentMeeting.userParentsVote], newUserVote
       })
 
+      // this.props.setFilterParentMeeting.userParentsVote(userParentsVote)
       localStorage.setItem("meetings", JSON.stringify(this.props.meetings))
   
     } else if(filterUser){
