@@ -7,10 +7,10 @@ const Header = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
 
   const handleLogout = () =>{
 
-    if(userType === 'parent'){
+    if(userType === 'Padre de Familia'){
       setLoginParent(false)
       setLogin({})
-    }else if(userType === 'teacher'){
+    }else if(userType === 'Maestro'){
       setLoginTeacher(false)
       setLogin({})
     }
@@ -38,9 +38,10 @@ const Header = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
                 </li>
                 <li>
                   <Link to="/">
-                    <a href="#!" onClick={handleLogout}>
-                      <i className="fas fa-sign-out-alt"></i>
-                    </a>
+                      <i
+                        className="fas fa-sign-out-alt"
+                        onClick={handleLogout}>
+                      </i>
                   </Link>
                 </li>
               </ul>

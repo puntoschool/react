@@ -1,7 +1,5 @@
-import React, { Fragment , useState} from "react";
+import React, { Fragment } from "react";
 import Footer from './Footer';
-import TeacherLogin from './teachers/TeacherLogin';
-import ParentsLogin from './parents/ParentsLogin';
 
 import { Link } from "react-router-dom";
 

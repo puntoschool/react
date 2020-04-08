@@ -2,8 +2,15 @@
     .dash-header {
         border-bottom: 3px solid $color-blue-light;
     }
-    .dash-menu .navbar-expand-sm .navbar-nav li a:hover {
-        color: $color-blue-light;
+    .dash-menu .navbar-nav li {
+        .nav-link {
+            &:hover, &:active, &:focus {
+                color: $color-blue-light;
+            }
+        } 
+        .nav-link.active {
+            color: $color-blue-light;
+        }
     }
     a {
         &:hover {
@@ -46,10 +53,10 @@
 
     &__input{
         border-radius: 25px;
-        padding: .5rem;
+        padding: 1rem 1rem 1rem 30px;
         align-self: center;
         flex-basis: 40%;
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         border: 1px solid $color-grey-light;
     
         &:focus,
@@ -73,9 +80,10 @@
     &__filter-icon{
         width: 2rem;
         margin: auto;
-        margin-right: 1rem;
-        margin-left: 1rem;
+        left: 23px;
         color: $color-blue-light;
+        position: absolute;
+        top: 10px;
     }
 
     &__list{

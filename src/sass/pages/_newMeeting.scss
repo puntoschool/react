@@ -46,7 +46,7 @@
     }
 }
 
-.modal-dark {
+.modal-video {
     .modal-content {
         background-color: #000;
         border: none;
@@ -62,5 +62,8 @@
         .modal-footer {
             border-top: 0;
         }
+    }
+    .modal-dialog {
+        max-width: 80%;
     }
 }

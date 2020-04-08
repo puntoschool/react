@@ -1,18 +1,17 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import Header from '../HeaderLogin'
 import Footer from '../Footer'
-import Error from '../Error'
 import { Redirect } from "react-router-dom";
+import SweetAlert from "react-bootstrap-sweetalert";
 
-const TeacherLogin = ({newUserAccount, setLogin, setLoginTeacher, loginTeacher, setLoginParent, accounts}) => {
+const TeacherLogin = ({newUserAccount, setLogin, setLoginTeacher, loginTeacher, setLoginParent, accounts, setFilterTeacherMeeting}) => {
 
   // Defino el objeto de cuenta
   const [account, setAccount] = useState({
     fullName:'', 
     userName:'', 
     password:'', 
-    userType:'teacher',
+    userType:'Maestro',
     confirm:''
   })
 
@@ -60,12 +59,13 @@ const TeacherLogin = ({newUserAccount, setLogin, setLoginTeacher, loginTeacher, 
     fullName:'', 
     userName:'', 
     password:'', 
-    userType:'teacher',
+    userType:'Maestro',
     confirm:''
    })
 
    setLoginTeacher(true)
    setLoginParent(false)
+   setFilterTeacherMeeting('')
   }
 
   // Creo una variable por cada propiedad del objeto account
@@ -86,7 +86,7 @@ const TeacherLogin = ({newUserAccount, setLogin, setLoginTeacher, loginTeacher, 
               <input type="email" name="userName" onChange = {handleChange} placeholder="Correo Electrónico" />
               <input type="password" name="password" onChange = {handleChange} placeholder="Contraseña" />
               <input type="password" name="confirm" onChange = {handleChange} placeholder="Confirma tu contraseña" />
-              {error ? <Error className='error-red' message={errorType}/> : null}
+              {error ? <SweetAlert danger title="Error" onConfirm={() => { return setError(false);}}> {errorType} </SweetAlert> : null}
               {loginTeacher ? <Redirect from="/TeacherLogin" to="/DashboardTeachers" />: null }
               <div className="teachers-login__btns">
                   <Link className="btn-back-yellow" to="/UserSelecter">Regresar</Link>

@@ -1,20 +1,42 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
 import Meeting from '../teachers/Meeting'
+import { Redirect } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
 
-const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeetings, setFilterInput, filteredMeetings}) => {
+const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeetings, filterTeacherMeeting, setFilterTeacherMeeting}) => {
 
   const handleChange = e => {
     setFilterInput (e.target.name= e.target.value)
   }
 
-   const handleDeleteMeeting = (meetingId) => {
+  const handleDeleteMeeting = (meetingId) => {
      meetings = meetings.filter( meeting => meeting.id !== meetingId)
      setMeetings(meetings)
-   }
+  }
+
   
+  const filteredTeachersMeetings = meetings.filter( meeting => meeting.user.includes(login.userName))
+
+  // Creo el state para las juntas filtradas
+  const [filterInput, setFilterInput] = useState('')
+
+  // funcion para obtener las juntas filtradas
+  const filteredMeetings = filteredTeachersMeetings.filter( meeting => meeting.title.toLowerCase().includes(filterInput.toLowerCase()))
+
+  // Modal
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const showModal = () => {
+    setIsOpen(true);
+  };
+
+  const hideModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <Fragment>
       <div className="admin teachers">
@@ -45,25 +67,38 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
                       onChange={handleChange}
                     />
                     <span className="dash-teachers__filter-icon">
-                      <i class="fas fa-filter fa-fw"></i>
+                      <i className="fas fa-filter fa-fw"></i>
                     </span>
                   </div>
                 </div>
 
                 <div className="row justify-content-center">
-                  <div className="col-sm-9 col-12 scroll-sm">
+                  <div className="col-sm-11 col-12 scroll-sm">
                     { 
-                      meetings.length > 0 
+                      filteredTeachersMeetings.length > 0 
                       ?
                       filteredMeetings.map(meeting => (
                           <Meeting
                           key={meeting.id}
                           meeting={meeting}
                           handleDeleteMeeting={handleDeleteMeeting}
+                          setFilterTeacherMeeting={setFilterTeacherMeeting}
                           /> 
                         ))
                       : <b>No hay juntas programadas</b>
                     }                                   
+                    {filterTeacherMeeting ? <Redirect from="/MeetingList" to="/ViewMeetingTeachers" />: null }
+                    <div className="text-right mt-5">
+                    <button
+                          type="button"
+                          className="btn btn-yellow"
+                          htmlFor="link"
+                          // Modal link
+                          onClick={showModal} 
+                        >
+                          ¿Cómo crear un link?
+                        </button>
+                    </div>
                   </div>
                 </div>
               </main>
@@ -72,6 +107,16 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
         </section>
         <Footer />
       </div>
+      <Modal show={isOpen} onHide={hideModal} className="modal fade modal-video">
+        <Modal.Body>
+          <div className="embed-responsive embed-responsive-16by9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/5ij9nNr93Mo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-transparent color-white" onClick={hideModal}>Regresar <i className="fas fa-arrow-right"></i></button>
+        </Modal.Footer>
+      </Modal>
     </Fragment>
   )
 }

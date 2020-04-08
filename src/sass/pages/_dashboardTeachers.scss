@@ -2,14 +2,17 @@
     .dash-header {
         border-bottom: 3px solid $color-yellow;
     }
-    .dash-menu .navbar-expand-sm .navbar-nav li a {
-        &:hover, &:active, &:focus, .is-selected {
+    .dash-menu .navbar-nav li {
+        .nav-link {
+            &:hover, &:active, &:focus {
+                color: $color-yellow;
+            }
+        } 
+        .nav-link.active {
             color: $color-yellow;
         }
-        .is-selected {
-            color: $color-yellow;
-        }
-    } 
+    }
+        
     a {
         &:hover, :focus, &:active {
             color: $color-yellow;
@@ -72,6 +75,7 @@
         align-self: center;
         flex-basis: 40%;
         font-size: 1.4rem;
+        width: 100%;
         border: 1px solid $color-grey-light;
         &:focus,
         &:active,

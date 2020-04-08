@@ -25,7 +25,7 @@ a:hover {
     font-size: 1.4rem;
 }
 
-.btn-amarillo {
+.btn-yellow {
     text-align: center;
     font-weight: 700;
     color: $color-white;
@@ -194,6 +194,13 @@ a:hover {
   
   }
   
+  .btn-poll {
+    max-height: 5rem;
+    max-width: 26rem;
+    margin-left: 13rem;
+    margin-top: 9rem;
+  }
+
   .btn-next,
   .btn-back,
   .btn-last {
