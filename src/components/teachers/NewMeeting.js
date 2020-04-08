@@ -6,7 +6,7 @@ import uuid from "uuid/v4";
 import SweetAlert from "react-bootstrap-sweetalert";
 import Modal from "react-bootstrap/Modal";
 
-const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
+const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin}) => {
   const [meeting, setMeeting] = useState({
     title: "",
     grade: "",
@@ -15,7 +15,10 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
     startTime: "",
     endTime: "",
     link: "",
-    usersParents:[]
+    usersParents:[],
+    pollingA:[],
+    pollingQ:'',
+    userParentsVote:[]
   });
 
   const handleChange = e => {
@@ -71,7 +74,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
       link: ""
     });
   };
-
+  // Modal
   const [isOpen, setIsOpen] = React.useState(false);
 
   const showModal = () => {
@@ -98,7 +101,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                 login={login}
                 setLogin={setLogin}
               />
-              <main className="dash-new-meeting col-md-10 col-sm-9">
+              <main className="dash-new-meeting col-md-9 col-sm-8">
                 <div className="justify-content-center">
                   <h1 className="dash-new-meeting__title">Agendar Junta</h1>
 
@@ -232,7 +235,8 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                           type="button"
                           className="btn labels text-yellow col-sm-3 col-12 text-right text-sm-center mb-5 mb-sm-0"
                           htmlFor="link"
-                          onClick={showModal}
+                          // Modal link
+                          onClick={showModal} 
                         >
                           ¿Cómo crear un link?
                         </button>
@@ -246,7 +250,6 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
                               return setError(false);
                             }}
                           >
-                            {" "}
                             {errorType}
                           </SweetAlert>
                         ) : null}
@@ -279,6 +282,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin }) => {
         </section>
         <Footer />
       </div>
+      {/* Modal */}
       <Modal show={isOpen} onHide={hideModal} className="modal fade modal-video">
         <Modal.Body>
           <div className="embed-responsive embed-responsive-16by9">

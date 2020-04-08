@@ -88,6 +88,7 @@ function App() {
 
     const [filterTeacherMeeting, setFilterTeacherMeeting] = useState('')
 
+
   return (
     <Router>
       <Switch>
@@ -96,7 +97,7 @@ function App() {
           ? <Redirect from="/" to="/DashboardTeachers" />
           : loginParent
           ? <Redirect from="/" to="/WelcomeParents" />
-          : <Login setLogin = {setLogin} setLoginTeacher={setLoginTeacher} setLoginParent={setLoginParent} accounts={accounts}/> 
+          : <Login setLogin = {setLogin} setLoginTeacher={setLoginTeacher} setLoginParent={setLoginParent} accounts={accounts} setFilterParentMeeting={setFilterParentMeeting} setFilterTeacherMeeting={setFilterTeacherMeeting}/> 
         )}/>
 
         <Route exact path="/">
@@ -113,6 +114,7 @@ function App() {
             setLoginTeacher={setLoginTeacher}
             setLoginParent={setLoginParent}
             accounts={accounts}
+            setFilterTeacherMeeting={setFilterTeacherMeeting}
           />
         </Route>
         <Route exact path="/ParentsLogin">
@@ -123,6 +125,7 @@ function App() {
             setLoginTeacher={setLoginTeacher}
             setLoginParent={setLoginParent}
             accounts={accounts}
+            setFilterParentMeeting={setFilterParentMeeting}
           />
         </Route>
         <Route exact path="/WelcomeParents">

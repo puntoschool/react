@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { Nav, Navbar } from 'react-bootstrap'
 
 const MenuParents = ({setLoginTeacher, setLoginParent, login, setLogin, filterParentMeeting, setFilterParentMeeting}) => {
 
@@ -10,12 +11,16 @@ const MenuParents = ({setLoginTeacher, setLoginParent, login, setLogin, filterPa
     if(userType === 'Padre de Familia'){
       setLoginParent(false)
       setLogin({})
+      setFilterParentMeeting('')
     }else if(userType === 'Maestro'){
       setLoginTeacher(false)
       setLogin({})
     }
   }
 
+  // Close nav when select a link
+  const [expanded, setExpanded] = useState(false);
+  
   const handleFilterParents =() =>{
     if(filterParentMeeting){
       setFilterParentMeeting('')
@@ -26,18 +31,9 @@ const MenuParents = ({setLoginTeacher, setLoginParent, login, setLogin, filterPa
   return (
     <Fragment>
       <aside className="dash-menu col-md-2 col-sm-3">
-        <nav className="navbar navbar-expand-sm">
-          <button className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <i className="fas fa-bars"></i>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <Navbar className="navbar" expand="sm">
+          <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")} />
+          <Navbar.Collapse id="basic-navbar-nav">
             <ul className="dash-nav d-flex d-sm-none justify-content-between mb-5">
               <li className="text-left ml-0">
                 <i className="fas fa-user mr-1"></i>
@@ -46,28 +42,25 @@ const MenuParents = ({setLoginTeacher, setLoginParent, login, setLogin, filterPa
                 </h5>
               </li>
               <li>
-                <Link to="/WelcomeParents"><i className="fas fa-home"></i></Link>
-              </li>
-              <li>
                 <Link to="" ><i onClick={handleLogout} className="fas fa-sign-out-alt"></i></Link>
               </li>
             </ul>
-            <ul className="navbar-nav">
-              <li className="nav-item active">
-                <NavLink activeClassName="is-selected" className="nav-link" to={'/WelcomeParents'} onClick={handleFilterParents}>
-                  <i className="fas fa-home fa-fw"></i>
-                  <span>Inicio</span>
+            <Nav className="navbar-nav" activeKey="/DashboardTeachers" as="ul">
+              <Nav.Item as="li">
+                <NavLink className="nav-link" activeClassName="active" onClick={() => setExpanded(false)} to={"/WelcomeParents"} onClick={handleFilterParents}>
+                <i className="fas fa-home fa-fw"></i>
+                <span>Inicio</span>
                 </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink activeClassName="is-selected" className="nav-link" to={'/MeetingList'} onClick={handleFilterParents}>
-                  <i className="fas fa-chalkboard-teacher fa-fw" ></i>
+              </Nav.Item>
+              <Nav.Item as="li">
+                <NavLink className="nav-link" activeClassName="active" onClick={() => setExpanded(false)} eventKey="link-2" to="/MeetingList" onClick={handleFilterParents}>
+                  <i className="fas fa-chalkboard-teacher fa-fw"></i>
                   <span>Historial de juntas</span>
                 </NavLink>
-              </li>
-            </ul>
-          </div>
-        </nav>
+              </Nav.Item>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
       </aside>
     </Fragment>
   );

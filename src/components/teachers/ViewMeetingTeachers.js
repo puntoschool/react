@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
@@ -30,6 +30,19 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
     getM = month[getM]
 
     const link = info.link.replace('560','100%').replace('315','100%')
+
+    const [pollingQ, setPollingQ] = useState('')
+    const [pollingA, setPollingA] = useState([])
+
+    const a=pollingA
+    const q=pollingQ
+
+    if(a && q){
+        filterTeacherMeeting.pollingA = a
+        filterTeacherMeeting.pollingQ = q
+        localStorage.setItem("meetings", JSON.stringify(meetings))
+    }    
+        
 
   return (
     <Fragment>
@@ -98,6 +111,10 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
                             <PollingTeachers 
                                 meetings={meetings}
                                 filterTeacherMeeting={filterTeacherMeeting}
+                                setPollingQ={setPollingQ}
+                                pollingQ={pollingQ}
+                                pollingA={pollingA}
+                                setPollingA={setPollingA}
                             />
                         </div>
                     </section>
