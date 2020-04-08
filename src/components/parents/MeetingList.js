@@ -1,11 +1,24 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuParents from "./MenuParents";
-import MeetingVideo from '../teachers/MeetingVideo'
+import MeetingVideoParents from './MeetingVideoParents'
 
-const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
+import { Redirect } from "react-router-dom";
 
+const MeetingList = ({setLoginParent, login, setLogin, meetings, filterParentMeeting, setFilterParentMeeting}) => {
+
+  const meetingsUserParent = meetings.filter( meeting => meeting.usersParents.includes(login.userName))
+
+  // Creo el state para las juntas filtradas
+  const [filterInput, setFilterInput] = useState('')
+
+  // funcion para obtener las juntas filtradas
+  const filteredMeetings = meetingsUserParent.filter( meeting => meeting.title.toLowerCase().includes(filterInput.toLowerCase()))
+
+  const handleChange = e => {
+    setFilterInput (e.target.name= e.target.value)
+  }
 
   return (
     <Fragment>
@@ -24,20 +37,41 @@ const MeetingList = ({setLoginParent, login, setLogin, meetings}) => {
                 setLogin={setLogin}
               />
               <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
-                <section className="video-list">
-                  <h2>Historial de juntas</h2>
-                  {meetings.length > 0 
+                <div className="row">
+                  <div className="col-sm-8">
+                    <h1 className="dash-new-meeting__title">Historial de juntas</h1>
+                  </div>
+                  <div className="col-sm-4 dash-parents__search-nav mb-3">
+                    <input 
+                      type='search' 
+                      className="dash-parents__input" 
+                      placeholder='Buscar por título de junta'
+                      name='filterInput'
+                      onChange={handleChange}
+                    />
+                    <span className="dash-parents__filter-icon">
+                      <i className="fas fa-filter fa-fw"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="video-list">
+                  {meetingsUserParent.length > 0 
                       ?
-                    meetings.map(meetingVideo =>(
-                      <MeetingVideo 
-                        key={meetingVideo.id}
-                        meetingVideo={meetingVideo}
+                      filteredMeetings.map(meetingVideoParents =>(
+                      <MeetingVideoParents 
+                        key={meetingVideoParents.id}
+                        meetingVideoParents={meetingVideoParents}
+                        setFilterParentMeeting={setFilterParentMeeting}
                       />
                     ))
                     : <b>No hay juntas programadas</b>
                   }
-                </section>
-              </main>s
+      
+                {filterParentMeeting ? <Redirect from="/MeetingList" to="/ViewMeeting" />: 
+                null }
+                </div>
+              </main>
             </div>
           </div>
         </section>

@@ -1,27 +1,33 @@
 import React, { Fragment } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
+const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterTeacherMeeting, setFilterTeacherMeeting}) => {
   
   const {fullName, userType} = login
 
   const handleLogout = () =>{
 
-    if(userType === 'parent'){
+    if(userType === 'Padre de Familia'){
       setLoginParent(false)
       setLogin({})
-    }else if(userType === 'teacher'){
+    }else if(userType === 'Maestro'){
       setLoginTeacher(false)
       setLogin({})
     }
+  }
+
+  const handleFilterTeachers =() =>{
+    if(filterTeacherMeeting){
+       setFilterTeacherMeeting('')
+    }
+    return
   }
 
   return (
     <Fragment>
       <aside className="dash-menu col-md-2 col-sm-3">
         <nav className="navbar navbar-expand-sm">
-          <button
-            className="navbar-toggler"
+          <button className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             data-target="#navbarTogglerDemo01"
@@ -48,19 +54,19 @@ const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin}) => {
             </ul>
             <ul className="navbar-nav">
               <li className="nav-item active">
-                <NavLink activeClassName="is-selected"  className="nav-link" to={'/DashboardTeachers'} >
+                <NavLink activeClassName="is-selected"  className="nav-link" to={'/DashboardTeachers'} onClick={handleFilterTeachers} >
                   <i className="fas fa-calendar-alt fa-fw"></i>
                   <span>Calendario de Juntas</span>
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink activeClassName="is-selected"  to={'/meetingHistoryTeachers'} className="nav-link">
+                <NavLink activeClassName="is-selected"  to={'/meetingHistoryTeachers'}className="nav-link" onClick={handleFilterTeachers}>
                   <i className="fas fa-folder-open fa-fw"></i>
                   <span>Historial de Juntas</span>
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink activeClassName="is-selected" to={"/NewMeeting"} className="nav-link">
+                <NavLink activeClassName="is-selected" to={"/NewMeeting"} className="nav-link" onClick={handleFilterTeachers}>
                   <i className="far fa-calendar-check fa-fw"></i>
                   <span>Agendar Nueva Junta</span>
                 </NavLink>

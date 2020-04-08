@@ -1,10 +1,53 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import MenuParents from "./MenuParents";
 import Header from "../Header";
 import Footer from "../Footer";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import SweetAlert from "react-bootstrap-sweetalert";
 
-const WelcomeParents = ({setLoginParent, login, setLogin}) => {
+const WelcomeParents = ({setLoginParent, login, setLogin, meetings, setFilterParentMeeting, filterParentMeeting}) => {
+  
+  // Creo el state para filtrar la junta por id
+  const [filterParentInput, setFilterParentInput] = useState('')
+
+  const [error, setError] = useState(false);
+
+  // const [userMeeting, setUserMeeting]= useState([])
+
+  const handleChange = (e) => {
+     setFilterParentInput(e.target.name=e.target.value)
+  }
+
+  const handleClick = () =>{
+   
+    // validaciones
+    if(filterParentInput.trim()){
+      
+      const filter = meetings.filter( meeting => meeting.id.toLowerCase().includes(filterParentInput.toLowerCase()))
+
+      if(typeof filter != "undefined" && filter != null && filter.length != null
+      && filter.length > 0){
+
+        const noRepeatUserParent = filter[0].usersParents.includes(login.userName)
+
+        if(! noRepeatUserParent){
+          filter[0].usersParents.push(login.userName)
+          localStorage.setItem("meetings", JSON.stringify(meetings))
+        }
+
+        const fil = filter[0]
+        setFilterParentMeeting(fil)
+        
+      }else{
+        setError(true);
+        return;
+      }
+
+    } else {
+      setError(true);
+      return;
+    }
+  }
 
   return (
     <Fragment>
@@ -30,14 +73,37 @@ const WelcomeParents = ({setLoginParent, login, setLogin}) => {
                         Bienvenido al administrador escolar
                       </p>
                       <form className="form-group parents-login__inputs mt-5">
-                        <label for="enterID">Ingresa el ID de tu junta</label>
-                        <input type="text" name="enterID" id="enterID" placeholder="Número de ID otorgado por el maestro" className="mt-0"/>
-                        <Link to="/DetailMeeting" className="btn-blue-gradient">Ir a la junta</Link>
+                        <label htmlFor="enterID">Ingresa el ID de tu junta</label>
+                        <input type="text" name="enterID" id="enterID" onChange={handleChange} placeholder="Número de ID otorgado por el maestro" className="mt-0"/>
+                   
+                          <button
+                            type='button'
+                            className="btn-blue-gradient"
+                            onClick={handleClick}
+                          >
+                            Ir a la junta
+                          </button>
+                        
                       </form>
+
+                      {error ? (
+                          <SweetAlert
+                            danger
+                            title="Error"
+                            onConfirm={() => {
+                              return setError(false);
+                            }}
+                          >
+                            {"Link no valido, favor de verificarlo"}
+                          </SweetAlert>
+                        ) : null}
+                         
+                        {filterParentMeeting ? <Redirect from="/WelcomeParents" to="/ViewMeeting" />: null }
                     </div>
 
                     <div className="col-md-11 mt-2">
-                      <img src="./assets/img/welcome-kids.png" className="img-fluid" />
+                      <img src="./assets/img/welcome-kids.png" className="img-fluid"
+                      alt="welcome_image" />
                     </div>
                   </section>
                 </main>

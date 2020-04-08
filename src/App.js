@@ -4,12 +4,13 @@ import UserSelecter from './components/UserSelecter';
 import TeacherLogin from './components/teachers/TeacherLogin';
 import ParentsLogin from './components/parents/ParentsLogin';
 import WelcomeParents from './components/parents/WelcomeParents';
-import DetailMeeting from './components/parents/DetailMeeting';
 import MeetingList from './components/parents/MeetingList';
 import DashboardTeachers from './components/teachers/DashboardTeachers';
 import NewMeeting from './components/teachers/NewMeeting';
 import MeetingHistoryTeachers from './components/teachers/MeetingHistoryTeachers';
-import DetailMeetingTeachers from './components/teachers/DetailMeetingTeachers';
+import ViewMeeting from './components/parents/ViewMeeting';
+import ViewMeetingTeachers from './components/teachers/ViewMeetingTeachers';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./sass/main.scss";
 import {
   BrowserRouter as Router,
@@ -17,6 +18,8 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
+
+import Poll from 'react-polls';
   
 function App() {
 
@@ -65,7 +68,7 @@ function App() {
     // inicializando el State con el arreglo de las juntas de local storage
     const [meetings, setMeetings] = useState(recordedMeeting)
   
-    // UseEffect para actualizar algo en caso de que cambie algo
+    //UseEffect para actualizar algo en caso de que cambie algo
     useEffect(() => {
       let recordedMeeting = JSON.parse(localStorage.getItem("meetings"))
   
@@ -81,40 +84,9 @@ function App() {
       setMeetings([...meetings, meeting])
     }
 
-    // Creo el state para las juntas filtradas
-    const [filterInput, setFilterInput] = useState('')
+    const [filterParentMeeting, setFilterParentMeeting] = useState('')
 
-    // funcion para obtener las juntas filtradas
-    const filteredMeetings = meetings.filter( meeting => meeting.title.toLowerCase().includes(filterInput.toLowerCase()))
-
-
-
-
-    ///////////////POLL////////////////////////////////////////////////////////////77777
-
-    // Declaring poll question and answers
-    //const pollQuestion = '¿Vocal del grupo?'
-    // const posibleAnswers = [
-    //     { option: 'Karya', votes: 8 },
-    //     { option: 'Martina', votes: 2 },
-    //     { option: 'Isabella', votes: 10 }
-    // ]
-
-    //const [pollAnswers, setPollAnswers] = useState(posibleAnswers)
-
-    // Handling user vote
-    // Increments the votes count of answer when the user votes
-    // const handleVote = voteAnswer => {
-        
-    //     const newPollAnswers = pollAnswers.map(answer => {
-    //     if (answer.option === voteAnswer) answer.votes++
-    //     return answer
-    //     })
-
-    //     setPollAnswers({
-    //     pollAnswers: newPollAnswers
-    //     })
-    // }
+    const [filterTeacherMeeting, setFilterTeacherMeeting] = useState('')
 
   return (
     <Router>
@@ -146,6 +118,7 @@ function App() {
         <Route exact path="/ParentsLogin">
           <ParentsLogin
             newUserAccount={newUserAccount}
+            setLogin= {setLogin}
             loginParent={loginParent}
             setLoginTeacher={setLoginTeacher}
             setLoginParent={setLoginParent}
@@ -157,6 +130,9 @@ function App() {
             setLoginParent={setLoginParent}
             login={login}
             setLogin={setLogin}
+            meetings={meetings}
+            filterParentMeeting={filterParentMeeting}
+            setFilterParentMeeting={setFilterParentMeeting}
           />
         </Route>
         <Route exact path="/DashboardTeachers">
@@ -165,9 +141,9 @@ function App() {
             login={login}
             setLogin={setLogin}
             meetings={meetings}
-            filteredMeetings={filteredMeetings}
             setMeetings={setMeetings}
-            setFilterInput={setFilterInput}
+            filterTeacherMeeting={filterTeacherMeeting}
+            setFilterTeacherMeeting={setFilterTeacherMeeting}
           />
         </Route>
         <Route exact path="/NewMeeting"> 
@@ -178,40 +154,49 @@ function App() {
             newMeeting={newMeeting}
           />
         </Route>
-        <Route exact path={`/DetailMeeting/:${meetings.id}`}>
-          <DetailMeeting
-            setLoginParent={setLoginParent}
-            login={login}
-            setLogin={setLogin}
-            meetings={meetings}
-          />
-        </Route>
         <Route exact path="/MeetingList">
           <MeetingList
             setLoginParent={setLoginParent}
             login={login}
             setLogin={setLogin}
             meetings={meetings}
+            filterParentMeeting={filterParentMeeting}
+            setFilterParentMeeting={setFilterParentMeeting}
           />
         </Route>
         <Route exact path="/MeetingHistoryTeachers">
           <MeetingHistoryTeachers
-            setLoginParent={setLoginParent}
+            setLoginTeacher={setLoginTeacher}
             login={login}
             setLogin={setLogin}
             meetings={meetings}
+            filterTeacherMeeting={filterTeacherMeeting}
+            setFilterTeacherMeeting={setFilterTeacherMeeting}
           />
         </Route>
-        <Route exact path={`/DetailMeetingTeachers/:${meetings.id}`}>
-          <DetailMeetingTeachers
+        <Route exact path="/ViewMeeting">
+          <ViewMeeting
             setLoginParent={setLoginParent}
             login={login}
             setLogin={setLogin}
             meetings={meetings}
+            filterParentMeeting={filterParentMeeting}
+            setFilterParentMeeting={setFilterParentMeeting}
+          />
+        </Route>  
+        <Route exact path="/ViewMeetingTeachers">
+          <ViewMeetingTeachers
+            setLoginTeacher={setLoginTeacher}
+            login={login}
+            setLogin={setLogin}
+            meetings={meetings}
+            filterTeacherMeeting={filterTeacherMeeting}
+            setFilterTeacherMeeting={setFilterTeacherMeeting}
           />
         </Route>
       </Switch>
     </Router>
+
   );
 }
 

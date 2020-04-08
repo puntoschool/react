@@ -11,7 +11,7 @@ const ParentsLogin = ({newUserAccount, setLogin, setLoginParent, loginParent, se
     fullName:'', 
     userName:'', 
     password:'', 
-    userType:'parent', 
+    userType:'Padre de Familia', 
     confirm:''
   })
 
@@ -59,7 +59,7 @@ const ParentsLogin = ({newUserAccount, setLogin, setLoginParent, loginParent, se
      fullName:'', 
      userName:'', 
      password:'', 
-     userType:'parent',
+     userType:'Padre de Familia',
      confirm:''
     })
 
