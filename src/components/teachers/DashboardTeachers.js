@@ -6,7 +6,7 @@ import Meeting from '../teachers/Meeting'
 import { Redirect } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 
-const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeetings, filterTeacherMeeting, setFilterTeacherMeeting, setChat}) => {
+const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeetings, filterTeacherMeeting, setFilterTeacherMeeting, setChat, setCollapse, collapse}) => {
 
   const handleChange = e => {
     setFilterInput (e.target.name= e.target.value)
@@ -52,8 +52,9 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
                 setLoginTeacher={setLoginTeacher}
                 login={login}
                 setLogin={setLogin}
+                setCollapse={setCollapse}
               />
-              <main className="dash-main dash-teachers col-md-10 col-sm-9">
+              <main className={!collapse ? 'dash-main dash-teachers col-md-9 col-sm-8': 'dash-main dash-teachers col-12'}>
                 <div className="row">
                   <div className="col-sm-8">
                     <h1 className="dash-new-meeting__title">Juntas agendadas</h1>

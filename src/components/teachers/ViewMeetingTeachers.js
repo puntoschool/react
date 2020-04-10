@@ -1,12 +1,11 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
 import PollingTeachers from './PollingTeachers'
 import Chat from '../Chat'
 
-
-const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filterTeacherMeeting, setFilterTeacherMeeting, chat, setChat}) => {
+const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filterTeacherMeeting, setFilterTeacherMeeting, chat, setChat, collapse, setCollapse}) => {
 
    const info = filterTeacherMeeting
 
@@ -64,8 +63,9 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
                 filterTeacherMeeting={filterTeacherMeeting}
                 chat={chat}
                 meetings={meetings}
+                setCollapse={setCollapse}
               />
-              <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
+              <main className={!collapse ? 'dash-main col-md-9 col-sm-8 dashboard-meetings': 'dash-main col-12 dashboard-meetings'}>
                     <div className="row mb-4">
                         <div className="col-md-4 col-6">
                             <h3 className="dash-teachers__title mt-0">Grado escolar:</h3>
@@ -93,9 +93,7 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
                                 <div className="col-sm-6 text-right mt-2">
                                     <button  className="btn-border-yellow btn-sm align-items-center">
                                         <i className="fas fa-upload"></i> Cargar Minuta
-                                        
                                     </button>
-                                    
                                 </div>
                             </div>
                         </article>

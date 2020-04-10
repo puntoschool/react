@@ -6,7 +6,7 @@ import MeetingVideoTeachers from './MeetingVideoTeachers'
 
 import { Redirect } from "react-router-dom";
 
-const MeetingHistoryTeachers = ({setLoginTeacher, login, setLogin, meetings, filterTeacherMeeting, setFilterTeacherMeeting}) => {
+const MeetingHistoryTeachers = ({setLoginTeacher, login, setLogin, meetings, filterTeacherMeeting, setFilterTeacherMeeting, collapse, setCollapse}) => {
 
   const filteredTeachersMeetings = meetings.filter( meeting => meeting.user.includes(login.userName))
 
@@ -35,8 +35,9 @@ const MeetingHistoryTeachers = ({setLoginTeacher, login, setLogin, meetings, fil
                 setLoginTeacher={setLoginTeacher}
                 login={login}
                 setLogin={setLogin}
+                setCollapse={setCollapse}
               />
-              <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
+              <main className={!collapse ? 'dash-main col-md-9 col-sm-8 dashboard-meetings': 'dash-main col-12 dashboard-meetings'}>
                 <div className="row">
                   <div className="col-sm-8">
                     <h1 className="dash-new-meeting__title">Historial de juntas</h1>

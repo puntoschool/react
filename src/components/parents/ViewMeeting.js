@@ -3,13 +3,11 @@ import Header from "../Header";
 import Footer from "../Footer";
 import MenuParents from "./MenuParents";
 import Polling from "./Polling"
+import Chat from '../Chat'
 
-
-const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setFilterParentMeeting, meetings, vote, setVote}) => {
+const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setFilterParentMeeting, meetings, chat, setChat, setCollapse, collapse}) => {
 
     const info = filterParentMeeting
-
-    // const {userParentsVote} = info
 
     var getM = new Date(info.date).getMonth()
 
@@ -33,13 +31,6 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
 
     const link = info.link.replace('560','100%').replace('315','100%')
 
-    // const [vote, setVote] = useState(false)
-
-    // if(vote){
-    //     setFilterParentMeeting(filterParentMeeting.userParentsVote.push(login.userName))
-    //     localStorage.setItem("meetings", JSON.stringify(meetings))
-    // }
-
   return (
     <Fragment>
       <div className="admin parents">
@@ -57,8 +48,11 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
                 setLogin={setLogin}
                 filterParentMeeting={filterParentMeeting}
                 setFilterParentMeeting={setFilterParentMeeting}
+                chat={chat}
+                meetings={meetings}
+                setCollapse={setCollapse}
               />
-              <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
+              <main className={!collapse ? 'dash-main col-md-9 col-sm-8 dashboard-meetings': 'dash-main col-12 dashboard-meetings'}>
                     <div className="row mb-4">
                         <div className="col-md-4 col-6">
                             <h3 className="dash-teachers__title mt-0">Grado escolar:</h3>
@@ -92,17 +86,15 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
                         </article>
                         <div className="col-sm-3 meeting-chat">
                             <h5 className="blue-color bold">Preguntas</h5>
-                            <div className="meeting-comments">
-                                <div className="comment">
-                                    <h5>Alberto Rivas</h5>
-                                    <p>¿Cuándo inicia el curso?</p>
-                                </div>
-                            </div>
-                            <form action="" className="meeting-input">
-                                <input type="text" placeholder="Escribe aquí tu pregunta" />
-                                <button><i className="far fa-paper-plane"></i></button>
-                            </form>
-                        </div>
+                            <Chat
+                                login={login}
+                                meetings={meetings}
+                                filterParentMeeting={filterParentMeeting}
+                                setFilterParentMeeting={setFilterParentMeeting}
+                                chat={chat}
+                                setChat={setChat}
+                            />
+                        </div>    
                         <div className="col-9">
                             <Polling
                                 filterParentMeeting={filterParentMeeting}
