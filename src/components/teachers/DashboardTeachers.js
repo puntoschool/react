@@ -6,7 +6,7 @@ import Meeting from '../teachers/Meeting'
 import { Redirect } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 
-const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeetings, filterTeacherMeeting, setFilterTeacherMeeting}) => {
+const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeetings, filterTeacherMeeting, setFilterTeacherMeeting, setChat}) => {
 
   const handleChange = e => {
     setFilterInput (e.target.name= e.target.value)
@@ -83,6 +83,8 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
                           meeting={meeting}
                           handleDeleteMeeting={handleDeleteMeeting}
                           setFilterTeacherMeeting={setFilterTeacherMeeting}
+                          filterTeacherMeeting={filterTeacherMeeting}
+                          setChat={setChat}
                           /> 
                         ))
                       : <b>No hay juntas programadas</b>

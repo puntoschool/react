@@ -18,8 +18,6 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-
-import Poll from 'react-polls';
   
 function App() {
 
@@ -88,6 +86,7 @@ function App() {
 
     const [filterTeacherMeeting, setFilterTeacherMeeting] = useState('')
 
+    const [chat, setChat] = useState('')
 
   return (
     <Router>
@@ -147,6 +146,8 @@ function App() {
             setMeetings={setMeetings}
             filterTeacherMeeting={filterTeacherMeeting}
             setFilterTeacherMeeting={setFilterTeacherMeeting}
+            chat={chat}
+            setChat={setChat}
           />
         </Route>
         <Route exact path="/NewMeeting"> 
@@ -195,6 +196,8 @@ function App() {
             meetings={meetings}
             filterTeacherMeeting={filterTeacherMeeting}
             setFilterTeacherMeeting={setFilterTeacherMeeting}
+            chat={chat}
+            setChat={setChat}
           />
         </Route>
       </Switch>

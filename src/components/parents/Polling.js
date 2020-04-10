@@ -15,7 +15,7 @@ class Polling extends Component {
   // Handling user vote
   // Increments the votes count of answer when the user votes
   handleVote = voteAnswer => {
-    const { pollAnswers, user, userParentsVote } = this.state
+    const { pollAnswers } = this.state
     // let usersVote=[this.props.filterParentMeeting.userParentsVote]
     
     const filterUser = this.props.filterParentMeeting.userParentsVote.includes(this.props.login.userName)
@@ -27,8 +27,6 @@ class Polling extends Component {
       })
 
       const newUserVote = [this.props.filterParentMeeting.userParentsVote.push(this.props.login.userName)]
-
-      console.log(newUserVote)
 
       this.setState({
         pollAnswers: newPollAnswers,

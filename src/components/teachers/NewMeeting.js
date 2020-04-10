@@ -18,7 +18,8 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin}) => {
     usersParents:[],
     pollingA:[],
     pollingQ:'',
-    userParentsVote:[]
+    userParentsVote:[],
+    chat:[]
   });
 
   const handleChange = e => {

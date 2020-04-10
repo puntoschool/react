@@ -2,7 +2,7 @@ import React, { Fragment, useState, setState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Nav, Navbar} from 'react-bootstrap'
 
-const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterTeacherMeeting, setFilterTeacherMeeting}) => {
+const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterTeacherMeeting, setFilterTeacherMeeting, chat, meetings}) => {
   
   const {fullName, userType} = login
 
@@ -13,7 +13,12 @@ const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterT
     }else if(userType === 'Maestro'){
       setLoginTeacher(false)
       setLogin({})
+      setFilterTeacherMeeting({
+        chat:chat
+      })
+      localStorage.setItem("meetings", JSON.stringify(meetings))
       setFilterTeacherMeeting('')
+      
     }
   }
 
@@ -22,7 +27,11 @@ const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterT
 
   const handleFilterTeachers =() =>{
     if(filterTeacherMeeting){
-       setFilterTeacherMeeting('')
+      setFilterTeacherMeeting({
+        chat:[...chat]
+      })
+      localStorage.setItem("meetings", JSON.stringify(meetings))
+      setFilterTeacherMeeting('')
     }
     return
   }
