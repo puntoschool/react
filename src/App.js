@@ -198,6 +198,9 @@ function App() {
             meetings={meetings}
             filterParentMeeting={filterParentMeeting}
             setFilterParentMeeting={setFilterParentMeeting}
+            chat={chat}
+            setChat={setChat}
+            filterTeacherMeeting={filterTeacherMeeting}
             collapse={collapse}
             setCollapse={setCollapse}
           />
@@ -212,6 +215,7 @@ function App() {
             setFilterTeacherMeeting={setFilterTeacherMeeting}
             chat={chat}
             setChat={setChat}
+            filterParentMeeting={filterParentMeeting}
             collapse={collapse}
             setCollapse={setCollapse}
           />

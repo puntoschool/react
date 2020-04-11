@@ -5,7 +5,7 @@ import MenuParents from "./MenuParents";
 import Polling from "./Polling"
 import Chat from '../Chat'
 
-const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setFilterParentMeeting, meetings, chat, setChat, setCollapse, collapse}) => {
+const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setFilterParentMeeting, meetings, chat, setChat, setCollapse, collapse, filterTeacherMeeting}) => {
 
     const info = filterParentMeeting
 
@@ -93,6 +93,7 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
                                 setFilterParentMeeting={setFilterParentMeeting}
                                 chat={chat}
                                 setChat={setChat}
+                                filterTeacherMeeting={filterTeacherMeeting}
                             />
                         </div>    
                         <div className="col-9">

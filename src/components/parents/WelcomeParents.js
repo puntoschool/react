@@ -125,7 +125,7 @@ const WelcomeParents = ({
                         {filterParentMeeting ? (
                           <Redirect
                             from="/WelcomeParents"
-                            to="/DetailMeeting"
+                            to="/ViewMeeting"
                           />
                         ) : null}
                     </div>

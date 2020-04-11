@@ -3,7 +3,7 @@ import ChatMessages from './ChatMessages'
 import SweetAlert from "react-bootstrap-sweetalert";
 import shortid from 'shortid'
 
-const Chat = ({login, meetings, filterTeacherMeeting, setFilterTeacherMeeting, setMessagesInfo, messagesInfo, handleInfo, chat, setChat}) => {
+const Chat = ({login, meetings, filterTeacherMeeting, filterParentMeeting, chat, setChat}) => {
 
     const [messageInfo, setMessageInfo] = useState({
         sender:'',
@@ -34,6 +34,22 @@ const Chat = ({login, meetings, filterTeacherMeeting, setFilterTeacherMeeting, s
             ])
     }
 
+    const chatParents = filterParentMeeting.chat
+
+    const chatTeacher = filterTeacherMeeting.chat
+
+    var chatComplete=[]
+    if(chatParents !== undefined && chatTeacher !== undefined){
+        chatComplete = [...chatParents, ...chatTeacher]
+    } else if(chatParents === undefined && chatTeacher !== undefined){
+        chatComplete = [...chatTeacher]
+    } else if(chatParents !== undefined && chatTeacher === undefined){
+        chatComplete = [...chatParents]
+    } else chatComplete =[]
+       
+    console.log(chat)
+    console.log(messageInfo)
+    console.log(chatComplete)
 
     const handleSubmit = (e) =>{
         e.preventDefault()
@@ -50,7 +66,11 @@ const Chat = ({login, meetings, filterTeacherMeeting, setFilterTeacherMeeting, s
         // agregarlo al tablera de mensaje
             addNewMessage()
 
-            filterTeacherMeeting.chat= [...chat, messageInfo]
+            if(login.userType === 'Maestro'){
+                filterTeacherMeeting.chat= [ ...chatComplete, messageInfo]
+            } else if(login.userType === 'Padre de Familia'){
+                filterParentMeeting.chat =  [...chatComplete, messageInfo]
+            }
 
             localStorage.setItem("meetings", JSON.stringify(meetings))
         // // Limpiar input del mensaje
@@ -70,10 +90,10 @@ const Chat = ({login, meetings, filterTeacherMeeting, setFilterTeacherMeeting, s
         <Fragment>
             <div className="meeting-comments">
                 <div className="comment">
-                    {chat.length >0 ?
-                    chat.map( message =>(
+                    {chatComplete.length >0 && chatComplete !== undefined ?
+                    chatComplete.map( message =>(
                         <ChatMessages 
-                            key={chat.id}
+                            key={chatComplete.id}
                             message={message}
                         />
                     )): null}
