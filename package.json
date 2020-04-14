@@ -10,6 +10,7 @@
     "html-react-parser": "^0.10.2",
     "react-bootstrap": "^1.0.0",
     "react-bootstrap-sweetalert": "^5.1.9",
+    "react-chat-widget": "^3.0.0-beta.2",
     "react-polls": "^1.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
