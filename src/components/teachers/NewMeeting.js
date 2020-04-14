@@ -6,7 +6,7 @@ import uuid from "uuid/v4";
 import SweetAlert from "react-bootstrap-sweetalert";
 import Modal from "react-bootstrap/Modal";
 
-const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin}) => {
+const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin, mainIsToggled, setMainToggled}) => {
   const [meeting, setMeeting] = useState({
     title: "",
     grade: "",
@@ -82,6 +82,13 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin}) => {
     setIsOpen(false);
   };
 
+  //toggle main when click in button
+  if (mainIsToggled === 'dash-new-meeting col-12') {
+    setMainToggled('dash-new-meeting col-md-9 col-sm-8')
+  } else {
+    setMainToggled('dash-new-meeting col-12')
+  }
+
   return (
     <Fragment>
       <div className="admin teachers">
@@ -97,8 +104,9 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin}) => {
                 setLoginTeacher={setLoginTeacher}
                 login={login}
                 setLogin={setLogin}
+                setMainToggled={setMainToggled}
               />
-              <main className="dash-new-meeting col-md-9 col-sm-8">
+              <main className={mainIsToggled}>
                 <div className="justify-content-center">
                   <h1 className="dash-new-meeting__title">Agendar Junta</h1>
 

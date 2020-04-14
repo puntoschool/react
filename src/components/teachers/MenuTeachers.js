@@ -2,7 +2,7 @@ import React, { Fragment, useState, setState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Nav, Navbar} from 'react-bootstrap'
 
-const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterTeacherMeeting, setFilterTeacherMeeting}) => {
+const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterTeacherMeeting, setFilterTeacherMeeting, setMainToggled}) => {
   
   const {fullName, userType} = login
 
@@ -29,11 +29,14 @@ const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterT
 
   // show-hide menu
  const [isToggled, setToggled] = useState('dash-menu col-md-2 col-sm-3');
+ 
  const toggleTrueFalse = () => {
    if (isToggled === 'd-none') {
      setToggled('dash-menu col-md-2 col-sm-3') 
+     setMainToggled('dash-new-meeting col-md-9 col-sm-8')
    } else {
     setToggled('d-none')
+    setMainToggled('dash-new-meeting col-12')
    }
  }
 
@@ -86,9 +89,5 @@ const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterT
     </Fragment>
   );
 };
-
-// () => setOpen(!open)
-// aria-controls="example-fade-text"
-//         aria-expanded={open}
 
 export default MenuTeachers;

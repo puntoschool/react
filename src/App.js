@@ -88,6 +88,8 @@ function App() {
 
     const [filterTeacherMeeting, setFilterTeacherMeeting] = useState('')
 
+    const [mainIsToggled, setMainToggled] = useState('dash-new-meeting col-md-9 col-sm-8');
+
   return (
     <Router>
       <Switch>
@@ -152,6 +154,8 @@ function App() {
             login={login}
             setLogin={setLogin}
             newMeeting={newMeeting}
+            mainIsToggled={mainIsToggled}
+            setMainToggled={setMainToggled}
           />
         </Route>
         <Route exact path="/MeetingList">
