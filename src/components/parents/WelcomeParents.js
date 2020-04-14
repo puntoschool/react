@@ -11,7 +11,9 @@ const WelcomeParents = ({
   setLogin,
   meetings,
   setFilterParentMeeting,
-  filterParentMeeting
+  filterParentMeeting,
+  setCollapse,
+  collapse
 }) => {
   // Creo el state para filtrar la junta por id
   const [filterParentInput, setFilterParentInput] = useState("");
@@ -74,8 +76,9 @@ const WelcomeParents = ({
                 setLoginParent={setLoginParent}
                 login={login}
                 setLogin={setLogin}
+                setCollapse={setCollapse}
               />
-              <main className="dash-main col-md-10 col-sm-9 dash-welcome">
+              <main className={!collapse ? 'dash-main col-md-9 col-sm-8 dash-welcome': 'dash-main col-12 dash-welcome'}>
                 <section className="row justify-content-center">
                   <div className="col-md-8 col-sm-9 col-10 mb-sm-5">
                     <h1 className="title-welcome">¡HOLA!</h1>
@@ -122,7 +125,7 @@ const WelcomeParents = ({
                         {filterParentMeeting ? (
                           <Redirect
                             from="/WelcomeParents"
-                            to="/DetailMeeting"
+                            to="/ViewMeeting"
                           />
                         ) : null}
                     </div>

@@ -1,10 +1,11 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MenuParents from "./MenuParents";
+import Polling from "./Polling"
+import Chat from '../Chat'
 
-
-const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setFilterParentMeeting}) => {
+const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setFilterParentMeeting, meetings, chat, setChat, setCollapse, collapse, filterTeacherMeeting}) => {
 
     const info = filterParentMeeting
 
@@ -47,8 +48,11 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
                 setLogin={setLogin}
                 filterParentMeeting={filterParentMeeting}
                 setFilterParentMeeting={setFilterParentMeeting}
+                chat={chat}
+                meetings={meetings}
+                setCollapse={setCollapse}
               />
-              <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
+              <main className={!collapse ? 'dash-main col-md-9 col-sm-8 dashboard-meetings': 'dash-main col-12 dashboard-meetings'}>
                     <div className="row mb-4">
                         <div className="col-md-4 col-6">
                             <h3 className="dash-teachers__title mt-0">Grado escolar:</h3>
@@ -82,20 +86,23 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
                         </article>
                         <div className="col-sm-3 meeting-chat">
                             <h5 className="blue-color bold">Preguntas</h5>
-                            <div className="meeting-comments">
-                                <div className="comment">
-                                    <h5>Alberto Rivas</h5>
-                                    <p>¿Cuándo inicia el curso?</p>
-                                </div>
-                            </div>
-                            <form action="" className="meeting-input">
-                                <input type="text" placeholder="Escribe aquí tu pregunta" />
-                                <button><i className="far fa-paper-plane"></i></button>
-                            </form>
-                        </div>
+                            <Chat
+                                login={login}
+                                meetings={meetings}
+                                filterParentMeeting={filterParentMeeting}
+                                setFilterParentMeeting={setFilterParentMeeting}
+                                chat={chat}
+                                setChat={setChat}
+                                filterTeacherMeeting={filterTeacherMeeting}
+                            />
+                        </div>    
                         <div className="col-9">
-                            {/* <Poll
-                            /> */}
+                            <Polling
+                                filterParentMeeting={filterParentMeeting}
+                                setFilterParentMeeting={setFilterParentMeeting}
+                                meetings={meetings}
+                                login={login}
+                            />
                         </div>
                     </section>
                 </main>

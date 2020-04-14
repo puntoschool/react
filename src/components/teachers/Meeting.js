@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import SweetAlert from 'react-bootstrap-sweetalert'
 import { Link } from "react-router-dom";
 
-const Meeting = ({meeting, handleDeleteMeeting, setFilterTeacherMeeting}) => {
+const Meeting = ({meeting, handleDeleteMeeting, filterTeacherMeeting, setFilterTeacherMeeting, setChat}) => {
 
     var getM = new Date(meeting.date).getMonth()
 
@@ -46,6 +46,7 @@ const Meeting = ({meeting, handleDeleteMeeting, setFilterTeacherMeeting}) => {
     const handleChange = () =>{}
 
     const handleClickStart = () => {
+        setChat(meeting.chat)
         setFilterTeacherMeeting(meeting)
     }
    
@@ -67,8 +68,8 @@ const Meeting = ({meeting, handleDeleteMeeting, setFilterTeacherMeeting}) => {
             </div>
             
             <div className="meeting-arrow">
-                <Link to={`/ViewMeetingTeachers`} onClick={handleClickStart} >
-                    <span className="start-meeting d-block d-sm-inline text-left text-sm-right">
+                <Link to={`/ViewMeetingTeachers`}  >
+                    <span className="start-meeting d-block d-sm-inline text-left text-sm-right" onClick={handleClickStart}>
                         Iniciar Junta <i className="fas fa-chevron-right"></i>
                     </span>
                 </Link>

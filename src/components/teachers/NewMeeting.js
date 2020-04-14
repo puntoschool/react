@@ -6,7 +6,7 @@ import uuid from "uuid/v4";
 import SweetAlert from "react-bootstrap-sweetalert";
 import Modal from "react-bootstrap/Modal";
 
-const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin, mainIsToggled, setMainToggled}) => {
+const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin, isToggled, setIsToggled, collapse, setCollapse}) => {
   const [meeting, setMeeting] = useState({
     title: "",
     grade: "",
@@ -15,7 +15,11 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin, mainIsToggle
     startTime: "",
     endTime: "",
     link: "",
-    usersParents:[]
+    usersParents:[],
+    pollingA:[],
+    pollingQ:'',
+    userParentsVote:[],
+    chat:[]
   });
 
   const handleChange = e => {
@@ -81,14 +85,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin, mainIsToggle
   const hideModal = () => {
     setIsOpen(false);
   };
-
-  //toggle main when click in button
-  if (mainIsToggled === 'dash-new-meeting col-12') {
-    setMainToggled('dash-new-meeting col-md-9 col-sm-8')
-  } else {
-    setMainToggled('dash-new-meeting col-12')
-  }
-
+  
   return (
     <Fragment>
       <div className="admin teachers">
@@ -104,9 +101,9 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin, mainIsToggle
                 setLoginTeacher={setLoginTeacher}
                 login={login}
                 setLogin={setLogin}
-                setMainToggled={setMainToggled}
+                setCollapse={setCollapse}
               />
-              <main className={mainIsToggled}>
+              <main className={!collapse ? 'dash-new-meeting col-md-9 col-sm-8': 'dash-new-meeting col-12'}>
                 <div className="justify-content-center">
                   <h1 className="dash-new-meeting__title">Agendar Junta</h1>
 
@@ -255,7 +252,6 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin, mainIsToggle
                               return setError(false);
                             }}
                           >
-                            {" "}
                             {errorType}
                           </SweetAlert>
                         ) : null}

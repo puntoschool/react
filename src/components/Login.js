@@ -3,7 +3,7 @@ import Footer from './Footer';
 import { Link } from "react-router-dom";
 import SweetAlert from "react-bootstrap-sweetalert";
 
-const Login = ({accounts, setLogin, setLoginParent, setLoginTeacher}) => {
+const Login = ({accounts, setLogin, setLoginParent, setLoginTeacher, setFilterParentMeeting, setFilterTeacherMeeting}) => {
   
   // Inicializo el state de usuario
   const[user, setUser] = useState({
@@ -61,6 +61,9 @@ const Login = ({accounts, setLogin, setLoginParent, setLoginTeacher}) => {
     }
 
     setLogin(validation)
+
+    setFilterParentMeeting('')
+    setFilterTeacherMeeting('')
 
   }
 
