@@ -7,11 +7,11 @@ import Form from "react-bootstrap/Form";
 const Footer = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const showModal = () => {
+  const showModalContact = () => {
     setIsOpen(true);
   };
 
-  const hideModal = () => {
+  const hideModalContact = () => {
     setIsOpen(false);
   };
 
@@ -43,17 +43,17 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="d-none d-sm-block">
-                  <button className="contact-button" onClick={() => showModal(prev => !prev)}>
+                  <button className="contact-button" onClick={() => showModalContact(prev => !prev)}>
                     contacto@puntoschool.com
                   </button>
                 </li>
               </ul>
             </div>
-            {showModal && (
+            {showModalContact && (
               <Modal
                 show={isOpen}
-                onHide={hideModal}
-                className="modal fade modal-video"
+                onHide={hideModalContact}
+                className="modal fade"
               >
                 <Modal.Body className="text-center">
                   <Form>
@@ -70,7 +70,7 @@ const Footer = () => {
                   </Form>
                   <button
                     className="btn btn-transparent color-black"
-                    onClick={hideModal}
+                    onClick={hideModalContact}
                   >
                     Regresar <i className="fas fa-arrow-right" />
                   </button>

@@ -27,15 +27,7 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
   const filteredMeetings = filteredTeachersMeetings.filter( meeting => meeting.title.toLowerCase().includes(filterInput.toLowerCase()))
 
   // Modal
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  const showModal = () => {
-    setIsOpen(true);
-  };
-
-  const hideModal = () => {
-    setIsOpen(false);
-  };
+  const [isOpenVideo, setIsOpenVideo] = useState(false);
 
   return (
     <Fragment>
@@ -92,13 +84,8 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
                     }                                   
                     {filterTeacherMeeting ? <Redirect from="/MeetingList" to="/ViewMeetingTeachers" />: null }
                     <div className="text-right mt-5">
-                    <button
-                          type="button"
-                          className="btn btn-yellow"
-                          htmlFor="link"
-                          // Modal link
-                          onClick={showModal} 
-                        >
+                    <button type="button" className="btn btn-yellow"
+                          onClick={() => setIsOpenVideo(true)}>
                           ¿Cómo crear un link?
                         </button>
                     </div>
@@ -110,14 +97,14 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
         </section>
         <Footer />
       </div>
-      <Modal show={isOpen} onHide={hideModal} className="modal fade modal-video">
+      <Modal show={isOpenVideo} onHide={() => setIsOpenVideo(false)} className="modal fade modal-video">
         <Modal.Body>
           <div className="embed-responsive embed-responsive-16by9">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/5ij9nNr93Mo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <button className="btn btn-transparent color-white" onClick={hideModal}>Regresar <i className="fas fa-arrow-right"></i></button>
+          <button className="btn btn-transparent color-white" onClick={() => setIsOpenVideo(false)}>Regresar <i className="fas fa-arrow-right"></i></button>
         </Modal.Footer>
       </Modal>
     </Fragment>
