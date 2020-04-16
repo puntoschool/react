@@ -6,7 +6,8 @@ import MeetingVideoParents from './MeetingVideoParents'
 
 import { Redirect } from "react-router-dom";
 
-const MeetingList = ({setLoginParent, login, setLogin, meetings, filterParentMeeting, setFilterParentMeeting}) => {
+const MeetingList = ({setLoginParent, login, setLogin, meetings, filterParentMeeting, setFilterParentMeeting, setCollapse,
+  collapse}) => {
 
   const meetingsUserParent = meetings.filter( meeting => meeting.usersParents.includes(login.userName))
 
@@ -35,8 +36,9 @@ const MeetingList = ({setLoginParent, login, setLogin, meetings, filterParentMee
                 setLoginParent={setLoginParent}
                 login={login}
                 setLogin={setLogin}
+                setCollapse={setCollapse}
               />
-              <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
+              <main className={!collapse ? 'dash-main col-md-9 col-sm-8 dashboard-meetings': 'dash-main col-12 dashboard-meetings'}>
                 <div className="row">
                   <div className="col-sm-8">
                     <h1 className="dash-new-meeting__title">Historial de juntas</h1>

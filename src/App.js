@@ -18,8 +18,6 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-
-import Poll from 'react-polls';
   
 function App() {
 
@@ -88,6 +86,9 @@ function App() {
 
     const [filterTeacherMeeting, setFilterTeacherMeeting] = useState('')
 
+    const [chat, setChat] = useState('')
+
+    const [collapse, setCollapse] = useState(false)
 
   return (
     <Router>
@@ -136,6 +137,8 @@ function App() {
             meetings={meetings}
             filterParentMeeting={filterParentMeeting}
             setFilterParentMeeting={setFilterParentMeeting}
+            collapse={collapse}
+            setCollapse={setCollapse}
           />
         </Route>
         <Route exact path="/DashboardTeachers">
@@ -147,6 +150,10 @@ function App() {
             setMeetings={setMeetings}
             filterTeacherMeeting={filterTeacherMeeting}
             setFilterTeacherMeeting={setFilterTeacherMeeting}
+            chat={chat}
+            setChat={setChat}
+            collapse={collapse}
+            setCollapse={setCollapse}
           />
         </Route>
         <Route exact path="/NewMeeting"> 
@@ -155,6 +162,8 @@ function App() {
             login={login}
             setLogin={setLogin}
             newMeeting={newMeeting}
+            collapse={collapse}
+            setCollapse={setCollapse}
           />
         </Route>
         <Route exact path="/MeetingList">
@@ -165,6 +174,8 @@ function App() {
             meetings={meetings}
             filterParentMeeting={filterParentMeeting}
             setFilterParentMeeting={setFilterParentMeeting}
+            collapse={collapse}
+            setCollapse={setCollapse}
           />
         </Route>
         <Route exact path="/MeetingHistoryTeachers">
@@ -175,6 +186,8 @@ function App() {
             meetings={meetings}
             filterTeacherMeeting={filterTeacherMeeting}
             setFilterTeacherMeeting={setFilterTeacherMeeting}
+            collapse={collapse}
+            setCollapse={setCollapse}
           />
         </Route>
         <Route exact path="/ViewMeeting">
@@ -185,6 +198,11 @@ function App() {
             meetings={meetings}
             filterParentMeeting={filterParentMeeting}
             setFilterParentMeeting={setFilterParentMeeting}
+            chat={chat}
+            setChat={setChat}
+            filterTeacherMeeting={filterTeacherMeeting}
+            collapse={collapse}
+            setCollapse={setCollapse}
           />
         </Route>  
         <Route exact path="/ViewMeetingTeachers">
@@ -195,6 +213,11 @@ function App() {
             meetings={meetings}
             filterTeacherMeeting={filterTeacherMeeting}
             setFilterTeacherMeeting={setFilterTeacherMeeting}
+            chat={chat}
+            setChat={setChat}
+            filterParentMeeting={filterParentMeeting}
+            collapse={collapse}
+            setCollapse={setCollapse}
           />
         </Route>
       </Switch>

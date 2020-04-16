@@ -2,7 +2,7 @@ import React, { Fragment, useState, setState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Nav, Navbar} from 'react-bootstrap'
 
-const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterTeacherMeeting, setFilterTeacherMeeting}) => {
+const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterTeacherMeeting, setFilterTeacherMeeting, chat, meetings, setCollapse}) => {
   
   const {fullName, userType} = login
 
@@ -13,6 +13,10 @@ const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterT
     }else if(userType === 'Maestro'){
       setLoginTeacher(false)
       setLogin({})
+      setFilterTeacherMeeting({
+        chat:chat
+      })
+      localStorage.setItem("meetings", JSON.stringify(meetings))
       setFilterTeacherMeeting('')
     }
   }
@@ -22,19 +26,25 @@ const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterT
 
   const handleFilterTeachers =() =>{
     if(filterTeacherMeeting){
-       setFilterTeacherMeeting('')
+      setFilterTeacherMeeting({
+        chat:[...chat]
+      })
+      localStorage.setItem("meetings", JSON.stringify(meetings))
+      setFilterTeacherMeeting('')
     }
     return
   }
 
-
   // show-hide menu
  const [isToggled, setToggled] = useState('dash-menu col-md-2 col-sm-3');
+ 
  const toggleTrueFalse = () => {
    if (isToggled === 'd-none') {
      setToggled('dash-menu col-md-2 col-sm-3') 
+     setCollapse(false)
    } else {
     setToggled('d-none')
+    setCollapse(true)
    }
  }
 
@@ -82,7 +92,8 @@ const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterT
       <button
         onClick={toggleTrueFalse}
         className="toggle-sidebar"
-      ><i className="fas fa-chevron-right"></i> </button>
+      ><i className="fas fa-chevron-right"></i> 
+      </button>
       </div>
     </Fragment>
   );

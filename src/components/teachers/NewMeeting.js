@@ -6,7 +6,7 @@ import uuid from "uuid/v4";
 import SweetAlert from "react-bootstrap-sweetalert";
 import Modal from "react-bootstrap/Modal";
 
-const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin}) => {
+const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin, isToggled, setIsToggled, collapse, setCollapse}) => {
   const [meeting, setMeeting] = useState({
     title: "",
     grade: "",
@@ -18,7 +18,8 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin}) => {
     usersParents:[],
     pollingA:[],
     pollingQ:'',
-    userParentsVote:[]
+    userParentsVote:[],
+    chat:[]
   });
 
   const handleChange = e => {
@@ -84,7 +85,7 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin}) => {
   const hideModal = () => {
     setIsOpen(false);
   };
-
+  
   return (
     <Fragment>
       <div className="admin teachers">
@@ -100,8 +101,9 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin}) => {
                 setLoginTeacher={setLoginTeacher}
                 login={login}
                 setLogin={setLogin}
+                setCollapse={setCollapse}
               />
-              <main className="dash-new-meeting col-md-9 col-sm-8">
+              <main className={!collapse ? 'dash-new-meeting col-md-9 col-sm-8': 'dash-new-meeting col-12'}>
                 <div className="justify-content-center">
                   <h1 className="dash-new-meeting__title">Agendar Junta</h1>
 

@@ -74,11 +74,13 @@ const ParentsLogin = ({newUserAccount, setLogin, setLoginParent, loginParent, se
   return (
     <Fragment>
       <div className="bg">
+      <Link className="login-button-parents" to="/">Iniciar sesión</Link>
         <div className="parents-login">
-        <Link className="login-button-parents" to="/">Iniciar sesión</Link>
         <img src="./assets/img/logo-punto-school.png" className="img-fluid-login" alt="Logotipo" />
           <h1>Registro de Padres de familia</h1>
-          <form onSubmit={handleSubmit}>
+          <form 
+            onSubmit={handleSubmit}
+          >
             <div className="parents-login__inputs">
               <input type="text" name="fullName" onChange = {handleChange} placeholder="Nombre completo" />
               <input type="email" name="userName" onChange = {handleChange} placeholder="Correo Electrónico" />

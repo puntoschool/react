@@ -3,11 +3,11 @@ import Header from "../Header";
 import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
 import PollingTeachers from './PollingTeachers'
+import Chat from '../Chat'
 
+const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filterTeacherMeeting, setFilterTeacherMeeting, chat, setChat, collapse, setCollapse, filterParentMeeting}) => {
 
-const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filterTeacherMeeting, setFilterTeacherMeeting}) => {
-
-    const info = filterTeacherMeeting
+   const info = filterTeacherMeeting
 
     var getM = new Date(info.date).getMonth()
 
@@ -42,7 +42,7 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
         filterTeacherMeeting.pollingQ = q
         localStorage.setItem("meetings", JSON.stringify(meetings))
     }    
-        
+
 
   return (
     <Fragment>
@@ -61,8 +61,11 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
                 setLogin={setLogin}
                 setFilterTeacherMeeting={setFilterTeacherMeeting}
                 filterTeacherMeeting={filterTeacherMeeting}
+                chat={chat}
+                meetings={meetings}
+                setCollapse={setCollapse}
               />
-              <main className="dash-main col-md-10 col-sm-9 dashboard-meetings">
+              <main className={!collapse ? 'dash-main col-md-9 col-sm-8 dashboard-meetings': 'dash-main col-12 dashboard-meetings'}>
                     <div className="row mb-4">
                         <div className="col-md-4 col-6">
                             <h3 className="dash-teachers__title mt-0">Grado escolar:</h3>
@@ -88,24 +91,23 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
                                     </div>
                                 </div>
                                 <div className="col-sm-6 text-right mt-2">
-                                    <button download className="btn-border-yellow btn-sm align-items-center">
-                                        <i className="fas fa-download"></i> Cargar Minuta
+                                    <button  className="btn-border-yellow btn-sm align-items-center">
+                                        <i className="fas fa-upload"></i> Cargar Minuta
                                     </button>
                                 </div>
                             </div>
                         </article>
                         <div className="col-sm-3 meeting-chat">
                             <h5 className="yellow-color bold">Preguntas</h5>
-                            <div className="meeting-comments">
-                                <div className="comment">
-                                    <h5>Alberto Rivas</h5>
-                                    <p>¿Cuándo inicia el curso?</p>
-                                </div>
-                            </div>
-                            <form action="" className="meeting-input">
-                                <input type="text" placeholder="Escribe aquí tu pregunta" />
-                                <button><i className="far fa-paper-plane"></i></button>
-                            </form>
+                            <Chat
+                                login={login}
+                                meetings={meetings}
+                                filterTeacherMeeting={filterTeacherMeeting}
+                                setFilterTeacherMeeting={setFilterTeacherMeeting}
+                                chat={chat}
+                                setChat={setChat}
+                                filterParentMeeting={filterParentMeeting}
+                            />
                         </div>
                         <div className="col-9">
                             <PollingTeachers 
