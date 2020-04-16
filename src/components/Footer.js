@@ -8,11 +8,11 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const showModalContact = () => {
+  const showModal = () => {
     setIsOpen(true);
   };
 
-  const hideModalContact = () => {
+  const hideModal = () => {
     setIsOpen(false);
   };
 
@@ -47,11 +47,11 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            {showModalContact && (
+            {showModal && (
               <Modal
                 show={isOpen}
-                onHide={hideModalContact}
-                className="modal fade"
+                onHide={hideModal}
+                className="modal fade modal-video"
               >
                 <Modal.Body id="text-center">
                   <Form>
