@@ -3,6 +3,7 @@ import uuid from "uuid/v4";
 import SweetAlert from "react-bootstrap-sweetalert";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -37,15 +38,12 @@ const Footer = () => {
                     <img
                       src="assets/img/icon-mail.png"
                       alt="Mail"
-                      data-toggle="modal"
-                      data-target="#exampleModal"
+                      onClick={() => showModal(prev => !prev)}
                     />
                   </a>
                 </li>
                 <li className="d-none d-sm-block">
-                  <button className="contact-button" onClick={() => showModalContact(prev => !prev)}>
                     contacto@puntoschool.com
-                  </button>
                 </li>
               </ul>
             </div>
@@ -55,7 +53,7 @@ const Footer = () => {
                 onHide={hideModalContact}
                 className="modal fade"
               >
-                <Modal.Body className="text-center">
+                <Modal.Body id="text-center">
                   <Form>
                     <Form.Group className="Modal-contact" controlId="formBasicEmail">
                       <Form.Label>Email address</Form.Label>
@@ -69,10 +67,10 @@ const Footer = () => {
                     </Form.Group>
                   </Form>
                   <button
-                    className="btn btn-transparent color-black"
-                    onClick={hideModalContact}
-                  >
-                    Regresar <i className="fas fa-arrow-right" />
+                    className="contact-form-buttons"
+                    onClick={hideModal}>
+                    <Link className="btn-back-blue" to="/">Regresar</Link>
+                   <button className="btn-next-blue" type='submit' >Enviar</button>
                   </button>
                 </Modal.Body>
               </Modal>
