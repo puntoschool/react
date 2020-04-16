@@ -84,7 +84,7 @@ const DashboardTeachers = ({setLoginTeacher, login, setLogin, meetings, setMeeti
                     }                                   
                     {filterTeacherMeeting ? <Redirect from="/MeetingList" to="/ViewMeetingTeachers" />: null }
                     <div className="text-right mt-5">
-                    <button type="button" className="btn btn-yellow"
+                    <button type="button" className="btn-border-yellow"
                           onClick={() => setIsOpenVideo(true)}>
                           ¿Cómo crear un link?
                         </button>

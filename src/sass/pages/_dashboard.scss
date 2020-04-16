@@ -232,7 +232,7 @@
         line-height: 1.2;
         @media screen and (max-width: $break-small) {
             font-size: 2rem;
-            margin-bottom: 10rem;
+            margin-bottom: 2rem;
         }
     }
 }
@@ -417,6 +417,9 @@
             margin-left: .3rem;
             width: fit-content;
             border:none;
+            &:focus {
+                outline: none;
+            }
         }
         .icon-button {
             background-color: $color-grey-light;
@@ -542,6 +545,14 @@
     }
 }
 
+.meeting-chat {
+    @media screen and (max-width: $break-large) {
+        height:100%;
+        margin-bottom: 3rem;
+    }
+    
+}
+
 .meeting-comments {
     border: 2px solid $color-pink-light;
     border-radius: 25px;
@@ -554,19 +565,23 @@
         h5 {
             color: #575756;
             font-weight: 600;
-            font-size: 2rem;
+            font-size: 1.6rem;
             line-height: 1.2;
-            margin-bottom: 0;
-            @media screen and (max-width: $break-large) {
-                font-size: 1.8rem;
+            margin-bottom: 3px;
+            @media screen and (max-width: $break-sm) {
+                font-size: 1.5rem;
             }
         }
         p {
             color: $color-grey-mid;
             font-weight: 400;
             font-size: 1.4rem;
-            margin-bottom: 0;
+            margin-bottom: 1.5rem;
             line-height: 1.2;
+            margin-left: 17px;
+            @media screen and (max-width: $break-sm) {
+                margin-left: 14px;
+            }
         }
     }
 }
@@ -580,6 +595,7 @@
         padding: 5px 10px;
         font-size: 1.2rem;
         margin-right: 3px;
+        width:100%;
     }
     button {
         background-color: transparent;
@@ -622,6 +638,38 @@
     &:focus {
         box-shadow: 0;
         outline: 0;
+    }
+}
+
+.meeting-poll {
+    .form-control {
+        padding: .5rem 1rem;
+        border-radius: 2rem;
+        font-size: 1.5rem;
+    }
+    label {
+        font-size: 1.8rem;
+        color: $color-grey-dark;
+        line-height: 1.1;
+    }
+}
+
+.view-poll {
+    ul li button {
+        border-radius: 2rem !important;
+        color: $color-blue-light !important;
+        border-color: $color-blue-light !important;
+    }
+    ul li>div {
+        border-radius: 2rem !important;
+        color: $color-blue-light !important;
+        border-color: $color-blue-light !important;
+        div {
+            border-radius: 1.7rem !important;
+        }
+        span {
+            color: $color-blue-light !important;
+        }
     }
 }
 

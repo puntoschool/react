@@ -53,16 +53,6 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
                 setCollapse={setCollapse}
               />
               <main className={!collapse ? 'dash-main col-md-9 col-sm-8 dashboard-meetings': 'dash-main col-12 dashboard-meetings'}>
-                    <div className="row mb-4">
-                        <div className="col-md-4 col-6">
-                            <h3 className="dash-teachers__title mt-0">Grado escolar:</h3>
-                            <h5 className="meeting-info">{info.grade} {info.group}</h5>
-                        </div>
-                        <div className="col-md-4 col-6">
-                            <h3 className="dash-teachers__title mt-0">Profesor:</h3>
-                            <h5 className="meeting-info">{info.userName}</h5>
-                        </div>
-                    </div>
                     <section className="row video-detail">
                         <article className="col-sm-9 video-meeting">
                             <h2 className="meeting-title">{info.title}</h2>
@@ -74,7 +64,9 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
                             <div className="row mt-2">
                                 <div className="col-sm-6">
                                     <div className="meeting-text my-3">
-                                        <p><i className="far fa-clock"></i>{getD+1} de {getM}, {info.startTime} hrs.</p>
+                                        <p><i className="far fa-clock"></i> {getD+1} de {getM}, {info.startTime} hrs.</p>
+                                        <p><i className="fas fa-users"></i> {info.grade} {info.group}</p>
+                                        <p><i className="fas fa-chalkboard-teacher"></i> {info.userName}</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 text-right mt-2">
@@ -96,7 +88,7 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
                                 filterTeacherMeeting={filterTeacherMeeting}
                             />
                         </div>    
-                        <div className="col-9">
+                        <div className="col-md-6 col-sm-9 col-12 view-poll">
                             <Polling
                                 filterParentMeeting={filterParentMeeting}
                                 setFilterParentMeeting={setFilterParentMeeting}
