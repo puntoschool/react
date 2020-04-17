@@ -4,7 +4,7 @@ const ChatMessages = ({message}) => {
 
     return ( 
         <Fragment>
-            <h5><i class="far fa-user"></i> {message.sender}</h5>
+            <h5><i class="far fa-user-circle"></i><span>{message.sender}</span></h5>
             <p>{message.message}</p>
         </Fragment>
      );

@@ -89,14 +89,16 @@ const Chat = ({login, meetings, filterTeacherMeeting, filterParentMeeting, chat,
     return (
         <Fragment>
             <div className="meeting-comments">
-                <div className="comment">
-                    {chatComplete.length >0 && chatComplete !== undefined ?
-                    chatComplete.map( message =>(
-                        <ChatMessages 
-                            key={chatComplete.id}
-                            message={message}
-                        />
-                    )): null}
+                <div className="chat-scroll">
+                    <div className="comment">
+                        {chatComplete.length >0 && chatComplete !== undefined ?
+                        chatComplete.map( message =>(
+                            <ChatMessages 
+                                key={chatComplete.id}
+                                message={message}
+                            />
+                        )): null}
+                    </div>
                 </div>
             </div>
             <form onSubmit={handleSubmit} className="meeting-input">
