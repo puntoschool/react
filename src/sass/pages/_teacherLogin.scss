@@ -52,6 +52,11 @@
         justify-content: space-between;
         width: 45rem;
         margin-top: 5rem;
+        @media screen and (max-width: $break-md) {
+            width: auto;
+            display: inline-block;
+            text-align: center;
+        }
     }
 }
 
@@ -68,8 +73,8 @@
     font-weight: 500;
     text-transform: capitalize;
     border: 0;
-    box-shadow: 1px 1px 1px grey;
-
+    box-shadow: 0px 3px 14px 0px rgba(0,0,0,.2);
+    margin-bottom: 1.5rem;
     &:hover{
         background-image: -webkit-gradient(linear, left top, right top, color-stop($color-orange), color-stop($color-yellow));
         background-image: linear-gradient(to right, $color-orange, $color-yellow);
@@ -80,7 +85,6 @@
 
 .btn-back-yellow{
     display: inline-block;
-    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.15);
     line-height: 45px;
     padding: 0 60px;
     border-radius: 25px;
@@ -90,9 +94,8 @@
     font-weight: 500;
     text-transform: capitalize;
     border: 0;
-    box-shadow: 1px 1px 1px grey;
-    
-
+    box-shadow: 0px 3px 14px 0px rgba(0,0,0,.2);
+    margin-bottom: 1.5rem;
     &:hover{
         color:$color-yellow;
         font-weight: 600;
@@ -107,13 +110,14 @@
     border-bottom-left-radius: 25px;
     border-right: 0px;
     font-size: 1.6rem;
-    background-image: $color-white;
+    background-color: $color-white;
     font-family: inherit;
     font-weight: 500;
     text-transform: capitalize;
     color: $color-black;
     float: right;
     margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 
     &:hover{
         background-image: -webkit-gradient(linear, left top, right top, color-stop($color-orange), color-stop($color-yellow));
@@ -131,4 +135,5 @@
     margin-right: 50%;
     margin-top: 0px;
     width: 25%;
+    margin-bottom: 1.5rem;
 }

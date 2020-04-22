@@ -89,8 +89,8 @@ const ParentsLogin = ({newUserAccount, setLogin, setLoginParent, loginParent, se
               {error ?  <SweetAlert danger title="Error" onConfirm={() => { return setError(false);}}> {errorType} </SweetAlert> : null}
               {loginParent ? <Redirect from="/ParentsLogin" to="/WelcomeParents" />: null }
               <div className="parents-login__btns">
-                  <Link className="btn-back-blue" to="/UserSelecter">Regresar</Link>
                   <button className="btn-next-blue" type='submit' onSubmit={handleSubmit}>Registrarse</button>
+                  <Link className="btn-back-blue" to="/UserSelecter">Regresar</Link>
               </div>
             </div>
           </form>
