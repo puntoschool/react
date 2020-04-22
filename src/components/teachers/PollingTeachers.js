@@ -84,7 +84,7 @@ const PollingTeachers = ({setPollingQ, setPollingA, pollingQ, pollingA, filterTe
             {filterTeacherMeeting.pollingQ && filterTeacherMeeting.pollingA[2] ? <p><b>{filterTeacherMeeting.pollingA[2].option}</b> -- {filterTeacherMeeting.pollingA[2].votes} voto(s)</p>: null}
           </div>
           <div className="col-12">
-            <button type="submit" className="btn-border-yellow mt-4 mx-1" onSubmit={handleSubmit}>Crear sistema de votación</button>
+            {!filterTeacherMeeting.pollingQ ? <button type="submit" className="btn-border-yellow mt-4 mx-1" onSubmit={handleSubmit}>Crear sistema de votación</button>: null}
           </div>
 
           {activePoll ? (

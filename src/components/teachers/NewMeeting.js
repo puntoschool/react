@@ -19,7 +19,8 @@ const NewMeeting = ({ newMeeting, setLoginTeacher, login, setLogin, isToggled, s
     pollingA:[],
     pollingQ:'',
     userParentsVote:[],
-    chat:[]
+    chat:[],
+    file:''
   });
 
   const handleChange = e => {

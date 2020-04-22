@@ -31,6 +31,9 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
 
     const link = info.link.replace('560','100%').replace('315','100%')
 
+    const url= `http://hellopay.smartz.mx/index.html`
+    
+
   return (
     <Fragment>
       <div className="admin parents">
@@ -70,9 +73,9 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
                                     </div>
                                 </div>
                                 <div className="col-sm-6 text-right mt-2">
-                                    <button download className="btn-border-blue btn-sm align-items-center">
-                                        <i className="fas fa-download"></i> Descargar Minuta
-                                    </button>
+                                    {info.file ? <a href={url} download={info.file} target="_blank" className="btn-border-blue btn-sm align-items-center">
+                                        Descargar archivo {info.file} 
+                                    </a>: null}
                                 </div>
                             </div>
                         </article>

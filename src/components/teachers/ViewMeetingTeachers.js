@@ -4,6 +4,8 @@ import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
 import PollingTeachers from './PollingTeachers'
 import Chat from '../Chat'
+import LoadFile from "../LoadFile";
+
 
 const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filterTeacherMeeting, setFilterTeacherMeeting, chat, setChat, collapse, setCollapse, filterParentMeeting}) => {
 
@@ -43,6 +45,14 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
         localStorage.setItem("meetings", JSON.stringify(meetings))
     }    
 
+    const [file, setFile] = useState('')
+
+  
+    if(file){
+        filterTeacherMeeting.file = file.customFile
+        localStorage.setItem("meetings", JSON.stringify(meetings))
+    }
+    
 
   return (
     <Fragment>
@@ -84,9 +94,13 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
                                     </div>
                                 </div>
                                 <div className="col-sm-6 text-right mt-2">
-                                    <button  className="btn-border-yellow btn-sm align-items-center">
-                                        <i className="fas fa-upload"></i> Cargar Minuta
-                                    </button>
+                                 
+                                  {!filterTeacherMeeting.file ? <LoadFile
+                                    setFile={setFile}
+                                    file={file}
+                                    filterTeacherMeeting={filterTeacherMeeting}
+                                 />: <p>Minuta cargada:<b>{filterTeacherMeeting.file}</b> </p>}
+                                 
                                 </div>
                             </div>
                         </article>
