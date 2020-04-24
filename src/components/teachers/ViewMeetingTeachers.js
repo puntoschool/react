@@ -4,6 +4,8 @@ import Footer from "../Footer";
 import MenuTeachers from "./MenuTeachers";
 import PollingTeachers from './PollingTeachers'
 import Chat from '../Chat'
+import LoadFile from "../LoadFile";
+
 
 const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filterTeacherMeeting, setFilterTeacherMeeting, chat, setChat, collapse, setCollapse, filterParentMeeting}) => {
 
@@ -43,6 +45,14 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
         localStorage.setItem("meetings", JSON.stringify(meetings))
     }    
 
+    const [file, setFile] = useState('')
+
+  
+    if(file){
+        filterTeacherMeeting.file = file.customFile
+        localStorage.setItem("meetings", JSON.stringify(meetings))
+    }
+    
 
   return (
     <Fragment>
@@ -66,16 +76,6 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
                 setCollapse={setCollapse}
               />
               <main className={!collapse ? 'dash-main col-md-9 col-sm-8 dashboard-meetings': 'dash-main col-12 dashboard-meetings'}>
-                    <div className="row mb-4">
-                        <div className="col-md-4 col-6">
-                            <h3 className="dash-teachers__title mt-0">Grado escolar:</h3>
-                            <h5 className="meeting-info">{info.grade} {info.group}</h5>
-                        </div>
-                        <div className="col-md-4 col-6">
-                            <h3 className="dash-teachers__title mt-0">Profesor:</h3>
-                            <h5 className="meeting-info">{info.userName}</h5>
-                        </div>
-                    </div>
                     <section className="row video-detail">
                         <article className="col-sm-9 video-meeting">
                             <h2 className="meeting-title">{info.title}</h2>
@@ -89,11 +89,18 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
                                     <div className="meeting-text my-3">
                                         <p><i className="far fa-clock"></i>{getD+1} de {getM}, {info.startTime} hrs.</p>
                                     </div>
+                                    <div className="meeting-text my-3">
+                                        <p><i className="fas fa-users"></i>{info.grade} {info.group}</p>
+                                    </div>
                                 </div>
                                 <div className="col-sm-6 text-right mt-2">
-                                    <button  className="btn-border-yellow btn-sm align-items-center">
-                                        <i className="fas fa-upload"></i> Cargar Minuta
-                                    </button>
+                                 
+                                  {!filterTeacherMeeting.file ? <LoadFile
+                                    setFile={setFile}
+                                    file={file}
+                                    filterTeacherMeeting={filterTeacherMeeting}
+                                 />: <p>Minuta cargada:<b>{filterTeacherMeeting.file}</b> </p>}
+                                 
                                 </div>
                             </div>
                         </article>
@@ -109,7 +116,7 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
                                 filterParentMeeting={filterParentMeeting}
                             />
                         </div>
-                        <div className="col-9">
+                        <div className="col-md-6 col-sm-9 col-12 meeting-poll">
                             <PollingTeachers 
                                 meetings={meetings}
                                 filterTeacherMeeting={filterTeacherMeeting}

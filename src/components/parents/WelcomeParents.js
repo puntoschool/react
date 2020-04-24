@@ -85,7 +85,7 @@ const WelcomeParents = ({
                     <p className="subtitle-welcome">
                       Bienvenido al administrador escolar
                     </p>
-                    <div className="row justify-content-center">
+                    <div className="row justify-content-center height100">
                       <div className="col-md-7 col-sm-10 col-12">
                         <form className="form-group parents-login__inputs mt-5">
                           <label htmlFor="enterID"> Ingresa el ID de tu junta</label>
@@ -131,7 +131,7 @@ const WelcomeParents = ({
                     </div>
                   </div>
 
-                  <div className="col-md-11 mt-2">
+                  <div className="col-md-11 mt-2 align-self-end">
                     <img
                       src="./assets/img/welcome-kids.png"
                       className="img-fluid"

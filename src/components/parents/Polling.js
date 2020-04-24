@@ -48,6 +48,7 @@ class Polling extends Component {
     const { pollAnswers, error, errorType } = this.state
     return (
       <div>
+      <h5 className="blue-color bold">Encuesta</h5>
         {!error ? 
         
         <Poll question={this.props.filterParentMeeting.pollingQ} answers={this.props.filterParentMeeting.pollingA} onVote={this.handleVote} noStorage={true} customStyles={{"align": "center", "questionBold": true, "questionColor":  "#1d71b8", "questionSeparator": true, "questionSeparatorWidth":"question", "theme": "blue"}}/>

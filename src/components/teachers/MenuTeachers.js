@@ -99,8 +99,4 @@ const MenuTeachers = ({setLoginTeacher, setLoginParent, login, setLogin, filterT
   );
 };
 
-// () => setOpen(!open)
-// aria-controls="example-fade-text"
-//         aria-expanded={open}
-
 export default MenuTeachers;

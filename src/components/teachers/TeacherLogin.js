@@ -89,8 +89,8 @@ const TeacherLogin = ({newUserAccount, setLogin, setLoginTeacher, loginTeacher, 
               {error ? <SweetAlert danger title="Error" onConfirm={() => { return setError(false);}}> {errorType} </SweetAlert> : null}
               {loginTeacher ? <Redirect from="/TeacherLogin" to="/DashboardTeachers" />: null }
               <div className="teachers-login__btns">
-                  <Link className="btn-back-yellow" to="/UserSelecter">Regresar</Link>
                   <button className="btn-next-yellow" type='submit' onSubmit={handleSubmit}>Registrarse</button>
+                  <Link className="btn-back-yellow" to="/UserSelecter">Regresar</Link>
               </div>
             </div>
           </form>

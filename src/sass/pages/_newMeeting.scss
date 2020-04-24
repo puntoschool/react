@@ -51,6 +51,18 @@
         background-color: #000;
         border: none;
         border-radius: 0;
+        position: relative;
+        left: 0;
+        margin-left: 0;
+        .modal-body {
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            position: relative;
+            margin-left: 0;
+            border-radius: 0;
+        }
         .modal-header {
             padding-bottom: 0;
             border-bottom: 0;
@@ -65,5 +77,10 @@
     }
     .modal-dialog {
         max-width: 80%;
+        @media screen and (max-width: $break-small) {
+            max-width: 90%;
+            top: 25%;
+            margin: auto;
+        }
     }
 }

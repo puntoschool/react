@@ -70,8 +70,8 @@ const PollingTeachers = ({setPollingQ, setPollingA, pollingQ, pollingA, filterTe
           {!filterTeacherMeeting.pollingQ ? <input type="text" className="form-control" name="pollQ" value={pollQ} placeholder="Ingrese la pregunta o tema a someter a votación" onChange={handleChange}/>:<p><b>{filterTeacherMeeting.pollingQ}</b></p>}
         </div>
 
-        <div className="row ml-1">
-          <div className="form-group col-6">
+        <div className="row ml-1 mt-4">
+          <div className="form-group col-md-8 col-sm-10 col-12">
             <label>Opciones de respuesta</label>
             {!filterTeacherMeeting.pollingQ ? <input type="text" className="form-control mb-4" name="option1" value={option1} placeholder='opción 1' onChange={handleChange}/>: <p><b>{filterTeacherMeeting.pollingA[0].option} </b> -- 
             {filterTeacherMeeting.pollingA[0].votes} voto(s)</p>}
@@ -83,8 +83,9 @@ const PollingTeachers = ({setPollingQ, setPollingA, pollingQ, pollingA, filterTe
             
             {filterTeacherMeeting.pollingQ && filterTeacherMeeting.pollingA[2] ? <p><b>{filterTeacherMeeting.pollingA[2].option}</b> -- {filterTeacherMeeting.pollingA[2].votes} voto(s)</p>: null}
           </div>
-    
-          <button type="submit" className="btn-border-yellow col-6 btn-poll" onSubmit={handleSubmit}>Crear sistema de votación</button>
+          <div className="col-12">
+            {!filterTeacherMeeting.pollingQ ? <button type="submit" className="btn-border-yellow mt-4 mx-1" onSubmit={handleSubmit}>Crear sistema de votación</button>: null}
+          </div>
 
           {activePoll ? (
             <SweetAlert
@@ -113,7 +114,7 @@ const PollingTeachers = ({setPollingQ, setPollingA, pollingQ, pollingA, filterTe
           {confirm ? (
             <SweetAlert
               success
-              title="Sistema de votación activado"
+              title="Encuesta creada correctamente"
               onConfirm={() => {
                 return setConfirm(false);
               }}
