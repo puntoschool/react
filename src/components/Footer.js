@@ -63,13 +63,13 @@ const Footer = () => {
                     </Form.Group>
                     <Form.Group controlId="formBasicPassword">
                       <Form.Label>¿Cómo te podemos ayudar?</Form.Label>
-                      <Form.Control type="textarea" placeholder="Escríbenos ;)" />
+                      <Form.Control type="textarea" placeholder="Escríbenos ;)" wrap="hard" rows="2" cols="20"/>
                     </Form.Group>
                   </Form>
                   <button
                     className="contact-form-buttons"
                     onClick={hideModal}>
-                    <Link className="fas fa-arrow-right" to="/">Regresar</Link>
+                    <Link className="btn-close-blue" to="/">Regresar</Link>
                    <button className="btn-enviar" type='submit' >Enviar</button>
                   </button>
                 </Modal.Body>
