@@ -57,9 +57,9 @@
     background-color: #ffffff;
     width: 35rem;
     height: 19rem;
-    margin: 22rem;
+    margin: 18rem;
     position: absolute;
-    margin-left: 30rem;
+    margin-left: 34rem;
     width: auto;
     height: auto;
 }
@@ -229,4 +229,15 @@
 }
 
 
-// HOLA
+@media (max-width: 525px ) {
+    #text-center {
+        background-color: #ffffff;
+        width: 35rem;
+        height: 19rem;
+        margin: 24rem;
+        position: absolute;
+        margin-left: 10rem;
+        width: auto;
+        height: auto;
+    }
+}
