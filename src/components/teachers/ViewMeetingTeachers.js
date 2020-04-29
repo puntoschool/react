@@ -75,7 +75,7 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
                 meetings={meetings}
                 setCollapse={setCollapse}
               />
-              <main className={!collapse ? 'dash-main col-md-9 col-sm-8 dashboard-meetings': 'dash-main col-12 dashboard-meetings'}>
+              <main className={!collapse ? 'dash-main dash-teachers col-md-9 col-sm-8': 'dash-main dash-teachers col-12'}>
                     <section className="row video-detail">
                         <article className="col-sm-9 video-meeting">
                             <h2 className="meeting-title">{info.title}</h2>

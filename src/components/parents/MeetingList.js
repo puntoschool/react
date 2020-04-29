@@ -38,7 +38,7 @@ const MeetingList = ({setLoginParent, login, setLogin, meetings, filterParentMee
                 setLogin={setLogin}
                 setCollapse={setCollapse}
               />
-              <main className={!collapse ? 'dash-main col-md-9 col-sm-8 dashboard-meetings': 'dash-main col-12 dashboard-meetings'}>
+              <main className={!collapse ? 'dash-main dash-parents col-md-9 col-sm-8': 'dash-main dash-parents col-12'}>
                 <div className="row">
                   <div className="col-sm-8">
                     <h1 className="dash-new-meeting__title">Historial de juntas</h1>

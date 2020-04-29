@@ -9,7 +9,7 @@ const LoadFile = ({setFile, file, filterTeacherMeeting}) => {
       
     return ( 
         <button className="btn-border-yellow btn-sm align-items-center" type="button">  
-            <label for="file"><i className="far fa-clock"></i>Cargar minuta</label>
+            <label className="mb-0" for="file"><i className="far fa-clock"></i> Cargar minuta</label>
             <input id="file" class="d-none" type="file" name="customFile" onChange={handleChange}/>
         </button>
      );
