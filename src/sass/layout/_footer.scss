@@ -58,11 +58,11 @@
     background-color: #ffffff;
     width: 35rem;
     height: 19rem;
-    margin: 18rem;
-    position: absolute;
-    margin-left: 40rem;
+    /* margin: 18rem; */
+    /* margin-left: 40rem; */
     width: auto;
     height: auto;
+    padding: 2.5rem;
 }
 
 .contact-form-buttons{
@@ -73,6 +73,7 @@
     background: none;
     border: none;
     flex-direction: row-reverse;
+    justify-content: center;
     
     & h1{
         width: 100%;
@@ -131,7 +132,7 @@
     line-height: 45px;
     padding: 0 50px;
     border-radius: 25px;
-    background-image: linear-gradient(to right, #F39200, #E30613);
+    background-image: linear-gradient(to right, #ED6B6D, #E93E8C);
     font-size: 1.6rem;
     color:$color-white;
     font-family: $default-font-family;
@@ -140,7 +141,7 @@
     width: 18rem;
     margin:1rem;
     &:hover{
-        background-image: linear-gradient(to right, #E30613, #F39200);
+        background-image: linear-gradient(to right, #E93E8C, #ED6B6D);
         color:$color-white;
         font-weight: 600;
     }
@@ -220,7 +221,7 @@
 }
 
 .form-label {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
 }
 
 
@@ -230,15 +231,41 @@
 }
 
 
-@media (max-width: 525px ) {
-    #text-center {
-        background-color: #ffffff;
-        width: 35rem;
-        height: 19rem;
-        margin: 24rem;
-        position: absolute;
-        margin-left: 10rem;
-        width: auto;
-        height: auto;
-    }
+// @media (max-width: 525px ) {
+//     #text-center {
+//         background-color: #ffffff;
+//         width: 35rem;
+//         height: 19rem;
+//         margin: 24rem;
+//         position: absolute;
+//         margin-left: 10rem;
+//         width: auto;
+//         height: auto;
+//     }
+// }
+
+.modalfoot {
+    position: fixed;
+    top: 17rem;
+    left: 0px;
+    z-index: 1050;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* outline: 0; */
+    margin: auto;
+}
+
+.Modal-contentfoot {
+  border: 0px solid rgba(0,0,0,.2) !important;
+
+}
+
+.modalfoot .modal-content {
+    border:none;
+}
+
+.back-modal-footer {
+    text-align: right;
 }

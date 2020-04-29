@@ -51,13 +51,13 @@ const Footer = () => {
               <Modal
                 show={isOpen}
                 onHide={hideModal}
-                className="modal fade modal-video"
+                className="modalfoot fade"
               >
                 <Modal.Body id="text-center">
                   <Form>
-                    <Form.Group className="Modal-contact" controlId="formBasicEmail">
-                      <Form.Label>Email address</Form.Label>
-                      <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Group className="Modal-contactfoot" controlId="formBasicEmail">
+                      <Form.Label>Correo Electrónico</Form.Label>
+                      <Form.Control type="email" placeholder="Ingresa tu correo electrónico" />
                       <Form.Text className="text-muted">
                       </Form.Text>
                     </Form.Group>
@@ -66,12 +66,12 @@ const Footer = () => {
                       <Form.Control type="textarea" placeholder="Escríbenos ;)" wrap="hard" rows="2" cols="20"/>
                     </Form.Group>
                   </Form>
-                  <button
+                  <div
                     className="contact-form-buttons"
                     onClick={hideModal}>
-                    <Link className="btn-close-blue" to="/">Regresar</Link>
                    <button className="btn-enviar" type='submit' >Enviar</button>
-                  </button>
+                  </div>
+                  <div className="back-modal-footer" onClick={hideModal}>Regresar</div>
                 </Modal.Body>
               </Modal>
             )}
