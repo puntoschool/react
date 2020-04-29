@@ -55,18 +55,24 @@
 
 
 #text-center {
+    background-color: #ffffff;
+    width: 35rem;
+    height: 19rem;
+    margin: 18rem;
+    position: absolute;
+    margin-left: 40rem;
     width: auto;
     height: auto;
 }
 
 .contact-form-buttons{
     height: auto;
-    /* display: flex; */
+    display:flex;
     flex-direction: column;
-    /* max-width: 992px; */
     background-size: cover;
     background: none;
     border: none;
+    flex-direction: row-reverse;
     
     & h1{
         width: 100%;
@@ -118,47 +124,121 @@
     }
 }
 
-.btn-next-blue{
+.btn-enviar{
     display: inline-block;
     border: 0;
     box-shadow: 1px 1px 1px grey;
     line-height: 45px;
     padding: 0 50px;
     border-radius: 25px;
-    background-image: -webkit-gradient(linear, left top, right top, color-stop($color-blue-light), color-stop($color-blue-lighter));
-    background-image: linear-gradient(to right, $color-blue-light, $color-blue-lighter);
+    background-image: linear-gradient(to right, #F39200, #E30613);
     font-size: 1.6rem;
     color:$color-white;
     font-family: $default-font-family;
     font-weight: 500;
     text-transform: capitalize;
-
+    width: 18rem;
+    margin:1rem;
     &:hover{
-        background-image: -webkit-gradient(linear, left top, right top, color-stop($color-blue-lighter), color-stop($color-blue-light));
-        background-image: linear-gradient(to right, $color-blue-lighter, $color-blue-light);
+        background-image: linear-gradient(to right, #E30613, #F39200);
         color:$color-white;
         font-weight: 600;
     }
 }
 
 
-.btn-back-blue{
+.btn-close-blue{
     display: inline-block;
     box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.15);
     line-height: 45px;
-    padding: 0 50px;
+    padding: 0 54px;
     border-radius: 25px;
     font-size: 1.6rem;
-    color:$color-blue-lighter;
+    color:$color-white;
     font-family: inherit;
     font-weight: 500;
     text-transform: capitalize;
     border: 0;
     box-shadow: 1px 1px 1px grey;
     margin: 1rem;
+    width: 18rem;
+    background-image: -webkit-gradient(linear, left top, right top, color-stop($color-blue-light), color-stop($color-blue-lighter));
+    background-image: linear-gradient(to right, $color-blue-light, $color-blue-lighter);
 
     &:hover{
-        color:$color-blue-lighter;
+        color:$color-white;
+        background-image: -webkit-gradient(linear, left top, right top, color-stop($color-blue-lighter), color-stop($color-blue-light));
+        background-image: linear-gradient(to right, $color-blue-lighter, $color-blue-light);
         font-weight: 600;
+    }
+}
+
+#formBasicEmail {
+    background-color: transparent;
+    border: 1px solid $color-grey-light;
+    border-radius: 25px;
+    color: $color-black;
+    width: 100%;
+    padding: 8px 10px;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 2rem;
+    height: 5rem;
+    
+    &:focus {
+        outline: 0;
+    }
+    &::placeholder {
+        color: $color-grey-light;
+        font-weight: 600;
+        font-size: 2rem;
+    }
+}
+
+#formBasicPassword {
+    background-color: transparent;
+    border: 1px solid $color-grey-light;
+    border-radius: 25px;
+    color: $color-black;
+    width: 100%;
+    padding: 8px 10px;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 2rem;
+    height: 12rem;
+    
+    &:focus {
+        outline: 0;
+    }
+    &::placeholder {
+        color: $color-grey-light;
+        font-weight: 600;
+        font-size: 2rem;
+    }
+}
+
+.form-label {
+    font-size: 2.5rem;
+}
+
+
+.fa-arrow-right {
+    margin: auto;
+    margin-left: 5rem;
+}
+
+
+@media (max-width: 525px ) {
+    #text-center {
+        background-color: #ffffff;
+        width: 35rem;
+        height: 19rem;
+        margin: 24rem;
+        position: absolute;
+        margin-left: 10rem;
+        width: auto;
+        height: auto;
     }
 }

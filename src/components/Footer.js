@@ -69,8 +69,8 @@ const Footer = () => {
                   <button
                     className="contact-form-buttons"
                     onClick={hideModal}>
-                    <Link className="btn-back-blue" to="/">Regresar</Link>
-                   <button className="btn-next-blue" type='submit' >Enviar</button>
+                    <Link className="btn-close-blue" to="/">Regresar</Link>
+                   <button className="btn-enviar" type='submit' >Enviar</button>
                   </button>
                 </Modal.Body>
               </Modal>
