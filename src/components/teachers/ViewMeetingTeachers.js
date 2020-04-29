@@ -85,13 +85,23 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
                                }
                             </div>
                             <div className="row mt-2">
-                                <div className="col-sm-6">
+                                <div className="col-sm-12 d-flex">
                                     <div className="meeting-text my-3">
-                                        <p><i className="far fa-clock"></i>{getD+1} de {getM}, {info.startTime} hrs.</p>
+                                        <p className="mr-4"><i className="far fa-clock"></i>{getD+1} de {getM}, {info.startTime} hrs.</p>
                                     </div>
                                     <div className="meeting-text my-3">
                                         <p><i className="fas fa-users"></i>{info.grade} {info.group}</p>
                                     </div>
+                                </div>
+                                <div className="col-md-6 col-sm-9 col-12 meeting-poll">
+                                  <PollingTeachers 
+                                      meetings={meetings}
+                                      filterTeacherMeeting={filterTeacherMeeting}
+                                      setPollingQ={setPollingQ}
+                                      pollingQ={pollingQ}
+                                      pollingA={pollingA}
+                                      setPollingA={setPollingA}
+                                  />
                                 </div>
                                 <div className="col-sm-6 text-right mt-2">
                                  
@@ -99,9 +109,9 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
                                     setFile={setFile}
                                     file={file}
                                     filterTeacherMeeting={filterTeacherMeeting}
-                                 />: <p>Minuta cargada:<b>{filterTeacherMeeting.file}</b> </p>}
+                                 />: <p>Minuta cargada:<br /> <b>{filterTeacherMeeting.file}</b> </p>}
                                  
-                                </div>
+                                </div>                                
                             </div>
                         </article>
                         <div className="col-sm-3 meeting-chat">
@@ -116,16 +126,7 @@ const ViewMeetingTeachers = ({setLoginTeacher, login, setLogin, meetings, filter
                                 filterParentMeeting={filterParentMeeting}
                             />
                         </div>
-                        <div className="col-md-6 col-sm-9 col-12 meeting-poll">
-                            <PollingTeachers 
-                                meetings={meetings}
-                                filterTeacherMeeting={filterTeacherMeeting}
-                                setPollingQ={setPollingQ}
-                                pollingQ={pollingQ}
-                                pollingA={pollingA}
-                                setPollingA={setPollingA}
-                            />
-                        </div>
+                        
                     </section>
                 </main>
             </div>

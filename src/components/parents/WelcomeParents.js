@@ -131,7 +131,7 @@ const WelcomeParents = ({
                     </div>
                   </div>
 
-                  <div className="col-md-11 mt-2 align-self-end">
+                  <div className="col-md-7 mt-2 align-self-end">
                     <img
                       src="./assets/img/welcome-kids.png"
                       className="img-fluid"

@@ -65,16 +65,24 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
                                }
                             </div>
                             <div className="row mt-2">
-                                <div className="col-sm-6">
-                                    <div className="meeting-text my-3">
-                                        <p><i className="far fa-clock"></i> {getD+1} de {getM}, {info.startTime} hrs.</p>
-                                        <p><i className="fas fa-users"></i> {info.grade} {info.group}</p>
+                                <div className="col-sm-12">
+                                    <div className="meeting-text d-flex my-3">
+                                        <p className="mr-4"><i className="far fa-clock"></i> {getD+1} de {getM}, {info.startTime} hrs.</p>
+                                        <p className="mr-4"><i className="fas fa-users"></i> {info.grade} {info.group}</p>
                                         <p><i className="fas fa-chalkboard-teacher"></i> {info.userName}</p>
                                     </div>
                                 </div>
-                                <div className="col-sm-6 text-right mt-2">
-                                    {info.file ? <a href={url} download={info.file} target="_blank" className="btn-border-blue btn-sm align-items-center">
-                                        Descargar archivo {info.file} 
+                                <div className="col-md-6 col-sm-9 col-12 view-poll">
+                                    <Polling
+                                        filterParentMeeting={filterParentMeeting}
+                                        setFilterParentMeeting={setFilterParentMeeting}
+                                        meetings={meetings}
+                                        login={login}
+                                    />
+                                </div>
+                                <div className="col-sm-6 text-right mt-5">
+                                    {info.file ? <a href={url} download={info.file} target="_blank" className="btn-blue-gradient btn-sm d-block">
+                                        Descargar archivo<br /> <b>{info.file} </b>
                                     </a>: null}
                                 </div>
                             </div>
@@ -91,14 +99,6 @@ const ViewMeeting = ({setLoginParent, login, setLogin, filterParentMeeting, setF
                                 filterTeacherMeeting={filterTeacherMeeting}
                             />
                         </div>    
-                        <div className="col-md-6 col-sm-9 col-12 view-poll">
-                            <Polling
-                                filterParentMeeting={filterParentMeeting}
-                                setFilterParentMeeting={setFilterParentMeeting}
-                                meetings={meetings}
-                                login={login}
-                            />
-                        </div>
                     </section>
                 </main>
             </div>

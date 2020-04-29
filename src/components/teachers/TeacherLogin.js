@@ -96,7 +96,6 @@ const TeacherLogin = ({newUserAccount, setLogin, setLoginTeacher, loginTeacher, 
           </form>
         </div>
       </div>
-      <Footer/>
       
     </Fragment>
   );

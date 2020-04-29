@@ -107,7 +107,7 @@ const Login = ({accounts, setLogin, setLoginParent, setLoginTeacher, setFilterPa
                             {errorType}
                           </SweetAlert>
                         ) : null}
-                    <input className="btn-login" type='submit' value='ingresar'/>
+                    <button className="btn-login" type='submit'>Ingresar</button>
                   </div>
                 </form>
               </div>

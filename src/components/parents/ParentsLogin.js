@@ -96,7 +96,6 @@ const ParentsLogin = ({newUserAccount, setLogin, setLoginParent, loginParent, se
           </form>
         </div>
       </div>
-      <Footer/>
     </Fragment>
   );
 };
